@@ -69,29 +69,29 @@
 				<div class="collapse navbar-collapse">
 					<!-- menus -->
 					<ul class="navbar-nav mr-auto">
-						<li class="nav-item dropdown ">
-							<a class="nav-link " href="{{route('accueil')}}">Accueil</a>
+						<li class="nav-item dropdown  {{ (Route::currentRouteName() == 'home') ? 'active':''}}">
+							<a class="nav-link " href="{{route('home')}}">Accueil</a>
 						</li>
-						<li class="nav-item dropdown active">
-							<a class="nav-link dropdown-toggle" href="{{route('accueil')}}#">N'ZASSA</a>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="{{route('home')}}#">N'ZASSA</a>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="{{route('accueil')}}#nzassashop">N'ZASSA SHOP</a></li>
-								<li><a class="dropdown-item" href="{{route('accueil')}}#nzassarh&paie">N'ZASSA RH & PAIE</a></li>
-								<li><a class="dropdown-item" href="{{route('accueil')}}#nzassaschool">N'ZASSA SHCOOL</a></li>
-								<li><a class="dropdown-item" href="{{route('accueil')}}#nzassagescom">N'ZASSA GESCOM</a></li>
-								<li><a class="dropdown-item" href="{{route('accueil')}}#nzassabynight">N'ZASSA BYNIGHT</a></li>
+								<li><a class="dropdown-item" href="{{route('home')}}#nzassashop">N'ZASSA SHOP</a></li>
+								<li><a class="dropdown-item" href="{{route('home')}}#nzassarh&paie">N'ZASSA RH & PAIE</a></li>
+								<li><a class="dropdown-item" href="{{route('home')}}#nzassaschool">N'ZASSA SHCOOL</a></li>
+								<li><a class="dropdown-item" href="{{route('home')}}#nzassagescom">N'ZASSA GESCOM</a></li>
+								<li><a class="dropdown-item" href="{{route('home')}}#nzassabynight">N'ZASSA BYNIGHT</a></li>
 							</ul>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{{route('accueil')}}#team">Team</a>
+						<li class="nav-item ">
+							<a class="nav-link" href="{{route('home')}}#team">Team</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{{route('accueil')}}#galerie">Galerie</a>
+						<li class="nav-item ">
+							<a class="nav-link" href="{{route('home')}}#galerie">Galerie</a>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item {{ (Route::currentRouteName() == 'actualite') ? 'active':''}}">
 							<a class="nav-link" href="{{route('actualite')}}">Actualité</a>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item {{ (Route::currentRouteName() == 'contact') ? 'active':''}}">
 							<a class="nav-link" href="{{route('contact')}}">Contact</a>
 						</li>
 					</ul>

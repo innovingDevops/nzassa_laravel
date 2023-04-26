@@ -32,9 +32,9 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
+    Route::get('/admin0', function () {
         return view('page/admin0/index');
-    })->name('dashboard');
+    })->name('admin0');
 });
 
 // Gère la déconnexion admin 
@@ -52,7 +52,7 @@ Route::get('/actualite', function () { return view('page/client/actualite');})->
 Route::get('/contact', function () { return view('page/client/contact');})->name("contact");
 
  // LES ROUTES ADMIN
-Route::get('/admin0', function () { return view('page/admin0/index');})->name("admin0");
+// Route::get('/admin0', function () { return view('page/admin0/index');})->name("admin0");
 // Route::get('/login_admin', function () { return view('page/admin0/login_admin');});
 
         // * Les formulaires d'ajout

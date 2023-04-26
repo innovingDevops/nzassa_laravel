@@ -259,8 +259,8 @@
                                             elit. Labore porro id voluptate cupiditate.</li>
                                     </ul>
                                 </div>
-                            </div>{{asset('client/
-                           ')}} <div class="post post-list-sm square">
+                            </div>
+                             <div class="post post-list-sm square">
                                 <div class="thumb rounded">
                                     <a href="blog-single.html">
                                         <div class="inner">

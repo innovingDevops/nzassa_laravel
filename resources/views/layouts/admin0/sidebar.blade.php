@@ -15,9 +15,9 @@
                         class="toggle-line"></span></span></button>
 
         </div><a class="navbar-brand" href="{{route('home')}}">
-            <div class="d-flex align-items-center py-3"><img class="me-2"
-                    src="{{asset('admin/assets/img/icons/spot-illustrations/falcon.png')}}" alt="" width="40" /><span
-                    class="font-sans-serif">falcon</span>
+            <div class="d-flex align-items-center py-3"><span
+                    class="font-sans-serif"><img class="me-2"
+                    src="{{asset('client/images/logo.png')}}" alt="" width="150" /></span>
             </div>
         </a>
     </div>
@@ -149,7 +149,7 @@
                 <div class="col ps-0">
                     <hr class="mb-0 navbar-vertical-divider" />
                 </div>
-                <!-- Ajout de formules  -->
+                <!-- Ajout de fonctionnalites  -->
                 <a class="nav-link dropdown-indicator" href="#formule" role="button" data-bs-toggle="collapse"
                     aria-expanded="false" aria-controls="components">
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span
@@ -184,6 +184,41 @@
                 <div class="col ps-0">
                     <hr class="mb-0 navbar-vertical-divider" />
                 </div>
+                <!-- Ajout de formules  -->
+                <a class="nav-link dropdown-indicator" href="#fonctionnalite" role="button" data-bs-toggle="collapse"
+                    aria-expanded="false" aria-controls="components">
+                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                                class="fas fa-puzzle-piece"></span></span><span
+                            class="nav-link-text ps-1">Fonctionnalités Formules</span>
+                    </div>
+                </a>
+                <ul class="nav collapse" id="fonctionnalite">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('ajout_fonctionnalite')}}">
+                            <div class="d-flex align-items-center">
+                                <span class="nav-link-text ps-1">Ajouter une Fonctionnalité</span>
+                            </div>
+                        </a>
+                        <!-- more inner pages-->
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('liste_fonctionnalite')}}">
+                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Voir les
+                                    fonctionnalites</span>
+                            </div>
+                        </a>
+                        <!-- more inner pages-->
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('supprime_fonctionnalite')}}">
+                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">fonctionnalites
+                                    Supprimées</span>
+                            </div>
+                        </a>
+                        <!-- more inner pages-->
+                    </li>
+                </ul>
+                <div class="col ps-0">
+                    <hr class="mb-0 navbar-vertical-divider" />
+                </div>
                 <!-- Les commentaires  -->
                 <a class="nav-link dropdown-indicator" href="#commentaire" role="button" data-bs-toggle="collapse"
                     aria-expanded="false" aria-controls="components">
@@ -194,14 +229,14 @@
                 </a>
                 <ul class="nav collapse" id="commentaire">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('brouillon_commentaire')}}">
+                        <a class="nav-link" href="{{route('liste_commentaire_brouillon')}}">
                             <div class="d-flex align-items-center">
                                 <span class="nav-link-text ps-1">Attente d'Approbation</span>
                             </div>
                         </a>
                         <!-- more inner pages-->
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('approuve_commentaire')}}">
+                    <li class="nav-item"><a class="nav-link" href="{{route('liste_commentaire_valide')}}">
                             <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Commentaires
                                     Approuvés</span>
                             </div>
@@ -221,14 +256,14 @@
                 </a>
                 <ul class="nav collapse" id="devis">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('approuve_devis')}}">
+                        <a class="nav-link" href="{{route('liste_devis_brouillon')}}">
                             <div class="d-flex align-items-center">
                                 <span class="nav-link-text ps-1">Attente d'Approbation</span>
                             </div>
                         </a>
                         <!-- more inner pages-->
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('approuve_devis')}}">
+                    <li class="nav-item"><a class="nav-link" href="{{route('liste_devis_valide')}}">
                             <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Devis
                                     Approuvés</span>
                             </div>

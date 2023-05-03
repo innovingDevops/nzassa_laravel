@@ -56,7 +56,7 @@
                         </div>
                         <a href='blog-single.html'>
                             <div class='thumb rounded'>
-                                <div class='inner data-bg-image' data-bg-image="{{asset('client/images/posts/featured-xl-1.jpg')}}">
+                                <div class='inner data-bg-image' data-bg-image="{{asset('client/images/bg1.jpg')}}">
                                 </div>
                             </div>
                         </a>
@@ -73,7 +73,7 @@
                         </div>
                         <a href='blog-single.html'>
                             <div class='thumb rounded'>
-                                <div class='inner data-bg-image' data-bg-image="{{asset('client/ images/posts/featured-xl-2.jpg')}}">
+                                <div class='inner data-bg-image' data-bg-image="{{asset('client/images/bg2.jpg')}}">
                                 </div>
                             </div>
                         </a>
@@ -170,7 +170,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -184,6 +183,9 @@
 <!-- les produits N'Zassa -->
 
 @include('../../layouts/client/produit_nzassa')
+
+@foreach ($formules as $formule )
+
 <div class="" data-height="50" id="nzassashop"></div>
 <!-- Tous les produits n'zassa présentés -->
 <section class='main-content'>
@@ -192,97 +194,41 @@
             <div class='col-lg-12'>
                 <!-- section header -->
                 <div class='section-header'>
-                    <h3 class='title text-center'>N'Zassa Shop</h3>
-
+                    <h3 class='title text-center'>{{ $formule->nom_formule }}</h3>
                 </div>
-
                 <div class="padding-30 rounded bordered">
                     <div class="row gy-5">
                         <div class="col-sm-6">
                             <!-- post -->
                             <div class="post">
                                 <div class="thumb rounded">
-                                    <a href="category.html" class="category-badge position-absolute">Cet espace est
-                                        dédié à une grande image du produit</a>
-                                    <span class="post-format">
+                                    <a href="category.html" class="category-badge position-absolute">- 50%</a>
+                                    {{-- <span class="post-format">
                                         <i class="icon-picture"></i>
-                                    </span>
+                                    </span> --}}
                                     <a href="blog-single.html">
                                         <div class="inner">
-                                            <img src="{{asset('client/images/posts/editor-lg.jpg')}}" alt="post-title" />
+                                            <img src="{{ asset('storage/'.$formule->image_formule) }}" alt="post-title" />
                                         </div>
                                     </a>
                                 </div>
-                                <ul class="meta list-inline mt-4 mb-0">
+                                {{-- <ul class="meta list-inline mt-4 mb-0">
                                     <li class="list-inline-item"><a href="#"><img src="{{asset('client/images/other/author-sm.png')}}" class="author" alt="author" />Katen Doe</a></li>
                                     <li class="list-inline-item">29 March 2021</li>
-                                </ul>
-                                <h5 class="post-title mb-3 mt-3"><a href="blog-single.html">Petit slogan sur le produit
+                                </ul> --}}
+                                <h5 class="post-title mb-3 mt-3"><a href="blog-single.html">{{ $formule->titre_formule }}
                                     </a></h5>
-                                <p class="excerpt mb-0">description relative</p>
+                                <p class="excerpt mb-0">{{ $formule->description_formule }}</p>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <!-- post -->
+                            @foreach (getFonctionnalite($formule->id) as $item)
                             <div class="post post-list-sm square">
                                 <div class="thumb rounded">
                                     <a href="blog-single.html">
                                         <div class="inner">
-                                            <img src="{{asset('client/images/posts/editor-sm-1.jpg')}}" alt="post-title" />
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="details clearfix">
-                                    <h6 class="post-title my-0">
-                                        <a href="blog-single.html">Fonctionnalité 1 </a>
-                                    </h6>
-                                    <ul class="meta list-inline mt-1 mb-0">
-                                        <li class="list-inline-item">Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit. Labore porro id voluptate cupiditate.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="post post-list-sm square">
-                                <div class="thumb rounded">
-                                    <a href="blog-single.html">
-                                        <div class="inner">
-                                            <img src="{{asset('client/images/posts/editor-sm-1.jpg')}}" alt="post-title" />
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="details clearfix">
-                                    <h6 class="post-title my-0">
-                                        <a href="blog-single.html">Fonctionnalité 2 </a>
-                                    </h6>
-                                    <ul class="meta list-inline mt-1 mb-0">
-                                        <li class="list-inline-item">Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit. Labore porro id voluptate cupiditate.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                             <div class="post post-list-sm square">
-                                <div class="thumb rounded">
-                                    <a href="blog-single.html">
-                                        <div class="inner">
-                                            <img src="{{asset('client/images/posts/editor-sm-1.jpg')}}" alt="post-title" />
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="details clearfix">
-                                    <h6 class="post-title my-0">
-                                        <a href="blog-single.html">Fonctionnalité 3 </a>
-                                    </h6>
-                                    <ul class="meta list-inline mt-1 mb-0">
-                                        <li class="list-inline-item">Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit. Labore porro id voluptate cupiditate. </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="post post-list-sm square">
-                                <div class="thumb rounded">
-                                    <a href="blog-single.html">
-                                        <div class="inner">
-                                            <img src="{{asset('client/images/posts/editor-sm-1.jpg')}}" alt="post-title" />
+                                            <img src="{{ asset('storage/'.$formule->image_formule) }}" alt="post-title" />
                                         </div>
                                     </a>
                                 </div>
@@ -295,14 +241,17 @@
                                             elit. Labore porro id voluptate cupiditate. </li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div>   
+                            @endforeach
+                            
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 </section>
-
+@endforeach
 <!-- notre team  -->
 <div class="" data-height="50" id="team"></div>
 <h3 class="section-title text-center prod_nzassa  m-5"> La Team Innoving</h3>
@@ -382,7 +331,6 @@
                                     </div>
                                 </a>
                             </div>
-
                         </div>
                         <!-- post -->
                         <div class="post post-list-sm circle">
@@ -393,7 +341,6 @@
                                     </div>
                                 </a>
                             </div>
-
                         </div>
                         <!-- post -->
                         <div class="post post-list-sm circle">
@@ -404,7 +351,6 @@
                                     </div>
                                 </a>
                             </div>
-
                         </div>
                         <!-- post -->
                         <div class="post post-list-sm circle">
@@ -415,7 +361,6 @@
                                     </div>
                                 </a>
                             </div>
-
                         </div>
                         <!-- post -->
                         <div class="post post-list-sm circle">
@@ -426,7 +371,6 @@
                                     </div>
                                 </a>
                             </div>
-
                         </div>
                         <!-- post -->
                         <div class="post post-list-sm circle">
@@ -437,7 +381,6 @@
                                     </div>
                                 </a>
                             </div>
-
                         </div>
                     </div>
                     <!-- recent posts -->
@@ -452,7 +395,6 @@
                                     </div>
                                 </a>
                             </div>
-
                         </div>
                         <!-- post -->
                         <div class="post post-list-sm circle">
@@ -463,7 +405,6 @@
                                     </div>
                                 </a>
                             </div>
-
                         </div>
                         <!-- post -->
                         <div class="post post-list-sm circle">
@@ -474,7 +415,6 @@
                                     </div>
                                 </a>
                             </div>
-
                         </div>
                         <!-- post -->
                         <div class="post post-list-sm circle">
@@ -492,6 +432,7 @@
         </div>
     </div>
 </div>
+
 <!-- Notre Galerie -->
 <div class="" data-height="50" id="galerie"></div>
 <h3 class="section-title text-center prod_nzassa m-5 "> La galerie Innoving</h3>

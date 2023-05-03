@@ -8,32 +8,32 @@
 		<div class="instagram-feed d-flex flex-wrap">
 			<div class="insta-item col-sm-2 col-6 col-md-2">
 				<a href="#">
-					<img src="{{asset('client/images/insta/insta-1.jpg')}}" alt="insta-title" />
+					<img src="{{asset('client/images/mes_logo/LOGO SHOP.png')}}" alt="insta-title" />
 				</a>
 			</div>
 			<div class="insta-item col-sm-2 col-6 col-md-2">
 				<a href="#">
-					<img src="{{asset('client/images/insta/insta-2.jpg')}}" alt="insta-title" />
+					<img src="{{asset('client/images/mes_logo/hotellerie.png')}}" alt="insta-title" />
 				</a>
 			</div>
 			<div class="insta-item col-sm-2 col-6 col-md-2">
 				<a href="#">
-					<img src="{{asset('client/images/insta/insta-3.jpg')}}" alt="insta-title" />
+					<img src="{{asset('client/images/mes_logo/icone RH.png')}}" alt="insta-title" />
 				</a>
 			</div>
 			<div class="insta-item col-sm-2 col-6 col-md-2">
 				<a href="#">
-					<img src="{{asset('client/images/insta/insta-4.jpg')}}" alt="insta-title" />
+					<img src="{{asset('client/images/mes_logo/LOGO AUTO.png')}}" alt="insta-title" />
 				</a>
 			</div>
 			<div class="insta-item col-sm-2 col-6 col-md-2">
 				<a href="#">
-					<img src="{{asset('client/images/insta/insta-5.jpg')}}" alt="insta-title" />
+					<img src="{{asset('client/images/mes_logo/LOGO GESCOM.png')}}" alt="insta-title" />
 				</a>
 			</div>
 			<div class="insta-item col-sm-2 col-6 col-md-2">
 				<a href="#">
-					<img src="{{asset('client/images/insta/insta-6.jpg')}}" alt="insta-title" />
+					<img src="{{asset('client/images/mes_logo/ByNight.png')}}" alt="insta-title" />
 				</a>
 			</div>
 		</div>

@@ -20,7 +20,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset('admin/assets/img/favicons/favicon-32x32.png')}}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('admin/assets/img/favicons/favicon-16x16.png')}}">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('admin/assets/img/favicons/favicon.ico')}}">
-    <link rel="manifest" href="{{asset('admin/assets/img/favicons/manifest.json')}}assets/img/favicons/manifest.json">
+    <link rel="manifest" href="{{asset('admin/assets/img/favicons/manifest.json')}}">
+    <link href="{{asset('admin/vendors/dropzone/dropzone.min.css')}}" rel="stylesheet" />
     <meta name="msapplication-TileImage" content="{{asset('admin/assets/img/favicons/mstile-150x150.png')}}">
     <meta name="theme-color" content="#ffffff">
     <script src="{{asset('admin/assets/js/config.js')}}"></script>

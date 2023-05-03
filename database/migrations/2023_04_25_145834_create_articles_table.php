@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('courte_description');
             $table->string('categorie');
             $table->string('sous_categorie');
-            $table->string('detail_article');
+            $table->text('detail_article');
             $table->string('image_article');
             $table->timestamps();
         });

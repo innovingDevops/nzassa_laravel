@@ -67,44 +67,81 @@
             </div>
 
             <!-- Contact Form -->
-            <form id="contact-form" class="contact-form" method="post">
-                
+            <form id="contact-form" class="contact-form" action="{{ route('save_devis') }}" method="post">
+                @csrf
                 <div class="messages"></div>
                 
                 <div class="row">
                     <div class="column col-md-6">
                         <!-- Name input -->
                         <div class="form-group">
-                            <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Your name" required="required" data-error="Name is required.">
+                            <input type="text" class="form-control" name="nom_prenom" id="nom_prenom" placeholder="Nom & Prénom" required="required" data-error="Name is required.">
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
-                    
                     <div class="column col-md-6">
                         <!-- Email input -->
                         <div class="form-group">
-                            <input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Email address" required="required" data-error="Email is required.">
+                            <input type="text" class="form-control" id="nom_societe" name="nom_societe" placeholder="Nom de la Société" required="required" data-error="Name is required.">
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
-
-                    <div class="column col-md-12">
+                    <div class="column col-md-6">
+                        <!-- Name input -->
+                        <div class="form-group">
+                           
+                            <select class="form-control"  required="required" id="nombre_employe" name="nombre_employe">
+                                <option selected disabled>Choisissez une option</option>
+                                <option value="< 5 employés">< 5 employés</option>
+                                <option value="Compris entre 5 et 10">Compris entre 5 et 10</option>
+                                <option value="> 10 employés">> 10 employés</option>
+                            </select>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="column col-md-6">
+                        <!-- Name input -->
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="secteur_activite" id="secteur_activite" placeholder="Email" required="required" data-error="Name is required.">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="column col-md-6">
                         <!-- Email input -->
                         <div class="form-group">
-                            <input type="text" class="form-control" id="InputSubject" name="InputSubject" placeholder="Subject" required="required" data-error="Subject is required.">
+                            <input type="text" class="form-control" id="email" name="email" placeholder="Contact" required="required" >
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
-            
+                    <div class="column col-md-6">
+                        <!-- Email input -->
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="contact" name="contact" placeholder="Secteur d'activités" required="required" >
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="column col-md-12">
+                        <!-- Name input -->
+                        <div class="form-group">
+                            <select class="form-control"  required="required" id="formule" name="formule">
+                                <option selected disabled>Cliquez ici pour choisir une formule</option>
+                                <option value="N'Zassa RH & Paie">N'Zassa RH & Paie</option>
+                                <option value="N'Zassa School">N'Zassa School</option>
+                                <option value="N'Zassa Shop">N'Zassa Shop</option>
+                                <option value="N'Zassa GESCOM">N'Zassa GESCOM</option> 
+                                <option value="N'Zassa Auto+">N'Zassa Auto+</option> 
+                            </select>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
                     <div class="column col-md-12">
                         <!-- Message textarea -->
                         <div class="form-group">
-                            <textarea name="InputMessage" id="InputMessage" class="form-control" rows="4" placeholder="Your message here..." required="required" data-error="Message is required."></textarea>
+                            <textarea name="commentaire" id="commentaire" class="form-control" rows="4" placeholder="Entrez votre commentaire..." required="required" data-error="Message is required."></textarea>
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
                 </div>
-
                 <button type="submit" name="submit" id="submit" value="Submit" class="btn btn-default">Submit Message</button><!-- Send Button -->
 
             </form>

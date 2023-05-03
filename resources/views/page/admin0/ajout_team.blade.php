@@ -14,22 +14,23 @@
                 <div class="tab-pane preview-tab-pane active" role="tabpanel"
                     aria-labelledby="tab-dom-160a4566-7e94-45a2-bf04-b36ef49d954f"
                     id="dom-160a4566-7e94-45a2-bf04-b36ef49d954f">
-                    <form>
+                    <form action="{{ route('save_team') }}" method="post" enctype="multipart/form-data">
+                        @csrf
                         <div class="mb-3">
                             <label class="form-label">Image</label>
-                            <input class="form-control" type="file" />
+                            <input name="image" class="form-control" type="file" required/>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" for="basic-form-name">Departement</label>
-                            <input class="form-control" id="basic-form-name" type="text" placeholder="Name" />
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="basic-form-name">Nom</label>
-                            <input class="form-control" id="basic-form-name" type="text" placeholder="Name" />
+                            <label class="form-label" for="basic-form-name">Nom </label>
+                            <input name="nom" class="form-control" id="basic-form-name" type="text" placeholder="Name" required/>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="basic-form-name">Fonction</label>
-                            <input class="form-control" id="basic-form-name" type="text" placeholder="Name" />
+                            <input name="fonction" class="form-control" id="basic-form-name" type="text" placeholder="Name" required/>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="basic-form-name">Departement </label>
+                            <input name="departement" class="form-control" id="basic-form-name" type="text" placeholder="Name" required/>
                         </div>
                         <button class="btn btn-primary" type="submit">Submit</button>
                     </form>

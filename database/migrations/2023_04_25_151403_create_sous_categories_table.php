@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('sous_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('categorie');
+            $table->string('categorie_id');
             $table->string('nom_souscategorie');
             $table->string('description_souscategorie');
             $table->timestamps();

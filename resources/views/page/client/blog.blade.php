@@ -114,37 +114,37 @@
 					<!-- comment form -->
 					<div class="comment-form rounded bordered padding-30">
 
-						<form id="comment-form" class="comment-form" method="post">
-				
+						<form id="comment-form" class="comment-form" action="{{ route('save_commentaire') }}" method="post">
+							@csrf
 							<div class="messages"></div>
-							
+
 							<div class="row">
 
 								<div class="column col-md-12">
 									<!-- Comment textarea -->
 									<div class="form-group">
-										<textarea name="InputComment" id="InputComment" class="form-control" rows="4" placeholder="Your comment here..." required="required"></textarea>
+										<textarea name="commentaire" id="InputComment" class="form-control" rows="4" placeholder="Your comment here..." required="required"></textarea>
 									</div>
 								</div>
 
-								<div class="column col-md-6">
+								<div class="column col-md-12">
 									<!-- Email input -->
 									<div class="form-group">
-										<input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Email address" required="required">
+										<input type="email" class="form-control" id="InputEmail" name="email" placeholder="Email address" required="required">
 									</div>
 								</div>
 
-								<div class="column col-md-6">
+								{{-- <div class="column col-md-6">
 									<!-- Name input -->
 									<div class="form-group">
 										<input type="text" class="form-control" name="InputWeb" id="InputWeb" placeholder="Website" required="required">
 									</div>
-								</div>
-	
+								</div>--}}
+
 								<div class="column col-md-12">
 									<!-- Email input -->
 									<div class="form-group">
-										<input type="text" class="form-control" id="InputName" name="InputName" placeholder="Your name" required="required">
+										<input type="text" class="form-control" id="InputName" name="nom" placeholder="Your name" required="required">
 									</div>
 								</div>
 						

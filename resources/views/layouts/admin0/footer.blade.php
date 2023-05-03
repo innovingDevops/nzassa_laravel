@@ -95,6 +95,8 @@ aria-labelledby="authentication-modal-label" aria-hidden="true">
 <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
 <script src="{{asset('admin/vendors/list.js/list.min.js')}}"></script>
 <script src="{{asset('admin/assets/js/theme.js')}}"></script>
+<script src="{{ asset('admin/vendors/tinymce/tinymce.min.js') }}"></script>
+<script src="{{ asset('admin/vendors/dropzone/dropzone.min.js') }}"></script>
 </body>
 
 </html>

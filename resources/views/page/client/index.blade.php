@@ -33,6 +33,9 @@
 		width: 100px;
 		border-radius: 100%;
 	}
+    .img_galerie{
+    height: 250px;
+    }
 </style>
 <!-- hero section -->
 <section id='hero'>
@@ -234,7 +237,7 @@
                                 </div>
                                 <div class="details clearfix">
                                     <h6 class="post-title my-0">
-                                        <a href="blog-single.html">Fonctionnalité 4 </a>
+                                        <a href="blog-single.html">{{ $item->libelle_fonctionnalite }}</a>
                                     </h6>
                                     <ul class="meta list-inline mt-1 mb-0">
                                         <li class="list-inline-item">Lorem ipsum dolor sit amet consectetur adipisicing
@@ -243,8 +246,6 @@
                                 </div>
                             </div>   
                             @endforeach
-                            
-                            
                         </div>
                     </div>
                 </div>
@@ -272,119 +273,43 @@
             <div class="tab-content" id="postsTabContent">
                 <!-- loader -->
                 <ul class="nav nav-tabs nav-pills nav-fill" id="postsTab" role="tablist">
-                    <li class="nav-item" role="presentation">
+                    {{-- <li class="nav-item" role="presentation">
                         <button aria-controls="recent" aria-selected="false" class="nav-link" data-bs-target="#recent"
                             data-bs-toggle="tab" id="recent-tab" role="tab" type="button">
                             All
                         </button>
-                    </li>
+                    </li> --}}
+                    @foreach($departements as $departement )
                     <li class="nav-item" role="presentation">
-                        <button aria-controls="popular" aria-selected="true" class="nav-link active"
-                            data-bs-target="#direction" data-bs-toggle="tab" id="popular-tab" role="tab" type="button">
-                            Departement 1
+                        <button aria-controls="{{ $departement->libelle_departement }}" aria-selected="true" class="nav-link active"
+                            data-bs-target="#{{ $departement->libelle_departement }}" data-bs-toggle="tab" id="{{ $departement->libelle_departement }}-tab" role="tab" type="button">
+                            {{ $departement->libelle_departement }}
                         </button>
                     </li>
-                    <li class="nav-item" role="presentation">
-                        <button aria-controls="recent" aria-selected="false" class="nav-link" data-bs-target="#recent"
-                            data-bs-toggle="tab" id="recent-tab" role="tab" type="button">
-                            Departement 2
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button aria-controls="recent" aria-selected="false" class="nav-link" data-bs-target="#recent"
-                            data-bs-toggle="tab" id="recent-tab" role="tab" type="button">
-                            Departement 3
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button aria-controls="recent" aria-selected="false" class="nav-link" data-bs-target="#recent"
-                            data-bs-toggle="tab" id="recent-tab" role="tab" type="button">
-                            Departement 4
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button aria-controls="recent" aria-selected="false" class="nav-link" data-bs-target="#recent"
-                            data-bs-toggle="tab" id="recent-tab" role="tab" type="button">
-                            Departement 5
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button aria-controls="recent" aria-selected="false" class="nav-link" data-bs-target="#recent"
-                            data-bs-toggle="tab" id="recent-tab" role="tab" type="button">
-                            Departement 6
-                        </button>
-                    </li>
+                    @endforeach
                 </ul>
+                @foreach($teams as $team)
                 <!-- tab contents -->
                 <div class="tab-content" id="postsTabContent">
                     <!-- loader -->
                     <div class="lds-dual-ring"></div>
                     <!-- popular posts -->
-                    <div aria-labelledby="popular-tab" class="tab-pane fade show active d-flex justify-content-between"
-                        id="direction" role="tabpanel">
+                    <div aria-labelledby="{{ getDepartement($team->id_departement)->libelle_departement }}-tab" class="tab-pane fade show active d-flex justify-content-between"
+                        id="{{ getDepartement($team->id_departement)->libelle_departement }}" role="tabpanel">
                         <!-- post -->
                         <div class="post post-list-sm circle">
                             <div class="thumb circle">
                                 <a href="blog-single.html">
                                     <div class="inner">
-                                        <img src="{{asset('client/images/posts/tabs-1.jpg')}}" alt="post-title" />
+                                        <img src="{{ asset('storage/'.$team->image) }}" alt="post-title" />
                                     </div>
                                 </a>
-                            </div>
-                        </div>
-                        <!-- post -->
-                        <div class="post post-list-sm circle">
-                            <div class="thumb circle">
-                                <a href="blog-single.html">
-                                    <div class="inner">
-                                        <img src="{{asset('client/images/posts/tabs-1.jpg')}}" alt="post-title" />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- post -->
-                        <div class="post post-list-sm circle">
-                            <div class="thumb circle">
-                                <a href="blog-single.html">
-                                    <div class="inner">
-                                        <img src="{{asset('client/images/posts/tabs-1.jpg')}}" alt="post-title" />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- post -->
-                        <div class="post post-list-sm circle">
-                            <div class="thumb circle">
-                                <a href="blog-single.html">
-                                    <div class="inner">
-                                        <img src="{{asset('client/images/posts/tabs-2.jpg')}}" alt="post-title" />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- post -->
-                        <div class="post post-list-sm circle">
-                            <div class="thumb circle">
-                                <a href="blog-single.html">
-                                    <div class="inner">
-                                        <img src="{{asset('client/images/posts/tabs-3.jpg')}}" alt="post-title" />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- post -->
-                        <div class="post post-list-sm circle">
-                            <div class="thumb circle">
-                                <a href="blog-single.html">
-                                    <div class="inner">
-                                        <img src="{{asset('client/images/posts/tabs-4.jpg')}}" alt="post-title" />
-                                    </div>
-                                </a>
+
                             </div>
                         </div>
                     </div>
                     <!-- recent posts -->
-                    <div aria-labelledby="recent-tab" class="tab-pane fade d-flex justify-content-between" id="recent"
+                    {{-- <div aria-labelledby="recent-tab" class="tab-pane fade d-flex justify-content-between" id="recent"
                         role="tabpanel">
                         <!-- post -->
                         <div class="post post-list-sm circle">
@@ -426,8 +351,9 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -437,103 +363,24 @@
 <div class="" data-height="50" id="galerie"></div>
 <h3 class="section-title text-center prod_nzassa m-5 "> La galerie Innoving</h3>
 <section class="hero-carousel m-5">
-    <div class="row post-carousel-featured post-carousel">
-
-        <div class="post featured-post-md">
-            <div class="details clearfix">
+    <div class="row post-carousel-featured post-carousel ">
+        @foreach ($galeries as $galerie )
+        <div class="post featured-post-md img_galerie">
+            {{-- <div class="details clearfix">
                 <a href="category.html" class="category-badge">Lifestyle</a>
                 <h4 class="post-title"><a href="blog-single.html">Important Thing You Need To Know About Swim</a></h4>
                 <ul class="meta list-inline mb-0">
                     <li class="list-inline-item"><a href="#">Katen Doe</a></li>
                     <li class="list-inline-item">29 March 2021</li>
                 </ul>
-            </div>
-            <a href="blog-single.html">
-                <div class="thumb rounded">
-                    <div class="inner data-bg-image" data-bg-image="{{asset('client/images/posts/inspiration-3.jpg')}}"></div>
+            </div> --}}
+                <div class=" rounded">
+                    <div class="inner data-bg-image" data-bg-image="{{asset('storage/.$galerie->image_galerie')}}">
+                        <img src="{{ asset('storage/'.$galerie->image_galerie) }}" alt="" style=" width:260px ; height:250px ">
+                    </div>
                 </div>
-            </a>
         </div>
-
-        <div class="post featured-post-md">
-            <div class="details clearfix">
-                <a href="category.html" class="category-badge">Fashion</a>
-                <h4 class="post-title"><a href="blog-single.html">Most Burning Questions About Light Lamp</a></h4>
-                <ul class="meta list-inline mb-0">
-                    <li class="list-inline-item"><a href="#">Katen Doe</a></li>
-                    <li class="list-inline-item">29 March 2021</li>
-                </ul>
-            </div>
-            <a href="blog-single.html">
-                <div class="thumb rounded">
-                    <div class="inner data-bg-image" data-bg-image="{{asset('client/images/posts/inspiration-3.jpg')}}"></div>
-                </div>
-            </a>
-        </div>
-
-        <div class="post featured-post-md">
-            <div class="details clearfix">
-                <a href="category.html" class="category-badge">Inspiration</a>
-                <h4 class="post-title"><a href="blog-single.html">9 Most Awesome Blue Lake With Snow Mountain</a></h4>
-                <ul class="meta list-inline mb-0">
-                    <li class="list-inline-item"><a href="#">Katen Doe</a></li>
-                    <li class="list-inline-item">29 March 2021</li>
-                </ul>
-            </div>
-            <a href="blog-single.html">
-                <div class="thumb rounded">
-                    <div class="inner data-bg-image" data-bg-image="{{asset('client/images/posts/featured-md-1.jpg')}}"></div>
-                </div>
-            </a>
-        </div>
-
-        <div class="post featured-post-md">
-            <div class="details clearfix">
-                <a href="category.html" class="category-badge">Trending</a>
-                <h4 class="post-title"><a href="blog-single.html">Open The Gates For Chair By Using These Tips</a></h4>
-                <ul class="meta list-inline mb-0">
-                    <li class="list-inline-item"><a href="#">Katen Doe</a></li>
-                    <li class="list-inline-item">29 March 2021</li>
-                </ul>
-            </div>
-            <a href="blog-single.html">
-                <div class="thumb rounded">
-                    <div class="inner data-bg-image" data-bg-image="{{asset('client/images/posts/featured-md-2.jpg')}}"></div>
-                </div>
-            </a>
-        </div>
-
-        <div class="post featured-post-md">
-            <div class="details clearfix">
-                <a href="category.html" class="category-badge">Politic</a>
-                <h4 class="post-title"><a href="blog-single.html">Feel Like A Pro With The Help Of These 7 Tips</a></h4>
-                <ul class="meta list-inline mb-0">
-                    <li class="list-inline-item"><a href="#">Katen Doe</a></li>
-                    <li class="list-inline-item">29 March 2021</li>
-                </ul>
-            </div>
-            <a href="blog-single.html">
-                <div class="thumb rounded">
-                    <div class="inner data-bg-image" data-bg-image="{{asset('client/images/posts/featured-md-3.jpg')}}"></div>
-                </div>
-            </a>
-        </div>
-
-        <div class="post featured-post-md">
-            <div class="details clearfix">
-                <a href="category.html" class="category-badge">Culture</a>
-                <h4 class="post-title"><a href="blog-single.html">Your Light Is About To Stop Being Relevant</a></h4>
-                <ul class="meta list-inline mb-0">
-                    <li class="list-inline-item"><a href="#">Katen Doe</a></li>
-                    <li class="list-inline-item">29 March 2021</li>
-                </ul>
-            </div>
-            <a href="blog-single.html">
-                <div class="thumb rounded">
-                    <div class="inner data-bg-image" data-bg-image="{{asset('client/images/posts/inspiration-3.jpg')}}"></div>
-                </div>
-            </a>
-        </div>
+        @endforeach
     </div>
 </section>
 
@@ -573,7 +420,6 @@
                                         <span class="date">Jan 08, 2021 14:41 pm</span>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae odio ut
                                             tortor fringilla cursus sed quis odio.</p>
-                                        
                                     </div>
                                 </div>
                             </div>

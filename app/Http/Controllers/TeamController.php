@@ -9,14 +9,16 @@ use Illuminate\View\View;
 
 class TeamController extends Controller
 {
-    public function ajout_team(){
-        return view("page/admin0/ajout_team");
+    public function ajout_team():View{
+        $departements = DB::table('departements')->get();
+        return view("page/admin0/ajout_team", ['departements' => $departements]);
     }
 
     public function liste_team(){
-        return view("page/admin0/liste_team");
+        $teams = DB::table('teams')->get();
+        return view("page/admin0/liste_team", ['teams' => $teams]);
+        
     }
-
     // insertion de données 
     public function save_team(Request $request){
 
@@ -27,11 +29,11 @@ class TeamController extends Controller
             "image" => $path_team,
             "nom" => $request->nom,
             "fonction" => $request->fonction,
-            "departement" => $request->departement,
+            "id_departement" => $request->id_departement,
         ];
         Team::create($donnee);
-        return redirect()->route('liste_team');
-        // $this->show_team();
+        // return redirect()->route('liste_team');
+        return $this->show_team();
     }
        // récupération données 
     public function show_team(): View{

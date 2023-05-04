@@ -20,7 +20,6 @@
                                 <thead class="bg-200 text-900">
                                     <tr>
                                         <th class="sort" data-sort="name">ID</th>
-                                        <th class="sort" data-sort="name">Image</th>
                                         <th class="sort" data-sort="name">Nom</th>
                                         <th class="sort" data-sort="name">Fonction</th>
                                         <th class="sort" data-sort="name">Departement</th>
@@ -30,10 +29,19 @@
                                     @foreach ($teams as $team)
                                     <tr>
                                         <td class="name">{{ $team->id }}</td>
-                                        <td class="name">{{ $team->image }}</td>
-                                        <td class="name">{{ $team->nom }}</td>
+                                            <td class="name align-middle white-space-nowrap py-2">
+                                                <div class="d-flex d-flex align-items-center">
+                                                <div class="avatar avatar-xl me-2">
+                                                    <img class="rounded-circle" src="{{ asset('storage/'.$team->image) }}" alt="">
+                    
+                                                </div>
+                                                <div class="flex-1">
+                                                    <h5 class="mb-0 fs--1">{{ $team->nom }}</h5>
+                                                </div>
+                                                </div>
+                                            </td>
                                         <td class="name">{{ $team->fonction }}</td>
-                                        <td class="name">{{ $team->departement }}</td>
+                                        <td class="name">{{ getDepartement($team->id_departement)->libelle_departement }}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

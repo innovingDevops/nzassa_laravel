@@ -13,6 +13,6 @@ class Team extends Model
             'image',
             'nom',
             'fonction',
-            'departement'
+            'id_departement'
         ];
 }

@@ -14,7 +14,8 @@ class FormuleController extends Controller
     }
 
     public function liste_formule(){
-        return view("page/admin0/liste_formule");
+        $formules = DB::table('formules')->get();
+        return view("page/admin0/liste_formule", ['formules'=> $formules]);
     }
 
     public function supprime_formule(){
@@ -24,8 +25,9 @@ class FormuleController extends Controller
     public function home(){
         $formules = DB::table('formules')->get();
         $teams = DB::table('teams')->get();
+        $departements = DB::table('departements')->get();
         $galeries = DB::table('galeries')->get();
-        return view("page/client/index", ['formules' => $formules,'teams' => $teams,'galeries' => $galeries ]);
+        return view("page/client/index", ['formules' => $formules,'teams' => $teams,'galeries' => $galeries,'departements' => $departements ]);
         // return view("page/client/index");
     }
 

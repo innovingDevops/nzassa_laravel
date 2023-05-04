@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('libelle_fonctionnalite');
             $table->string('image_fonctionnalite');
             $table->string('ordre_fonctionnalite');
+            $table->string('description_fonctionnalite');
             $table->timestamps();
         });
     }

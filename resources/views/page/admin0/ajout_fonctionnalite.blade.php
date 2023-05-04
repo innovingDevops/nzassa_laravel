@@ -37,6 +37,11 @@
                             <label class="form-label" for="basic-form-name">Ordre Fonctionnalite</label>
                             <input name="ordre_fonctionnalite" class="form-control" id="basic-form-name" type="number"  />
                         </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="basic-form-textarea">Description Fonctionnalité</label>
+                            <textarea name="description_fonctionnalite" class="form-control" id="basic-form-textarea" rows="3"
+                                placeholder="Description"></textarea>
+                        </div>
                         <button class="btn btn-primary" type="submit">Submit</button>
                     </form>
                 </div>

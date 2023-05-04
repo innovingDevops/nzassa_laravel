@@ -22,21 +22,26 @@
                                 <thead class="bg-200 text-900">
                                     <tr>
                                         <th class="sort" data-sort="name">ID</th>
-                                        <th class="sort" data-sort="email">Logo</th>
                                         <th class="sort" data-sort="age">Formule</th>
                                         <th class="sort" data-sort="name">Titre</th>
                                         <th class="sort" data-sort="email">Image Formule</th>
                                         <th class="sort" data-sort="age">Description</th>
+                                        <th class="sort" data-sort="age">Action</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody class="list">
                                     @foreach ($formules as $formule)
                                     <tr>
                                         <td class="name">{{ $formule->id }}</td>
-                                        <td class="name">{{ $formule->logo_formule }}</td>
-                                        <td class="name">{{ $formule->nom_formule }}</td>
+                                        <td class="name">
+                                            <img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="{{ asset('storage/'.$formule->logo_formule) }}" alt="" width="100"></a>
+                                            <p >{{ $formule->nom_formule }}</p>
+                                        </td>
                                         <td class="name">{{ $formule->titre_formule }}</td>
-                                        <td class="name">{{ $formule->image_formule }}</td>
+                                        <td class="name">
+                                            <img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="{{ asset('storage/'.$formule->image_formule) }}" alt="" width="100"></a>     
+                                        </td>
                                         <td class="name">{{ $formule->description_formule }}</td>
                                     </tr>
                                     @endforeach

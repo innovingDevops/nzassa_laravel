@@ -331,9 +331,18 @@
                     <hr class="mb-0 navbar-vertical-divider" />
                 </div>
                 <!-- Setting -->
-                <!-- parent pages--><a class="nav-link" href="{{route('setting')}}" role="button">
+                <a class="nav-link" href="{{route('setting')}}" role="button">
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span
                                 class="fas fa-code-branch"></span></span><span class="nav-link-text ps-1">Setting</span>
+                    </div>
+                </a>
+                <div class="col ps-0">
+                    <hr class="mb-0 navbar-vertical-divider" />
+                </div>
+                <!-- Setting -->
+                <a class="nav-link" href="{{route('ajout_departement')}}" role="button">
+                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                                class="fas fa-code-branch"></span></span><span class="nav-link-text ps-1">Departement</span>
                     </div>
                 </a>
                 </li>

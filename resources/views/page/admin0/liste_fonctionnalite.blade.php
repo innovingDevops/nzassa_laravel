@@ -25,7 +25,6 @@
                                         <th class="sort" data-sort="email">id_formule</th>
                                         <th class="sort" data-sort="age">Formule</th>
                                         <th class="sort" data-sort="name">Titre</th>
-                                      
                                     </tr>
                                 </thead>
                                 <tbody class="list">

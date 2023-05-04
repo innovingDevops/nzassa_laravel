@@ -7,6 +7,7 @@ use App\Http\Controllers\FormuleController;
 use App\Http\Controllers\FonctionnaliteController;
 use App\Http\Controllers\GalerieController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\DevisController;
 use App\Http\Controllers\SettingController;
@@ -98,6 +99,11 @@ Route::get('/ajout_team', [TeamController::class, 'ajout_team'])->name("ajout_te
 Route::get('/liste_team', [TeamController::class, 'show_team'])->name("liste_team");
 Route::post('/save_team',  [TeamController::class, 'save_team'])->name("save_team");
 
+// Departement 
+Route::get('/ajout_departement', [DepartementController::class, 'ajout_departement'])->name("ajout_departement");
+Route::get('/liste_departement', [DepartementController::class, 'liste_departement'])->name("liste_departement");
+Route::post('/save_departement',  [DepartementController::class, 'save_departement'])->name("save_departement");
+
 // Formule 
 Route::get('/ajout_formule', [FormuleController::class, 'ajout_formule'])->name("ajout_formule");
 Route::get('/liste_formule', [FormuleController::class, 'liste_formule'])->name("liste_formule");
@@ -109,5 +115,9 @@ Route::get('/ajout_fonctionnalite', [FonctionnaliteController::class, 'ajout_fon
 Route::get('/liste_fonctionnalite', [FonctionnaliteController::class, 'liste_fonctionnalite'])->name("liste_fonctionnalite");
 Route::get('/supprime_fonctionnalite', [FonctionnaliteController::class, 'supprime_fonctionnalite'])->name("supprime_fonctionnalite");
 Route::post('/save_fonctionnalite',  [FonctionnaliteController::class, 'save_fonctionnalite'])->name("save_fonctionnalite");
+
 // setting
 Route::get('/setting', [SettingController::class, 'setting'])->name("setting");
+Route::post('/save_setting', [SettingController::class, 'save_setting'])->name("save_setting");
+Route::get('/liste_setting', [SettingController::class, 'liste_setting'])->name("liste_setting");
+

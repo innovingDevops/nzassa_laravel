@@ -39,6 +39,7 @@ class FonctionnaliteController extends Controller
             'libelle_fonctionnalite'=> $request->libelle_fonctionnalite,
             'image_fonctionnalite'=> $path_image_fonctionnalite,
             'ordre_fonctionnalite'=> $request->ordre_fonctionnalite,
+            'description_fonctionnalite' => $request->description_fonctionnalite,
         ];
         Fonctionnalite_formule::create($donnee);
         // return redirect()->route("liste_fonctionnalite");

@@ -14,5 +14,6 @@ class Fonctionnalite_formule extends Model
         'libelle_fonctionnalite',
         'image_fonctionnalite',
         'ordre_fonctionnalite',
+        'description_fonctionnalite',
     ];
 }

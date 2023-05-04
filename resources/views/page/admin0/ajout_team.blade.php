@@ -29,8 +29,13 @@
                             <input name="fonction" class="form-control" id="basic-form-name" type="text" placeholder="Name" required/>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" for="basic-form-name">Departement </label>
-                            <input name="departement" class="form-control" id="basic-form-name" type="text" placeholder="Name" required/>
+                            <label class="form-label" for="basic-form-gender">Departement</label>
+                            <select name="id_departement" class="form-select" id="basic-form-gender" aria-label="Default select example"> 
+                                <option selected="selected">Choississez le departement</option>
+                                @foreach ($departements as $departement)
+                                <option value="{{ $departement->id }}">{{ $departement->libelle_departement }}</option>
+                                @endforeach 
+                            </select>
                         </div>
                         <button class="btn btn-primary" type="submit">Submit</button>
                     </form>

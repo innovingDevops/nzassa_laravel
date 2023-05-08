@@ -13,7 +13,7 @@ class CommentaireController extends Controller
     }
 
 
-    public function blog(){
+    public function blog():View{
         return view("page/client/blog");
     }
     // insertion de données commentaire

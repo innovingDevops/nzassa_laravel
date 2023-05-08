@@ -41,18 +41,12 @@
 								<figcaption class="figure-caption text-center">A caption for the above image.</figcaption>
 							</figure> -->
 
-						
-
 							<p>To an English person, it will seem like simplified <a href="#">English</a>, as a skeptical Cambridge friend of mine told me what Occidental is. The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary.</p>
 						</div>
 						<!-- post bottom section -->
-						
-
                     </div>
 
 					<div class="spacer" data-height="50"></div>
-
-					
 
 					<div class="spacer" data-height="50"></div>
 
@@ -149,9 +143,7 @@
 								</div>
 						
 							</div>
-	
 							<button type="submit" name="submit" id="submit" value="Submit" class="btn btn-default">Submit</button><!-- Submit Button -->
-	
 						</form>
 					</div>
                 </div>

@@ -10,7 +10,8 @@
 
                     <!-- social icons -->
                     <div class="col-md-4 text-center">
-                        <ul class="social-icons list-unstyled list-inline mb-0">
+                        <ul class="social-icons list-unstyled list-inline mb-0">        
+                           
                             <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                             <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
                             <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
@@ -96,6 +97,14 @@
     <script src="{{ asset('client/js/slick.min.js') }}"></script>
     <script src="{{ asset('client/js/jquery.sticky-sidebar.min.js') }}"></script>
     <script src="{{ asset('client/js/custom.js') }}"></script>
+    <script src="{{ asset('admin/vendors/typed.js/typed.js') }}"></script>
+    <script>
+        var typed = new Typed('.element', {
+      strings: ["NZassa School.", "NZassa RH&PAIE.", "NZassa Auto+.", "NZassa GESCOM.", "NZassa ByNight.", "NZassa Shop."],
+      typeSpeed: 100,
+      loop : true,
+    });
+    </script>
     </body>
 
     </html>

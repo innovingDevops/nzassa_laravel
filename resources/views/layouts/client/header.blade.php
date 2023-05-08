@@ -54,6 +54,7 @@
 	</div>
 </div>
 
+
 <!-- site wrapper -->
 <div class="site-wrapper">
 
@@ -75,11 +76,9 @@
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="{{route('home')}}#">N'ZASSA</a>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="{{route('home')}}#nzassashop">N'ZASSA SHOP</a></li>
-								<li><a class="dropdown-item" href="{{route('home')}}#nzassarh&paie">N'ZASSA RH & PAIE</a></li>
-								<li><a class="dropdown-item" href="{{route('home')}}#nzassaschool">N'ZASSA SHCOOL</a></li>
-								<li><a class="dropdown-item" href="{{route('home')}}#nzassagescom">N'ZASSA GESCOM</a></li>
-								<li><a class="dropdown-item" href="{{route('home')}}#nzassabynight">N'ZASSA BYNIGHT</a></li>
+								@foreach ($formules as $formule)
+									<li><a class="dropdown-item" href="{{route('home')}}#{{ $formule->nom_formule }}">{{ $formule->nom_formule }}</a></li>
+								@endforeach
 							</ul>
 						</li>
 						<li class="nav-item ">
@@ -98,6 +97,7 @@
 				</div>
 				<!-- header right section -->
 				<div class="header-right">
+						
 					<!-- social icons -->
 					<ul class="social-icons list-unstyled list-inline mb-0">
 						<li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -105,12 +105,13 @@
 						<li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
 						<li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
 						<li class="list-inline-item"><a href="#"><i class="fab fa-google"></i></a></li>
+						
 					</ul>
 					<!-- header buttons -->
 					<div class="header-buttons">
-						<button class="search icon-button">
+						{{-- <button class="search icon-button">
 							<i class="icon-magnifier"></i>
-						</button>
+						</button> --}}
 						<button class="burger-menu icon-button">
 							<span class="burger-icon"></span>
 						</button>

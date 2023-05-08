@@ -30,8 +30,9 @@
 	}
 
 	.img_team {
-		width: 100px;
-		border-radius: 100%;
+		width: 200px;
+		border-radius: 30px;
+        padding: 25px;
 	}
     .img_galerie{
     height: 250px;
@@ -103,84 +104,39 @@
                         <!-- popular posts -->
                         <div aria-labelledby='popular-tab' class=' fade show active' id='popular' role='tabpanel'>
                             <!-- post -->
+                          
+                            @foreach ($articles as $article)
                             <div class='post post-list-sm circle'>
                                 <div class='thumb circle'>
                                     <a href='blog-single.html'>
-                                        <div class='inner'>
-                                            <img src="{{asset('client/images/posts/tabs-1.jpg')}}" alt='post-title' />
+                                        <div class='inner rounded'>
+                                            <img src="{{ asset('storage/'.$article->image_article) }}" alt='post-title' />
                                         </div>
                                     </a>
                                 </div>
                                 <div class='details clearfix'>
-                                    <h6 class='post-title my-0'><a href='blog-single.html'>3 Easy Ways To Make Your
-                                            iPhone Faster</a></h6>
+                                    <h6 class='post-title my-0'><a style="font-size:12px" href='blog-single.html'>{{ substr(strip_tags($article->courte_description),0,70) }}...</a></h6>
                                     <ul class='meta list-inline mt-1 mb-0'>
-                                        <li class='list-inline-item'>29 March 2021</li>
+                                        <li class='list-inline-item'>
+                                            <i class="far fa-calendar-alt"></i>
+                                            @php
+                                            setlocale(LC_TIME, 'fr_FR.utf8');
+                                             $timestamp = strtotime($article->created_at ); 
+                                             $date_str = date('j F Y', $timestamp);  
+                                            @endphp
+                                             {{ $date_str }}
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
-                            <!-- post -->
-                            <div class='post post-list-sm circle'>
-                                <div class='thumb circle'>
-                                    <a href='blog-single.html'>
-                                        <div class='inner'>
-                                            <img src="{{asset('client/images/posts/tabs-2.jpg')}}" alt='post-title' />
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class='details clearfix'>
-                                    <h6 class='post-title my-0'><a href='blog-single.html'>An Incredibly Easy Method
-                                            That Works For All</a></h6>
-                                    <ul class='meta list-inline mt-1 mb-0'>
-                                        <li class='list-inline-item'>29 March 2021</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- post -->
-                            <div class='post post-list-sm circle'>
-                                <div class='thumb circle'>
-                                    <a href='blog-single.html'>
-                                        <div class='inner'>
-                                            <img src="{{asset('client/images/posts/tabs-3.jpg')}}" alt='post-title' />
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class='details clearfix'>
-                                    <h6 class='post-title my-0'><a href='blog-single.html'>10 Ways To Immediately
-                                            Start
-                                            Selling Furniture</a></h6>
-                                    <ul class='meta list-inline mt-1 mb-0'>
-                                        <li class='list-inline-item'>29 March 2021</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- post -->
-                            <div class='post post-list-sm circle'>
-                                <div class='thumb circle'>
-                                    <a href='blog-single.html'>
-                                        <div class='inner'>
-                                            <img src="{{asset('client/images/posts/tabs-4.jpg')}}" alt='post-title' />
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class='details clearfix'>
-                                    <h6 class='post-title my-0'><a href='blog-single.html'>15 Unheard Ways To
-                                            Achieve
-                                            Greater Walker</a></h6>
-                                    <ul class='meta list-inline mt-1 mb-0'>
-                                        <li class='list-inline-item'>29 March 2021</li>
-                                    </ul>
-                                </div>
-                            </div>
+                            
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
-
 </section>
 
 <!-- les produits N'Zassa -->
@@ -189,7 +145,7 @@
 
 @foreach ($formules as $formule )
 
-<div class="" data-height="50" id="nzassashop"></div>
+<div class="" data-height="50" id="{{ $formule->nom_formule }}"></div>
 <!-- Tous les produits n'zassa présentés -->
 <section class='main-content'>
     <div class='container-xl'>
@@ -240,8 +196,7 @@
                                         <a href="blog-single.html">{{ $item->libelle_fonctionnalite }}</a>
                                     </h6>
                                     <ul class="meta list-inline mt-1 mb-0">
-                                        <li class="list-inline-item">Lorem ipsum dolor sit amet consectetur adipisicing
-                                            elit. Labore porro id voluptate cupiditate. </li>
+                                        <li class="list-inline-item">{{ $item->description_fonctionnalite }}</li>
                                     </ul>
                                 </div>
                             </div>   
@@ -271,6 +226,8 @@
 				</ul> -->
             <!-- tab contents -->
             <div class="tab-content" id="postsTabContent">
+
+                
                 <!-- loader -->
                 <ul class="nav nav-tabs nav-pills nav-fill" id="postsTab" role="tablist">
                     {{-- <li class="nav-item" role="presentation">
@@ -288,72 +245,84 @@
                     </li>
                     @endforeach
                 </ul>
-                @foreach($teams as $team)
-                <!-- tab contents -->
-                <div class="tab-content" id="postsTabContent">
-                    <!-- loader -->
-                    <div class="lds-dual-ring"></div>
-                    <!-- popular posts -->
-                    <div aria-labelledby="{{ getDepartement($team->id_departement)->libelle_departement }}-tab" class="tab-pane fade show active d-flex justify-content-between"
-                        id="{{ getDepartement($team->id_departement)->libelle_departement }}" role="tabpanel">
-                        <!-- post -->
-                        <div class="post post-list-sm circle">
-                            <div class="thumb circle">
-                                <a href="blog-single.html">
-                                    <div class="inner">
-                                        <img src="{{ asset('storage/'.$team->image) }}" alt="post-title" />
-                                    </div>
-                                </a>
 
+                    <!-- tab contents -->
+                    <div class="tab-content" id="postsTabContent">
+                        <!-- loader -->
+                        <div class="lds-dual-ring"></div>
+                        <!-- popular posts -->
+                        @foreach($departements as $departement )
+                        @php
+                            $num_dep = $loop->iteration;
+                            if ($num_dep == 1) {
+
+                                $class = "tab-pane fade show active d-flex justify-content-between";
+                            }else{
+                                $class = "tab-pane fade d-flex justify-content-between";
+                            }
+                            
+                        @endphp 
+                                <div aria-labelledby="{{ $departement->libelle_departement }}-tab" class="{{ $class }}"
+                                    id="{{ $departement->libelle_departement }}" role="tabpanel">
+                                    <!-- post -->
+                                    @foreach(getMemberByDep($departement->id) as $team)
+                                        <div class="post post-list-sm circle">
+                                            <div class="thumb circle">
+                                                <a href="blog-single.html">
+                                                    <div class="inner">
+                                                        <img src="{{ asset('storage/'.$team->image) }}" alt="post-title" />
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                        @endforeach
+                        <!-- recent posts -->
+                        {{-- <div aria-labelledby="recent-tab" class="tab-pane fade d-flex justify-content-between" id="recent"
+                            role="tabpanel">
+                            <!-- post -->
+                            <div class="post post-list-sm circle">
+                                <div class="thumb circle">
+                                    <a href="blog-single.html">
+                                        <div class="inner">
+                                            <img src="{{asset('client/images/posts/tabs-2.jpg')}}" alt="post-title" />
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                            <!-- post -->
+                            <div class="post post-list-sm circle">
+                                <div class="thumb circle">
+                                    <a href="blog-single.html">
+                                        <div class="inner">
+                                            <img src="{{asset('client/images/posts/tabs-1.jpg')}}" alt="post-title" />
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- post -->
+                            <div class="post post-list-sm circle">
+                                <div class="thumb circle">
+                                    <a href="blog-single.html">
+                                        <div class="inner">
+                                            <img src="{{asset('client/images/posts/tabs-4.jpg')}}" alt="post-title" />
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- post -->
+                            <div class="post post-list-sm circle">
+                                <div class="thumb circle">
+                                    <a href="blog-single.html">
+                                        <div class="inner">
+                                            <img src="{{asset('client/images/posts/tabs-3.jpg')}}" alt="post-title" />
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div> --}}
                     </div>
-                    <!-- recent posts -->
-                    {{-- <div aria-labelledby="recent-tab" class="tab-pane fade d-flex justify-content-between" id="recent"
-                        role="tabpanel">
-                        <!-- post -->
-                        <div class="post post-list-sm circle">
-                            <div class="thumb circle">
-                                <a href="blog-single.html">
-                                    <div class="inner">
-                                        <img src="{{asset('client/images/posts/tabs-2.jpg')}}" alt="post-title" />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- post -->
-                        <div class="post post-list-sm circle">
-                            <div class="thumb circle">
-                                <a href="blog-single.html">
-                                    <div class="inner">
-                                        <img src="{{asset('client/images/posts/tabs-1.jpg')}}" alt="post-title" />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- post -->
-                        <div class="post post-list-sm circle">
-                            <div class="thumb circle">
-                                <a href="blog-single.html">
-                                    <div class="inner">
-                                        <img src="{{asset('client/images/posts/tabs-4.jpg')}}" alt="post-title" />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- post -->
-                        <div class="post post-list-sm circle">
-                            <div class="thumb circle">
-                                <a href="blog-single.html">
-                                    <div class="inner">
-                                        <img src="{{asset('client/images/posts/tabs-3.jpg')}}" alt="post-title" />
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div> --}}
-                </div>
-                @endforeach
             </div>
         </div>
     </div>
@@ -366,72 +335,60 @@
     <div class="row post-carousel-featured post-carousel ">
         @foreach ($galeries as $galerie )
         <div class="post featured-post-md img_galerie">
-            {{-- <div class="details clearfix">
-                <a href="category.html" class="category-badge">Lifestyle</a>
-                <h4 class="post-title"><a href="blog-single.html">Important Thing You Need To Know About Swim</a></h4>
-                <ul class="meta list-inline mb-0">
-                    <li class="list-inline-item"><a href="#">Katen Doe</a></li>
-                    <li class="list-inline-item">29 March 2021</li>
-                </ul>
-            </div> --}}
-                <div class=" rounded">
-                    <div class="inner data-bg-image" data-bg-image="{{asset('storage/.$galerie->image_galerie')}}">
-                        <img src="{{ asset('storage/'.$galerie->image_galerie) }}" alt="" style=" width:260px ; height:250px ">
-                    </div>
+            <div class=" rounded">
+                <div class="inner data-bg-image" data-bg-image="{{asset('storage/.$galerie->image_galerie')}}">
+                    <img src="{{ asset('storage/'.$galerie->image_galerie) }}" alt="" style="width:260px; height:250px; border: 5px solid #ff3100; border-radius: 10px;">
                 </div>
+            </div>
         </div>
         @endforeach
     </div>
 </section>
 
+
+
 <!-- Les témoignages  -->
 <h3 class="section-title text-center prod_nzassa m-5 "> Les Témoignages </h3>
-
-<section class="main-content ">
+<section class="main-content">
     <div class="container">
         <div class="row gy-4">
             <div class="col-lg-12">
                 <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner monElement">
                         <div class="carousel-item active">
-                            <div class="card mb-3" style="max-width: 540px;">
-                                <div class="row g-0 m-2">
-                                    <div class="thumb">
+                            <div class="card mb-3 shadow-sm">
+                                <div class="row g-0 m-2 align-items-center">
+                                    <div class="thumb col-4">
                                         <img class="img_team" src="{{asset('client/images/team/ARIEL.jpg')}}" alt="John Doe" />
                                     </div>
-                                    <div class="details">
-                                        <h4 class="name"><a href="#">John Doe</a></h4>
-                                        <span class="date">Jan 08, 2021 14:41 pm</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae odio ut
-                                            tortor fringilla cursus sed quis odio.</p>
-                                        
+                                    <div class="details col-8">
+                                        <h4 class="name mb-0"><a href="#">John Doe</a></h4>
+                                        <small class="text-muted date">Jan 08, 2021 14:41 pm</small>
+                                        <p class="mt-2 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae odio ut tortor fringilla cursus sed quis odio.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <div class="card mb-3" style="max-width: 540px;">
-                                <div class="row g-0 m-2">
-                                    <div class="thumb">
-                                        <img class="img_team" src="{{asset('client/images/other/comment-1.png')}}" alt="John Doe" />
+                            <div class="card mb-3 shadow-sm">
+                                <div class="row g-0 m-2 align-items-center">
+                                    <div class="thumb col-4">
+                                        <img class="img_team" src="{{asset('client/images/team/marc.jpg')}}" alt="John Doe" />
                                     </div>
-                                    <div class="details">
-                                        <h4 class="name"><a href="#">John Doe</a></h4>
-                                        <span class="date">Jan 08, 2021 14:41 pm</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae odio ut
-                                            tortor fringilla cursus sed quis odio.</p>
+                                    <div class="details col-8">
+                                        <h4 class="name mb-0"><a href="#">John Doe</a></h4>
+                                        <small class="text-muted date">Jan 08, 2021 14:41 pm</small>
+                                        <p class="mt-2 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae odio ut tortor fringilla cursus sed quis odio.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel"
-                        data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel"
-                        data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>

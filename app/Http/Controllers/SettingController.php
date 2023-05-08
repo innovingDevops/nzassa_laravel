@@ -9,16 +9,19 @@ use App\Models\Setting;
 
 class SettingController extends Controller
 {
-    // public function save_setting (Request $request){
-    //     $donnee = [
-    //         "cle" => $request->cle,
-    //         "valeur" => $request->valeur,
-    //     ];
-    //     Setting::create($donnee);
-    //     return $this->liste_setting();
-    // }
-    // public function liste_setting(): View{
-    //       $setting = DB::table('setting')->get();
-    //     return view("page/admin0/setting", ['setting'=> $setting]);
-    // }
+    public function save_setting (Request $request){
+
+        $donnee = [
+            "cle" => $request->cle,
+            "valeur" => $request->valeur,
+        ];
+
+        Setting::create($donnee);
+        return $this->setting();
+    }
+
+    public function setting(): View{
+        $settings = DB::table('settings')->get();
+        return view("page/admin0/setting", ['settings' => $settings]);
+    }
 }

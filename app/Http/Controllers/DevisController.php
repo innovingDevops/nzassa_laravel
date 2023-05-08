@@ -14,7 +14,8 @@ class DevisController extends Controller
 
 
     public function contact(){
-        return view("page/client/contact");
+        $formules = DB::table('formules')->get();
+        return view("page/client/contact", ['formules' => $formules]);
     }
 
     // insertion de données 
@@ -36,6 +37,6 @@ class DevisController extends Controller
 
     public function liste_devis_brouillon():View{
         $devis = DB::table('devis')->get();
-        return view("page/admin0/liste_devis_brouillon", ['devis' => $devis]);
+        return view("page/client/contact", ['devis' => $devis]);
     }
 }

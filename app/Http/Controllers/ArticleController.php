@@ -10,7 +10,8 @@ use Illuminate\View\View;
 class ArticleController extends Controller
 {
     public function ajout_article(){
-        return view("page/admin0/ajout_article");
+        $categories = DB::table('categories')->get();
+        return view("page/admin0/ajout_article", ['categories' => $categories]);
     }
 
     public function supprime_article(){
@@ -22,11 +23,15 @@ class ArticleController extends Controller
     }
 
     public function blog(){
-        return view("page/client/blog");
+        $formules = DB::table('formules')->get();
+        return view("page/client/blog", ['formules' => $formules]);
     }
 
     public function actualite(){
-        return view("page/client/actualite");
+        $articles = DB::table('articles')->get();
+        $formules = DB::table('formules')->get();
+        $commentaires = DB::table('commentaires')->get();
+        return view("page/client/actualite", ['articles' => $articles, 'formules' => $formules, 'commentaires' => $commentaires]);
     }
 
     // insertion de données article

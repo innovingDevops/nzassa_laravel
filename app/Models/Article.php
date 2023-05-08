@@ -32,6 +32,4 @@ class Article extends Model
             return $this->hasMany(Commentaire::class);
         }
         
-
-
 }

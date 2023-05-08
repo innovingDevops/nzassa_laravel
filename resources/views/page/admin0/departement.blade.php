@@ -9,6 +9,7 @@
                 </div>
                 <div class="card-body bg-light">
                   <form class="row g-3" action="{{ route('save_departement') }}" action="post">
+                    @csrf
                     <div class="col-lg-12">
                       <label class="form-label" for="email3">Departement</label>
                       <input name="libelle_departement" class="form-control" id="email3" type="text"  />

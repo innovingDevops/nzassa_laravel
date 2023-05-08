@@ -97,6 +97,8 @@ aria-labelledby="authentication-modal-label" aria-hidden="true">
 <script src="{{asset('admin/assets/js/theme.js')}}"></script>
 <script src="{{ asset('admin/vendors/tinymce/tinymce.min.js') }}"></script>
 <script src="{{ asset('admin/vendors/dropzone/dropzone.min.js') }}"></script>
+<script src="{{ asset('admin/vendors/typed.js/typed.js') }}"></script>
+
 </body>
 
 </html>

@@ -8,9 +8,12 @@
             <div class="row flex-between-end">
                 <div class="col-auto align-self-center">
                     <h3 class="mb-0" data-anchor="data-anchor">Liste des Articles</h3>
+	<h3 class="fw-light overflow-hidden"> Nos produits N'Zassa sont :  <span class="typed-text fw-bold ms-1" data-typed-text='["NZassa School.","NZassa RH&PAIE.","NZassa Auto+.","NZassa GESCOM."]'></span></h3>
+
                 </div>
             </div>
         </div>
+       
         <div class="card-body bg-light">
             <div class="tab-content">
                 <div class="tab-pane preview-tab-pane active" role="tabpanel"
@@ -30,9 +33,9 @@
                             <label class="form-label" for="basic-form-gender">Catégorie</label>
                             <select name="categorie" class="form-select" id="basic-form-gender" aria-label="Default select example">
                                 <option selected="selected">Select your gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="other">Other</option>
+                                @foreach ( $categories as $categorie )
+                                <option value="{{ $categorie->nom_categorie }}">{{ $categorie->nom_categorie }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="mb-3">

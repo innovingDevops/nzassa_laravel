@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\SouscategorieController;
@@ -40,6 +39,7 @@ Route::middleware([
     })->name('admin0');
 });
 
+
 // Gère la déconnexion admin 
 Route::post('/logout', function (Request $request) {
         $request->session()->invalidate();
@@ -61,7 +61,7 @@ Route::get('/home', [FormuleController::class, 'home'])->name("home");
 
 //actualite
 Route::get('/actualite', [ArticleController::class, 'actualite'])->name("actualite");
-Route::get('/actualite', function () { return view('page/client/actualite');})->name("actualite");
+// Route::get('/actualite', function () { return view('page/client/actualite');})->name("actualite");
 
 // Categorie
 Route::get('/ajout_categorie', [CategorieController::class, 'ajout_categorie'])->name("ajout_categorie");
@@ -119,5 +119,4 @@ Route::post('/save_fonctionnalite',  [FonctionnaliteController::class, 'save_fon
 // setting
 Route::get('/setting', [SettingController::class, 'setting'])->name("setting");
 Route::post('/save_setting', [SettingController::class, 'save_setting'])->name("save_setting");
-Route::get('/liste_setting', [SettingController::class, 'liste_setting'])->name("liste_setting");
 

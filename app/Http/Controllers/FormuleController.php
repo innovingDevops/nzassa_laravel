@@ -27,7 +27,18 @@ class FormuleController extends Controller
         $teams = DB::table('teams')->get();
         $departements = DB::table('departements')->get();
         $galeries = DB::table('galeries')->get();
-        return view("page/client/index", ['formules' => $formules,'teams' => $teams,'galeries' => $galeries,'departements' => $departements ]);
+        $settings = DB::table('settings')->get();
+        $articles = DB::table('articles')->orderByDesc('id')->take(4)->get();
+        return view("page/client/index", 
+        [
+            'formules' => $formules,
+            'teams' => $teams,
+            'galeries' => $galeries,
+            'departements' => $departements,
+            'settings' => $settings,
+            'articles' => $articles
+        ]
+        );
         // return view("page/client/index");
     }
 

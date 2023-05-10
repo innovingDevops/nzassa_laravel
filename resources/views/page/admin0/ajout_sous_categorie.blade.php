@@ -18,11 +18,11 @@
                         @csrf
                         <div class="mb-3">
                             <label class="form-label" for="basic-form-gender">Catégorie</label>
-                            <select name="categorie_id" class="form-select" id="basic-form-gender" aria-label="Default select example">
+                            <select name="id_categorie" class="form-select" id="basic-form-gender" aria-label="Default select example">
                                 <option selected="selected">Select your gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="other">Other</option>
+                                @foreach ($categories as $categorie )
+                                    <option value="{{ $categorie->id }}">{{ $categorie->nom_categorie }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="mb-3">

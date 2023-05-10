@@ -46,7 +46,7 @@
                                     @foreach ($sous_categories as $sous_categorie)
                                     <tr>
                                         <td class="name">{{ $sous_categorie->id }}</td>
-                                        <td class="email">{{ $sous_categorie->categorie_id }}</td>
+                                        <td class="email">{{ $sous_categorie->id_categorie }}</td>
                                         <td class="age">{{ $sous_categorie->nom_souscategorie }}</td>
                                         <td class="age">{{ $sous_categorie->description_souscategorie }}</td>
                                     </tr>

@@ -20,17 +20,19 @@ class CommentaireController extends Controller
     public function save_commentaire(Request $request){
         $donnee = 
             [
+                "id_article" => $request->id_article,
                 "commentaire" => $request->commentaire,
                 "email" => $request->email,
                 "nom" => $request->nom,
                 "status" => 1,
             ];
         Commentaire::create($donnee);
-        return $this->liste_commentaire_brouillon();
+        $commentaires = DB::table('commentaires')->get();
+        return redirect()->route("blog",['id' => $request->id_article ]);
     }
 
-    public function liste_commentaire_brouillon(): View{
-        $commentaires = DB::table('commentaires')->get();
-        return view("page/admin0/liste_commentaire_brouillon", ['commentaires' => $commentaires]);
+    public function liste_commentaire_brouillon(){
+        
+        // return view("page/admin0/liste_commentaire_brouillon", ['commentaires' => $commentaires]);
     }
 }

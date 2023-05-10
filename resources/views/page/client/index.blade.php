@@ -115,7 +115,7 @@
                                     </a>
                                 </div>
                                 <div class='details clearfix'>
-                                    <h6 class='post-title my-0'><a style="font-size:12px" href='blog-single.html'>{{ substr(strip_tags($article->courte_description),0,70) }}...</a></h6>
+                                    <h6 class='post-title my-0'><a style="font-size:12px" href='blog-single.html'>{{ substr(strip_tags($article->courte_description),0,60) }}...</a></h6>
                                     <ul class='meta list-inline mt-1 mb-0'>
                                         <li class='list-inline-item'>
                                             <i class="far fa-calendar-alt"></i>
@@ -211,122 +211,7 @@
 <!-- notre team  -->
 <div class="" data-height="50" id="team"></div>
 <h3 class="section-title text-center prod_nzassa  m-5"> La Team Innoving</h3>
-<div class="container">
-    <div class="col-lg-12">
-
-        <!-- post tabs -->
-        <div class="post-tabs rounded bordered">
-            <!-- tab navs -->
-            <!-- <ul class="nav nav-tabs nav-pills nav-fill" id="postsTab" role="tablist">
-					<li class="nav-item" role="presentation">
-						<button aria-controls="popular" aria-selected="true" class="nav-link active actualite"
-							data-bs-target="#popular" data-bs-toggle="tab" id="popular-tab" role="tab" type="button">La
-							Team Innoving</button>
-					</li>
-				</ul> -->
-            <!-- tab contents -->
-            <div class="tab-content" id="postsTabContent">
-
-                
-                <!-- loader -->
-                <ul class="nav nav-tabs nav-pills nav-fill" id="postsTab" role="tablist">
-                    {{-- <li class="nav-item" role="presentation">
-                        <button aria-controls="recent" aria-selected="false" class="nav-link" data-bs-target="#recent"
-                            data-bs-toggle="tab" id="recent-tab" role="tab" type="button">
-                            All
-                        </button>
-                    </li> --}}
-                    @foreach($departements as $departement )
-                    <li class="nav-item" role="presentation">
-                        <button aria-controls="{{ $departement->libelle_departement }}" aria-selected="true" class="nav-link active"
-                            data-bs-target="#{{ $departement->libelle_departement }}" data-bs-toggle="tab" id="{{ $departement->libelle_departement }}-tab" role="tab" type="button">
-                            {{ $departement->libelle_departement }}
-                        </button>
-                    </li>
-                    @endforeach
-                </ul>
-
-                    <!-- tab contents -->
-                    <div class="tab-content" id="postsTabContent">
-                        <!-- loader -->
-                        <div class="lds-dual-ring"></div>
-                        <!-- popular posts -->
-                        @foreach($departements as $departement )
-                        @php
-                            $num_dep = $loop->iteration;
-                            if ($num_dep == 1) {
-
-                                $class = "tab-pane fade show active d-flex justify-content-between";
-                            }else{
-                                $class = "tab-pane fade d-flex justify-content-between";
-                            }
-                            
-                        @endphp 
-                                <div aria-labelledby="{{ $departement->libelle_departement }}-tab" class="{{ $class }}"
-                                    id="{{ $departement->libelle_departement }}" role="tabpanel">
-                                    <!-- post -->
-                                    @foreach(getMemberByDep($departement->id) as $team)
-                                        <div class="post post-list-sm circle">
-                                            <div class="thumb circle">
-                                                <a href="blog-single.html">
-                                                    <div class="inner">
-                                                        <img src="{{ asset('storage/'.$team->image) }}" alt="post-title" />
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
-                        @endforeach
-                        <!-- recent posts -->
-                        {{-- <div aria-labelledby="recent-tab" class="tab-pane fade d-flex justify-content-between" id="recent"
-                            role="tabpanel">
-                            <!-- post -->
-                            <div class="post post-list-sm circle">
-                                <div class="thumb circle">
-                                    <a href="blog-single.html">
-                                        <div class="inner">
-                                            <img src="{{asset('client/images/posts/tabs-2.jpg')}}" alt="post-title" />
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- post -->
-                            <div class="post post-list-sm circle">
-                                <div class="thumb circle">
-                                    <a href="blog-single.html">
-                                        <div class="inner">
-                                            <img src="{{asset('client/images/posts/tabs-1.jpg')}}" alt="post-title" />
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- post -->
-                            <div class="post post-list-sm circle">
-                                <div class="thumb circle">
-                                    <a href="blog-single.html">
-                                        <div class="inner">
-                                            <img src="{{asset('client/images/posts/tabs-4.jpg')}}" alt="post-title" />
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- post -->
-                            <div class="post post-list-sm circle">
-                                <div class="thumb circle">
-                                    <a href="blog-single.html">
-                                        <div class="inner">
-                                            <img src="{{asset('client/images/posts/tabs-3.jpg')}}" alt="post-title" />
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div> --}}
-                    </div>
-            </div>
-        </div>
-    </div>
-</div>
+@include('layouts/client/team')
 
 <!-- Notre Galerie -->
 <div class="" data-height="50" id="galerie"></div>
@@ -337,7 +222,7 @@
         <div class="post featured-post-md img_galerie">
             <div class=" rounded">
                 <div class="inner data-bg-image" data-bg-image="{{asset('storage/.$galerie->image_galerie')}}">
-                    <img src="{{ asset('storage/'.$galerie->image_galerie) }}" alt="" style="width:260px; height:250px; border: 5px solid #ff3100; border-radius: 10px;">
+                    <img src="{{ asset('storage/'.$galerie->image_galerie) }}" alt="" style="width:260px; height:250px; border: 3px solid #ff3100; border-radius: 10px;">
                 </div>
             </div>
         </div>

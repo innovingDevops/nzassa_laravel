@@ -22,16 +22,19 @@ class ArticleController extends Controller
         return view("page/admin0/liste_commentaire_brouillon");
     }
 
-    public function blog(){
+    public function blog(Request $request){
+        $article = Article::find($request->id);
         $formules = DB::table('formules')->get();
-        return view("page/client/blog", ['formules' => $formules]);
+        $categories = DB::table('categories')->get();
+        $commentaires = DB::table('commentaires')->get();
+        return view("page/client/blog", ['formules' => $formules, 'article' => $article, 'categories' => $categories, 'commentaires' => $commentaires]);
     }
 
     public function actualite(){
         $articles = DB::table('articles')->get();
         $formules = DB::table('formules')->get();
-        $commentaires = DB::table('commentaires')->get();
-        return view("page/client/actualite", ['articles' => $articles, 'formules' => $formules, 'commentaires' => $commentaires]);
+        $categories = DB::table('categories')->get();
+        return view("page/client/actualite", ['articles' => $articles, 'formules' => $formules, 'categories' => $categories]);
     }
 
     // insertion de données article
@@ -42,8 +45,8 @@ class ArticleController extends Controller
         $donnee = [
             "titre_article" => $request->titre_article,
             "courte_description" => $request->courte_description,
-            "categorie" => $request->categorie,
-            "sous_categorie" => $request->sous_categorie,
+            "id_categorie" => $request->id_categorie,
+            "id_sous_categorie" => $request->id_sous_categorie,
             "detail_article" => $request->detail_article,
             "image_article" => $path,
         ];

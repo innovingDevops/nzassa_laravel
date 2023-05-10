@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Sous_categorie extends Model
 {
     protected $fillable = [
-        'categorie_id',
+        'id_categorie',
         'nom_souscategorie',
         'description_souscategorie'
     ];
@@ -24,5 +24,4 @@ class Sous_categorie extends Model
             return $this->hasMany(Article::class);
         }
 }
-
 

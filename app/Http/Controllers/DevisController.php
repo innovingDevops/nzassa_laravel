@@ -32,7 +32,7 @@ class DevisController extends Controller
             "commentaire" => $request->commentaire,
         ];
         Devis::create($donnee);
-        return $this->liste_devis_brouillon();
+        return redirect()->route('contact');
     }
 
     public function liste_devis_brouillon():View{

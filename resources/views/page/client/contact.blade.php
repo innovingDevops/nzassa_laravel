@@ -63,7 +63,7 @@
             <!-- section header -->
             <div class="section-header">
                 <h3 class="section-title">Send Message</h3>
-                <img src="images/wave.svg" class="wave" alt="wave" />
+                <img src="{{ asset('client/images/wave.svg') }}" class="wave" alt="wave" />
             </div>
 
             <!-- Contact Form -->
@@ -116,7 +116,7 @@
                     <div class="column col-md-6">
                         <!-- Email input -->
                         <div class="form-group">
-                            <input type="text" class="form-control" id="contact" name="contact" placeholder="Secteur d'activités" required="required" >
+                            <input type="text   " class="form-control" id="contact" name="contact" placeholder="Secteur d'activités" required="required" >
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>

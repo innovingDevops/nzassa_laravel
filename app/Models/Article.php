@@ -12,8 +12,8 @@ class Article extends Model
         [
             'titre_article',
             'courte_description',
-            'categorie',
-            'sous_categorie',
+            'id_categorie',
+            'id_sous_categorie',
             'detail_article',
             'image_article'
         ];

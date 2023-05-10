@@ -42,7 +42,6 @@
                                         <th class="sort" data-sort="name">Courte Description</th>
                                         <th class="sort" data-sort="name">Categories</th>
                                         <th class="sort" data-sort="name">Sous Categories</th>
-                                        
                                         <th class="sort" data-sort="name">image</th>
                                     </tr>
                                 </thead>
@@ -51,8 +50,8 @@
                                     <tr>
                                         <td class="name">{{ $article->id }}</td>
                                         <td class="name">{{ $article->titre_article }}</td>
-                                        <td class="name">{{ $article->courte_description }}</td>
-                                        <td class="name">{{ $article->sous_categorie }}</td>
+                                        <td class="name">{{ getcateoriebyid($article->id_categorie)->nom_categorie }}</td>
+                                        <td class="name">{{ getsous_categorie($article->id_sous_categorie)->nom_souscategorie }}</td>
                                         <td class="name"><img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="{{ asset('storage/'.$article->image_article) }}" alt="" width="100"></td>
                                         {{-- <td class="name">{{ $article->image_article }}</td> --}}
                                     </tr>

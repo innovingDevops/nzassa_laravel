@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_categorie');
+            $table->foreign('id_categorie')->references('id')->on('categories');
+            $table->unsignedBigInteger('id_sous_categorie');
+            $table->foreign('id_sous_categorie')->references('id')->on('sous_categories');
             $table->string('titre_article');
             $table->string('courte_description');
-            $table->string('categorie');
-            $table->string('sous_categorie');
             $table->text('detail_article');
             $table->string('image_article');
             $table->timestamps();
@@ -31,3 +33,4 @@ return new class extends Migration
         Schema::dropIfExists('articles');
     }
 };
+ 

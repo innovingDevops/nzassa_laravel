@@ -74,8 +74,9 @@ Route::get('/ajout_sous_categorie', [SouscategorieController::class, 'ajout_sous
 Route::get('/liste_sous_categorie', [SouscategorieController::class, 'liste_sous_categorie'])->name("liste_sous_categorie");
 Route::get('/supprime_sous_categorie', [SouscategorieController::class, 'supprime_sous_categorie'])->name("supprime_sous_categorie");
 Route::post('/save_sous_categorie',  [SouscategorieController::class, 'save_sous_categorie'])->name("save_sous_categorie");
+Route::get('/sous_cat',  [SouscategorieController::class, 'sous_cat'])->name("sous_cat");
 
-// Article
+// Articlesous_cat
 Route::get('/ajout_article', [ArticleController::class, 'ajout_article'])->name("ajout_article");
 Route::get('/liste_article', [ArticleController::class, 'liste_article'])->name("liste_article");
 Route::get('/supprime_article', [ArticleController::class, 'supprime_article'])->name("supprime_article");
@@ -88,6 +89,7 @@ Route::get('/liste_devis_brouillon', [DevisController::class, 'liste_devis_broui
 // Commentaire 
 Route::get('/liste_commentaire_valide', [CommentaireController::class, 'liste_commentaire_valide'])->name("liste_commentaire_valide");
 Route::get('/liste_commentaire_brouillon', [CommentaireController::class, 'liste_commentaire_brouillon'])->name("liste_commentaire_brouillon");
+Route::post('/save_commentaire', [CommentaireController::class, 'save_commentaire'])->name("save_commentaire");
 
 // Galerie
 Route::get('/ajout_galerie', [GalerieController::class, 'ajout_galerie'])->name("ajout_galerie");

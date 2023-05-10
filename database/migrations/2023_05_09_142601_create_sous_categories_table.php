@@ -11,21 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('commentaires', function (Blueprint $table) {
+        Schema::create('sous_categories', function (Blueprint $table) {
             $table->id();
-            $table->text('commentaire');
-            $table->string('email');
-            $table->string('nom');
-            $table->int('status');
+            $table->unsignedBigInteger('id_categorie');
+            $table->foreign('id_categorie')->references('id')->on('categories');
+            $table->string('nom_souscategorie');
+            $table->string('description_souscategorie');
             $table->timestamps();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('commentaires');
+        Schema::dropIfExists('sous_categories');
     }
 };
+

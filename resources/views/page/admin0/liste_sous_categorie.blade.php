@@ -40,15 +40,24 @@
                                         <th class="sort" data-sort="email">categorie</th>
                                         <th class="sort" data-sort="age">sous_categorie</th>
                                         <th class="sort" data-sort="age">Description</th>
+                                        <th class="sort" data-sort="age">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody class="list">
                                     @foreach ($sous_categories as $sous_categorie)
                                     <tr>
                                         <td class="name">{{ $sous_categorie->id }}</td>
-                                        <td class="email">{{ $sous_categorie->id_categorie }}</td>
+                                        <td class="email">{{getCategorie($sous_categorie->id_categorie)->nom_categorie }}</td>
                                         <td class="age">{{ $sous_categorie->nom_souscategorie }}</td>
                                         <td class="age">{{ $sous_categorie->description_souscategorie }}</td>
+                                        <td class="age">
+                                            <a href="{{ route('supprime_sous_categorie',['id' => $sous_categorie->id]) }}" class="btn btn-falcon-primary" type="button">
+                                                <span class="fs-2 text-danger fas fa-trash" data-fa-transform="shrink-3"></span>
+                                            </a>
+                                            <a href="{{ route('edit_sous_categorie',['id' => $sous_categorie->id]) }}" class="btn btn-falcon-primary" type="button">
+                                                <span class="fs-2 text-success fas fa-edit" data-fa-transform="shrink-3"></span>
+                                            </a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>

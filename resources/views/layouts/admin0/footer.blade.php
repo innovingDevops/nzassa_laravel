@@ -79,9 +79,6 @@ aria-labelledby="authentication-modal-label" aria-hidden="true">
 <!-- ===============================================-->
 
 
-
-
-
 <!-- ===============================================-->
 <!--    JavaScripts-->
 <!-- ===============================================-->
@@ -101,5 +98,4 @@ aria-labelledby="authentication-modal-label" aria-hidden="true">
 @yield('custom_script')
     
 </body>
-
 </html>

@@ -14,10 +14,12 @@ class ArticleController extends Controller
         return view("page/admin0/ajout_article", ['categories' => $categories]);
     }
 
-    public function supprime_article(){
-        return view("page/admin0/supprime_article");
+    public function supprime_article($id){
+        $article = Article::find($id);
+        $article->delete();
+        return redirect()->route('liste_article');
     }
-
+    
     public function liste_commentaire_brouillon(){
         return view("page/admin0/liste_commentaire_brouillon");
     }
@@ -31,7 +33,8 @@ class ArticleController extends Controller
     }
 
     public function actualite(){
-        $articles = DB::table('articles')->get();
+        $articles = Article::paginate(4);
+        // $articles = DB::table('articles')->get();
         $formules = DB::table('formules')->get();
         $categories = DB::table('categories')->get();
         return view("page/client/actualite", ['articles' => $articles, 'formules' => $formules, 'categories' => $categories]);
@@ -51,13 +54,19 @@ class ArticleController extends Controller
             "image_article" => $path,
         ];
         Article::create($donnee);
-        // return redirect()->route('liste_article');
-        return $this->liste_article();
+        return redirect()->route('liste_article');
+        // return $this->liste_article();
     }
 
      // récupération données 
     public function liste_article(): View{
         $articles = DB::table('articles')->get();
         return view("page/admin0/liste_article", ['articles' => $articles]);
+    }
+
+    public function edit_article($id){
+        $categories = DB::table('categories')->get();
+        $article = Article::find($id);
+        return view("page/admin0/edit_article", ['article' => $article, 'categories' => $categories]);
     }
 }

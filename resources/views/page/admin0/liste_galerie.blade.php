@@ -1,6 +1,5 @@
 @extends('layouts/admin_master')
 @section('content')
-
     <h1>liste galerie</h1>
     <div class="card mb-3">
         <div class="card-header">
@@ -38,6 +37,7 @@
                                     <tr>
                                         <th class="sort" data-sort="name">ID</th>
                                         <th class="sort" data-sort="email">Mes Images</th>
+                                        <th class="sort" data-sort="email">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody class="list">
@@ -45,7 +45,11 @@
                                     <tr>
                                         <td class="name">{{ $galerie->id }}</td>
                                         <td class="name"><img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="{{ asset('storage/'.$galerie->image_galerie) }}" alt="" width="100"></td>
-                                       
+                                        <td class="age">
+                                            <a href="{{ route('supprime_galerie',['id' => $galerie->id]) }}" class="btn btn-falcon-primary" type="button">
+                                                <span class="fs-2 text-danger fas fa-trash" data-fa-transform="shrink-3"></span>
+                                            </a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>

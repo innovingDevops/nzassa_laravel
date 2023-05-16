@@ -58,6 +58,11 @@
                                             <img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="{{ asset('storage/'.$formule->image_formule) }}" alt="" width="100"></a>     
                                         </td>
                                         <td class="name">{{ $formule->description_formule }}</td>
+                                        <td class="age">
+                                            <a href="{{ route('supprime_formule',['id' => $formule->id]) }}" class="btn btn-falcon-primary" type="button">
+                                                <span class="fs-2 text-danger fas fa-trash" data-fa-transform="shrink-3"></span>
+                                            </a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>

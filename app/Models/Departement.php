@@ -12,4 +12,9 @@ class Departement extends Model
     [
         'libelle_departement',
     ];
+
+    public function teams()
+    {
+        return $this->hasMany(Team::class);
+    }
 }

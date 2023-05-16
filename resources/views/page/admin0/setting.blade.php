@@ -78,6 +78,7 @@
                                             <th class="sort" data-sort="name">ID</th>
                                             <th class="sort" data-sort="email">Titre</th>
                                             <th class="sort" data-sort="age">Valeur</th>
+                                            <th class="sort" data-sort="age">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody class="list">
@@ -86,6 +87,11 @@
                                           <td class="age">{{ $setting->id }}</td>
                                           <td class="name">{{ $setting->cle }}</td>
                                           <td class="name">{{ $setting->valeur }}</td>
+                                          <td class="age">
+                                            <a href="{{ route('supprime_setting', ['id' => $setting->id]) }}" class="btn btn-falcon-primary" type="button">
+                                                <span class="fs-2 text-danger fas fa-trash" data-fa-transform="shrink-3"></span>
+                                            </a>
+                                          </td>
                                         </tr>
                                       @endforeach
                                     </tbody>

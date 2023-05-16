@@ -39,7 +39,7 @@
     }
 </style>
 <!-- hero section -->
-<section id='hero'>
+<section id='hero' >
 
     <div class='container-xl'>
 
@@ -222,7 +222,7 @@
         <div class="post featured-post-md img_galerie">
             <div class=" rounded">
                 <div class="inner data-bg-image" data-bg-image="{{asset('storage/.$galerie->image_galerie')}}">
-                    <img src="{{ asset('storage/'.$galerie->image_galerie) }}" alt="" style="width:260px; height:250px; border: 3px solid #ff3100; border-radius: 10px;">
+                    <img src="{{ asset('storage/'.$galerie->image_galerie) }}" alt="" style="width:260px; height:250px; border: 1px solid #ff3100; border-radius: 10px;">
                 </div>
             </div>
         </div>

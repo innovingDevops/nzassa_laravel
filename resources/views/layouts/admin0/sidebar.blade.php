@@ -14,7 +14,7 @@
                 data-bs-placement="left" title="Toggle Navigation"><span class="navbar-toggle-icon"><span
                         class="toggle-line"></span></span></button>
 
-        </div><a class="navbar-brand" href="{{route('home')}}">
+        </div><a class="navbar-brand" href="{{route('admin0')}}">
             <div class="d-flex align-items-center py-3"><span
                     class="font-sans-serif"><img class="me-2"
                     src="{{asset('client/images/logo.png')}}" alt="" width="150" /></span>
@@ -67,7 +67,7 @@
                         </a>
                         <!-- more inner pages-->
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('supprime_categorie')}}">
+                    <li class="nav-item"><a class="nav-link" href="{{route('corbeille_categorie')}}">
                             <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Catégories
                                     Supprimées</span>
                             </div>
@@ -103,7 +103,7 @@
                         </a>
                         <!-- more inner pages-->
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('supprime_sous_categorie')}}">
+                    <li class="nav-item"><a class="nav-link" href="{{route('corbeille_sous_categorie')}}">
                             <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Sous Catégorie
                                     Supprimées</span>
                             </div>
@@ -138,7 +138,7 @@
                         </a>
                         <!-- more inner pages-->
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('supprime_article')}}">
+                    <li class="nav-item"><a class="nav-link" href="{{route('corbeille_article')}}">
                             <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Articles
                                     Supprimées</span>
                             </div>
@@ -173,7 +173,7 @@
                         </a>
                         <!-- more inner pages-->
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('supprime_formule')}}">
+                    <li class="nav-item"><a class="nav-link" href="{{route('corbeille_formule')}}">
                             <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Formules
                                     Supprimées</span>
                             </div>
@@ -208,7 +208,7 @@
                         </a>
                         <!-- more inner pages-->
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('supprime_fonctionnalite')}}">
+                    <li class="nav-item"><a class="nav-link" href="{{route('corbeille_fonctionnalite')}}">
                             <div class="d-flex align-items-center"><span class="nav-link-text ps-1">fonctionnalites
                                     Supprimées</span>
                             </div>
@@ -341,8 +341,11 @@
                 </div>
                 <!-- Setting -->
                 <a class="nav-link" href="{{route('ajout_departement')}}" role="button">
-                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                class="fas fa-code-branch"></span></span><span class="nav-link-text ps-1">Departement</span>
+                    <div class="d-flex align-items-center">
+                        <span class="nav-link-icon">
+                            <span class="fas fa-code-branch"></span>
+                        </span>
+                        <span class="nav-link-text ps-1">Departement</span>
                     </div>
                 </a>
                 </li>

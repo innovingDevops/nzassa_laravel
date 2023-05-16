@@ -72,7 +72,7 @@
                                         <tr>
                                             <th class="sort" data-sort="name">ID</th>
                                             <th class="sort" data-sort="email">Departement</th>
-                                            
+                                            <th class="sort" data-sort="email">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody class="list">
@@ -80,6 +80,11 @@
                                       <tr>
                                         <td class="name">{{ $departement->id }}</td>
                                         <td class="email">{{ $departement->libelle_departement }}</td>
+                                        <td class="age">
+                                          <a href="{{ route('supprime_departement', ['id' => $departement->id]) }}" class="btn btn-falcon-primary" type="button">
+                                              <span class="fs-2 text-danger fas fa-trash" data-fa-transform="shrink-3"></span>
+                                          </a>
+                                        </td>
                                     </tr>
                                       @endforeach
                                     </tbody>

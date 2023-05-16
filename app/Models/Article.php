@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pagination\Paginator;
 
 class Article extends Model
 {
+   
     use HasFactory;
     protected $fillable = 
         [
@@ -23,13 +25,12 @@ class Article extends Model
             return $this->belongsTo(sous_categories::class);
         }
 
-        public function categorie()
+        public function categories()
         {
-            return $this->belongsTo(Categorie::class);
+            return $this->belongsTo(categories::class);
         }
         public function Commentaire()
         {
             return $this->hasMany(Commentaire::class);
         }
-        
 }

@@ -43,6 +43,7 @@
                                         <th class="sort" data-sort="name">Categories</th>
                                         <th class="sort" data-sort="name">Sous Categories</th>
                                         <th class="sort" data-sort="name">image</th>
+                                        <th class="sort" data-sort="name">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody class="list">
@@ -54,6 +55,14 @@
                                         <td class="name">{{ getsous_categorie($article->id_sous_categorie)->nom_souscategorie }}</td>
                                         <td class="name"><img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="{{ asset('storage/'.$article->image_article) }}" alt="" width="100"></td>
                                         {{-- <td class="name">{{ $article->image_article }}</td> --}}
+                                        <td class="age">
+                                            <a href="{{ route('supprime_article', ['id' => $article->id]) }}" class="btn btn-falcon-primary" type="button">
+                                                <span class="fs-2 text-danger fas fa-trash" data-fa-transform="shrink-3"></span>
+                                            </a>
+                                            {{-- <a href="{{ route('edit_article', ['id' => $article->id]) }}" class="btn btn-falcon-primary" type="button">
+                                                 <span class="fs-2 text-success fas fa-edit" data-fa-transform="shrink-3"></span>
+                                            </a> --}}
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>

@@ -46,15 +46,9 @@ function getMemberByDep($id_dep){
     return $teams;
 }
 
-function getSetting(){
-    $facebook = Setting::find(9);
-    $youtube = Setting::find(12);
-    $instagram = Setting::find(11);
-    $twitter = Setting::find(10);
-    $telephone = Setting::find(13);
-    $email = Setting::find(14);
-    $localisation = Setting::find(15);
-    return [$facebook, $youtube, $instagram, $twitter, $telephone, $email, $localisation];
+function getSetting($cle){
+   $setting = DB::table('settings')->where('cle', "=", $cle);
+    return $setting;
 }   
 
 function getSouscategorie($id_categorie){
@@ -80,5 +74,10 @@ function getcateoriebyid($id_categorie){
 function getsous_categorie($id_sous_categorie){
     $sous_categorie = Sous_categorie::find($id_sous_categorie);
     return $sous_categorie;
+}
+    
+function getCategorie($id_categorie){
+    $categorie = Categorie::find($id_categorie);
+    return $categorie;
 }
 ?>

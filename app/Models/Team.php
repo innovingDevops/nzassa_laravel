@@ -15,4 +15,9 @@ class Team extends Model
             'fonction',
             'id_departement'
         ];
+
+    public function departement()
+    {
+        return $this->belongsTo(Departement::class);
+    }
 }

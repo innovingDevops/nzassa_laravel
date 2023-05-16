@@ -19,11 +19,10 @@ class DepartementController extends Controller
     public function save_departement(Request $request){
         // me retourne le chemin du fichier
         $donnee = [
-            
             "libelle_departement" => $request->libelle_departement,
         ];
         Departement::create($donnee);
-        // return redirect()->route('liste_departement');
+        // return redirect()->route('ajout_departement');
         return $this->ajout_departement();
     }
     //    // récupération données 
@@ -31,6 +30,10 @@ class DepartementController extends Controller
     //     $teams = DB::table('teams')->get();
     //     return view("page/admin0/liste_departement", ['teams' => $teams]);
     // }
-
+        public function supprime_departement($id){
+            $departement = Departement::find($id);
+            $departement->delete();
+            return redirect()->route("ajout_departement");
+        }
 
 }

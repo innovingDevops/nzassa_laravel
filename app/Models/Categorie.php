@@ -14,14 +14,15 @@ class Categorie extends Model
             'description_categorie'
         ];
 
-    public function sous_categories()
+        public function sous_categories()
         {
             
             return $this->hasMany(SousCategorie::class);
         }
 
-        public function Article()
+        public function articles()
         {
-            return $this->hasMany(Article::class);
+            return $this->hasMany(Article::class, 'id_categorie');
         }
+
 }

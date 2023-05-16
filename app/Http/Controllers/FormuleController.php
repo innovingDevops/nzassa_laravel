@@ -18,8 +18,8 @@ class FormuleController extends Controller
         return view("page/admin0/liste_formule", ['formules'=> $formules]);
     }
 
-    public function supprime_formule(){
-        return view("page/admin0/supprime_formule");
+    public function corbeille_formule(){
+        return view("page/admin0/corbeille_formule");
     }
 
     public function home(){
@@ -37,8 +37,7 @@ class FormuleController extends Controller
             'departements' => $departements,
             'settings' => $settings,
             'articles' => $articles
-        ]
-        );
+        ]);
         // return view("page/client/index");
     }
 
@@ -59,5 +58,11 @@ class FormuleController extends Controller
     public function show_formule(): View{
         $formules = DB::table('formules')->get();
         return view("page/admin0/liste_formule", ['formules' => $formules]);
+    }
+    public function supprime_formule($id){
+        
+        $formule = Formule::find($id);
+        $formule->delete();
+        return redirect()->route('liste_formule');
     }
 }

@@ -45,8 +45,7 @@
                         <div class="mb-3">
                             <label class="form-label" for="basic-form-textarea">Details de l'article</label>
                             <textarea name="detail_article" class="tinymce d-none" id="basic-form-textarea" rows="3"
-                                placeholder="Description"></textarea>
-                                
+                                placeholder="Description"></textarea> 
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Images de l'article </label>

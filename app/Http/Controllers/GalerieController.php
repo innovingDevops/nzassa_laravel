@@ -30,4 +30,10 @@ class GalerieController extends Controller
         $galeries = DB::table('galeries')->get();
         return view("page/admin0/liste_galerie", ['galeries' => $galeries]);
     }
+
+    public function supprime_galerie($id){
+        $galerie = Galerie::find($id);
+        $galerie->delete();
+        return redirect()->route('liste_galerie');
+    }
 }

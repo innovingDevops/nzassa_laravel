@@ -27,18 +27,20 @@
         </div>
     </div>
 </section>
-
+    
 <section class="main-content">
     <div class="container-xl">
         <div class="row gy-4">
             <div class="col-lg-8">
                 <div class="row gy-4">
                     @foreach ( $articles as $article )
+                    
                         <div class="col-sm-6">
                             <!-- post -->
                             <div class="post post-grid rounded bordered">
+                                    
                                 <div class="thumb top-rounded">
-                                    <a href="#" class="category-badge position-absolute">{{ getcateoriebyid($article->id_categorie)->nom_categorie }}</a>
+                                    <a href="#" class="category-badge position-absolute">{{ $categorie_id->nom_categorie }}</a>
                                     <span class="post-format">
                                         <i class="icon-picture"></i>
                                     </span>
@@ -105,7 +107,6 @@
                         <div class="widget-content">
                             <ul class="list">
                                 @foreach ( $categories as $categorie )
-
                                     <li><a href="{{ route('articlebycat', ['id' => $categorie->id]) }}">{{ $categorie->nom_categorie }}</a><span>{{ getArticleByCat($categorie->id)->count() }}</span></li>
                                 @endforeach
                             </ul>

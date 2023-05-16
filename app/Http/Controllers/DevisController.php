@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 class DevisController extends Controller
 {
+    public function admin0 (){
+        return view("page/admin0/index");
+    }
     public function liste_devis_valide(){
         return view("page/admin0/liste_devis_valide");
     }
@@ -37,6 +40,12 @@ class DevisController extends Controller
 
     public function liste_devis_brouillon():View{
         $devis = DB::table('devis')->get();
-        return view("page/client/contact", ['devis' => $devis]);
+        return view("page/admin0/liste_devis_brouillon", ['devis' => $devis]);
+    }
+
+    public function supprime_devis($id){
+        $devis = Devis::find($id);
+        $devis->delete();
+        return redirect()->route('liste_devis_brouillon');
     }
 }

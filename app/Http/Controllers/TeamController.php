@@ -32,8 +32,8 @@ class TeamController extends Controller
             "id_departement" => $request->id_departement,
         ];
         Team::create($donnee);
-        // return redirect()->route('liste_team');
-        return $this->show_team();
+        return redirect()->route('liste_team');
+        // return $this->show_team();
     }
        // récupération données 
     public function show_team(): View{
@@ -41,5 +41,9 @@ class TeamController extends Controller
         return view("page/admin0/liste_team", ['teams' => $teams]);
     }
 
-
+    public function supprime_team($id){
+        $team = Team::find($id);
+        $team->delete();
+        return redirect()->route('liste_team');
+    }
 }

@@ -25,17 +25,21 @@
                                         <th class="sort" data-sort="email">Commentaire</th>
                                         <th class="sort" data-sort="age">Nom</th>
                                         <th class="sort" data-sort="email">Email</th>
-                                        <th class="sort" data-sort="age">status</th>
+                                        <th class="sort" data-sort="age">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody class="list">
-                                    @foreach ($commentaires as $commentaire)
+                                    @foreach ($comments as $comment)
                                     <tr>
-                                        <td class="name">{{ $commentaire->id }}</td>
-                                        <td class="name">{{ $commentaire->commentaire }}</td>
-                                        <td class="name">{{ $commentaire->nom }}</td>
-                                        <td class="name">{{ $commentaire->email }}</td>
-                                        <td class="name">{{ $commentaire->status }}</td>
+                                        <td class="name">{{ $comment->id }}</td>
+                                        <td class="name">{{ $comment->commentaire }}</td>
+                                        <td class="name">{{ $comment->nom }}</td>
+                                        <td class="name">{{ $comment->email }}</td>
+                                        <td class="age">
+                                            <a href="{{ route('supprime_commentaire',['id' => $comment->id]) }}" class="btn btn-falcon-primary" type="button">
+                                                <span class="fs-2 text-danger fas fa-trash" data-fa-transform="shrink-3"></span>
+                                            </a>
+                                        </td>
                                     </tr>
                                     @endforeach  
                                 </tbody>

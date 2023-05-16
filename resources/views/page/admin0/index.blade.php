@@ -4,17 +4,17 @@
                     <div class="col-md-6 col-xxl-3">
                         <div class="card h-md-100 ecommerce-card-min-width">
                             <div class="card-header pb-0">
-                                <h6 class="mb-0 mt-2 d-flex align-items-center">Weekly Sales
+                                <h6 class="mb-0 mt-2 d-flex align-items-center">Nos Catégories 
                                     <span class="ms-1 text-400" data-bs-toggle="tooltip" data-bs-placement="top"
                                         title="Calculated according to last week's sales">
-                                        <span class="far fa-question-circle" data-fa-transform="shrink-1"></span></span>
+                                    <span class="far fa-question-circle" data-fa-transform="shrink-1"></span></span>
                                 </h6>
                             </div>
                             <div class="card-body d-flex flex-column justify-content-end">
                                 <div class="row">
                                     <div class="col">
-                                        <p class="font-sans-serif lh-1 mb-1 fs-4">$47K</p><span
-                                            class="badge badge-soft-success rounded-pill fs--2">+3.5%</span>
+                                        <p class="font-sans-serif lh-1 mb-1 fs-4">$47K</p>
+                                        <span class="badge badge-soft-success rounded-pill fs--2">+3.5%</span>
                                     </div>
                                     <div class="col-auto ps-0">
                                         <div class="echart-bar-weekly-sales h-100"></div>
@@ -26,14 +26,14 @@
                     <div class="col-md-6 col-xxl-3">
                         <div class="card h-md-100">
                             <div class="card-header pb-0">
-                                <h6 class="mb-0 mt-2">Total Order</h6>
+                                <h6 class="mb-0 mt-2">Nos sous Catégories</h6>
                             </div>
                             <div class="card-body d-flex flex-column justify-content-end">
                                 <div class="row justify-content-between">
                                     <div class="col-auto align-self-end">
-                                        <div class="fs-4 fw-normal font-sans-serif text-700 lh-1 mb-1">58.4K</div><span
-                                            class="badge rounded-pill fs--2 bg-200 text-primary"><span
-                                                class="fas fa-caret-up me-1"></span>13.6%</span>
+                                        <div class="fs-4 fw-normal font-sans-serif text-700 lh-1 mb-1">58.4K</div>
+                                        <span class="badge rounded-pill fs--2 bg-200 text-primary">
+                                        <span class="fas fa-caret-up me-1"></span>13.6%</span>
                                     </div>
                                     <div class="col-auto ps-0 mt-n4">
                                         <div class="echart-default-total-order"
@@ -49,7 +49,7 @@
                             <div class="card-body">
                                 <div class="row h-100 justify-content-between g-0">
                                     <div class="col-5 col-sm-6 col-xxl pe-2">
-                                        <h6 class="mt-1">Market Share</h6>
+                                        <h6 class="mt-1">Nos articles en ligne</h6>
                                         <div class="fs--2 mt-3">
                                             <div class="d-flex flex-between-center mb-1">
                                                 <div class="d-flex align-items-center"><span
@@ -83,7 +83,7 @@
                     <div class="col-md-6 col-xxl-3">
                         <div class="card h-md-100">
                             <div class="card-header d-flex flex-between-center pb-0">
-                                <h6 class="mb-0">Weather</h6>
+                                <h6 class="mb-0">Nos formules</h6>
                                 <div class="dropdown font-sans-serif btn-reveal-trigger">
                                     <button
                                         class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal"

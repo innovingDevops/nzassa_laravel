@@ -32,7 +32,13 @@ class CommentaireController extends Controller
     }
 
     public function liste_commentaire_brouillon(){
-        
-        // return view("page/admin0/liste_commentaire_brouillon", ['commentaires' => $commentaires]);
+        $comments = DB::table('commentaires')->get();
+        return view("page/admin0/liste_commentaire_brouillon", ['comments' => $comments]);
+    }
+
+    public function supprime_commentaire($id){
+        $commentaires = Commentaire::find($id);
+        $commentaires->delete();
+        return redirect()->route('liste_commentaire_brouillon');
     }
 }

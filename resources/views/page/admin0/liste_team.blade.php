@@ -38,6 +38,7 @@
                                         <th class="sort" data-sort="name">Nom</th>
                                         <th class="sort" data-sort="name">Fonction</th>
                                         <th class="sort" data-sort="name">Departement</th>
+                                        <th class="sort" data-sort="name">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody class="list">
@@ -57,6 +58,11 @@
                                             </td>
                                         <td class="name">{{ $team->fonction }}</td>
                                         <td class="name">{{ getDepartement($team->id_departement)->libelle_departement }}</td>
+                                        <td class="age">
+                                            <a href="{{ route('supprime_team',['id' => $team->id]) }}" class="btn btn-falcon-primary" type="button">
+                                                <span class="fs-2 text-danger fas fa-trash" data-fa-transform="shrink-3"></span>
+                                            </a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('fonctionnalite_formules', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_formule');
-            $table->foreign('id_formule')->references('id')->on('formules');
+            $table->foreign('id_formule')->references('id')->on('formules')->onDelete('cascade');;
             $table->string('libelle_fonctionnalite');
             $table->string('image_fonctionnalite');
             $table->string('ordre_fonctionnalite');

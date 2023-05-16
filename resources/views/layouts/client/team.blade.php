@@ -42,13 +42,15 @@
                         <!-- post -->
                         @foreach(getMemberByDep($departement->id) as $team)
                         <div class="post post-list-sm">
-                            <div class="card" style="margin: 10px; width: 18rem;">
-                                <img src="{{ asset('storage/'.$team->image) }}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                  <h5 class="card-title">{{ $team->nom }}</h5>
+                            <div class="thumb circle">
+                                <a href="blog-single.html">
+                                    <div class="inner">
+                                        <img width="150px" src="{{ asset('storage/'.$team->image) }}" alt="post-title">
+                                    </div>
+                                    <h5 class="card-title">{{ $team->nom }}</h5>
                                   <p class="card-text">{{ $team->fonction }}</p>
-                                </div>
-                              </div>
+                                </a>
+                            </div>
                         </div>                        
                         @endforeach
                     </div>

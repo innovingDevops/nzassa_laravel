@@ -23,13 +23,14 @@
                                     <tr>
                                         <th class="sort" data-sort="name">ID</th>
                                         <th class="sort" data-sort="email">Nom</th>
-                                        <th class="sort" data-sort="age">Age</th>
-                                        <th class="sort" data-sort="name">Name</th>
-                                        <th class="sort" data-sort="email">Email</th>
-                                        <th class="sort" data-sort="age">Age</th>
-                                        <th class="sort" data-sort="name">Name</th>
-                                        <th class="sort" data-sort="email">Email</th>
-                                        <th class="sort" data-sort="age">Age</th>
+                                        <th class="sort" data-sort="age">Société</th>
+                                        <th class="sort" data-sort="name">Nbre Employé</th>
+                                        <th class="sort" data-sort="email">Secteur d'activité</th>
+                                        <th class="sort" data-sort="age">Email</th>
+                                        <th class="sort" data-sort="name">Contact</th>
+                                        <th class="sort" data-sort="email">Formule</th>
+                                        <th class="sort" data-sort="age">commentaire</th>
+                                        <th class="sort" data-sort="age">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody class="list">
@@ -45,6 +46,11 @@
                                         <td class="name">{{ $devis->contact }}</td>
                                         <td class="name">{{ $devis->formule }}</td>
                                         <td class="name">{{ $devis->commentaire }}</td>
+                                        <td class="age">
+                                            <a href="{{ route('supprime_devis',['id' => $devis->id]) }}" class="btn btn-falcon-primary" type="button">
+                                                <span class="fs-2 text-danger fas fa-trash" data-fa-transform="shrink-3"></span>
+                                            </a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>

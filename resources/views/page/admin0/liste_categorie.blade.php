@@ -40,7 +40,6 @@
                                         <th class="sort" data-sort="email">Titre</th>
                                         <th class="sort" data-sort="age">Description</th>
                                         <th class="sort" data-sort="age">Action</th>
-
                                     </tr>
                                 </thead>
                                 <tbody class="list">
@@ -50,20 +49,29 @@
                                         <td class="email">{{ $categorie->nom_categorie }}</td>
                                         <td class="age">{{ $categorie->description_categorie }}</td>
                                         <td class="age">
-                                            <div class="dropstart font-sans-serif position-static d-inline-block">
-                                                <button class="btn btn-link text-600 btn-sm btn-reveal float-end" type="button" id="dropdown-number-pagination-table-item-0" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent">
-                                                    <span class="fas fa-ellipsis-h fs--1"></span>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="dropdown-number-pagination-table-item-0">
-                                                    <a class="dropdown-item" href="#!">View</a>
-                                                    <a class="dropdown-item" href="#!">Edit</a>
-                                                    
-                                                    <div class="dropdown-divider"></div>
-                                                        <a class="dropdown-item text-warning" href="#!">Archive</a>
-                                                        <a class="dropdown-item text-danger" href="#!">Delete</a>
+                                            <a href="{{ route('supprime_categorie',['id' => $categorie->id]) }}" class="btn btn-falcon-primary" type="button">
+                                                <span class="fs-2 text-danger fas fa-trash" data-fa-transform="shrink-3"></span>
+                                            </a>
+                                            <a href="{{ route('edit_categorie',['id' => $categorie->id]) }}" class="btn btn-falcon-primary" type="button">
+                                                <span class="fs-2 text-success fas fa-edit" data-fa-transform="shrink-3"></span>
+                                            </a>
+                                            {{-- <form action="{{ route('supprime_categorie',['id' => $categorie->id]) }}" method="post">
+                                                @csrf --}}
+                                                {{-- <div class="dropstart font-sans-serif position-static d-inline-block">
+                                                    <button class="btn btn-link text-600 btn-sm btn-reveal float-end" type="button" id="dropdown-number-pagination-table-item-0" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent">
+                                                        <span class="fas fa-ellipsis-h fs--1"></span>
+                                                    </button>
+                                                    <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="dropdown-number-pagination-table-item-0">
+                                                        <a class="dropdown-item" href="#!">View</a>
+                                                        <a class="dropdown-item" href="#!">Edit</a>
+                                                        <div class="dropdown-divider"></div>
+                                                            <a class="dropdown-item text-warning" href="#!">Archive</a>
+                                                            {{-- @method('DELETE') --}}
+                                                            {{-- <button class="dropdown-item text-danger">Delete</button>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
+                                                </div> --}}
+                                            {{-- </form> --}}
                                         </td>
                                     </tr>
                                     @endforeach

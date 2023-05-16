@@ -1,7 +1,7 @@
 @extends('layouts/admin_master')
 @section('content')
 
-    <h1>liste formule</h1>
+    <h1>liste fonctionnalité</h1>
     <div class="card mb-3">
         <div class="card-header">
             <div class="row flex-between-end">
@@ -40,6 +40,7 @@
                                         <th class="sort" data-sort="email">id_formule</th>
                                         <th class="sort" data-sort="age">Formule</th>
                                         <th class="sort" data-sort="name">Titre</th>
+                                        <th class="sort" data-sort="name">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody class="list">
@@ -49,6 +50,11 @@
                                         <td class="name">{{ getFormule($fonctionnalite_formule->id_formule)->nom_formule }}</td>
                                         <td class="name">{{ $fonctionnalite_formule->libelle_fonctionnalite }}</td>
                                         <td class="name">{{ $fonctionnalite_formule->ordre_fonctionnalite }}</td>
+                                        <td class="age">
+                                            <a href="{{ route('supprime_fonctionnalite_formule',['id' => $fonctionnalite_formule->id]) }}" class="btn btn-falcon-primary" type="button">
+                                                <span class="fs-2 text-danger fas fa-trash" data-fa-transform="shrink-3"></span>
+                                            </a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>

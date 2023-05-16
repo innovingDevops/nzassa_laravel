@@ -20,8 +20,8 @@ class FonctionnaliteController extends Controller
         // return view("page/admin0/liste_fonctionnalite");
     }
 
-    public function supprime_fonctionnalite(){
-        return view("page/admin0/supprime_fonctionnalite");
+    public function corbeille_fonctionnalite(){
+        return view("page/admin0/corbeille_fonctionnalite");
     }
 
     public function home(){
@@ -42,11 +42,16 @@ class FonctionnaliteController extends Controller
             'description_fonctionnalite' => $request->description_fonctionnalite,
         ];
         Fonctionnalite_formule::create($donnee);
-        // return redirect()->route("liste_fonctionnalite");
-        return $this->liste_fonctionnalite();
+        return redirect()->route("liste_fonctionnalite");
+        // return $this->liste_fonctionnalite();
     }
     // public function show_fonctionnalite(): View{
     //     $formules = DB::table('formules')->get();
     //     return view("page/admin0/liste_fonctionnalite", ['formules' => $formules]);
     // }
+        public function supprime_fonctionnalite_formule($id){
+            $fonctionnalite = Fonctionnalite_formule::find($id);
+            $fonctionnalite->delete();
+            return redirect()->route('liste_fonctionnalite');
+        }
 }

@@ -14,8 +14,8 @@ class SouscategorieController extends Controller
         return view("page/admin0/ajout_sous_categorie", ['categories' => $categories]);
     }
 
-    public function supprime_sous_categorie(){
-        return view("page/admin0/supprime_sous_categorie");
+    public function corbeille_sous_categorie(){
+        return view("page/admin0/corbeille_sous_categorie");
     }
 
      // insertion de données 
@@ -26,7 +26,7 @@ class SouscategorieController extends Controller
             "description_souscategorie" => $request->description_souscategorie,
         ];
         Sous_categorie::create($donnee);
-        return $this->liste_sous_categorie();
+        return redirect()->route('liste_sous_categorie');
     }
 
     // récupération données 
@@ -41,7 +41,30 @@ class SouscategorieController extends Controller
         foreach($sous_categories as $souscategorie){
             $output .= "<option value=".$souscategorie->id.">".$souscategorie->nom_souscategorie."</option>";
         }
-
         return $output;
+    }
+
+    public function supprime_sous_categorie($id){
+        $sous_categories = sous_categorie::find($id);
+        $sous_categories->delete();
+        return redirect()->route("liste_sous_categorie");
+    }
+
+      // Fonction de modification
+      public function edit_sous_categorie($id){
+        $categories = DB::table('categories')->get();
+        $souscategorie = Sous_categorie::find($id);
+        return view("page/admin0/edit_sous_categorie", ['souscategorie' => $souscategorie, 'categories' => $categories]);
+    }
+
+    // // Fonction de mise à jour 
+    public function update_sous_categorie(Request $request, $id){
+        $souscategorie = Sous_categorie::where("id","=",$id)->update(
+            $donnee = [
+                "id_categorie" => $request->id_categorie,
+                "nom_souscategorie" => $request->nom_souscategorie,
+                "description_souscategorie" => $request->description_souscategorie,
+        ]);
+        return redirect()->route('liste_sous_categorie');
     }
 }

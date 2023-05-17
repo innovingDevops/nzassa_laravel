@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Models\Formule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Storage;
+
 
 class FormuleController extends Controller
 {
@@ -65,4 +68,47 @@ class FormuleController extends Controller
         $formule->delete();
         return redirect()->route('liste_formule');
     }
+
+     // Fonction de modification
+     public function edit_formule($id){
+        $formule = Formule::find($id);
+        return view("page/admin0/edit_formule", ['formule' => $formule]);
+    }
+
+    // fonction de update des formules 
+    public function update_formule(Request $request, $id)
+    {
+        $formule = DB::table('formules')->where('id', $id)->first();
+
+        // Vérifiez si une nouvelle image de logo a été téléchargée
+        if ($request->hasFile('logo_formule')) {
+            // Supprimez l'ancienne image de logo du stockage si nécessaire
+            Storage::delete($formule->logo_formule);
+
+            // Téléchargez et enregistrez la nouvelle image de logo
+            $logoPath = $request->file('logo_formule')->store('images', 'public');
+            $donnee['logo_formule'] = $logoPath;
+        }
+
+        // Vérifiez si une nouvelle image a été téléchargée
+        if ($request->hasFile('image_formule')) {
+            // Supprimez l'ancienne image du stockage si nécessaire
+            Storage::delete($formule->image_formule);
+
+            // Téléchargez et enregistrez la nouvelle image
+            $imagePath = $request->file('image_formule')->store('images', 'public');
+            $donnee['image_formule'] = $imagePath;
+        }
+
+        // Mettez à jour les autres champs de la formule
+        $donnee['nom_formule'] = $request->nom_formule;
+        $donnee['titre_formule'] = $request->titre_formule;
+        $donnee['description_formule'] = $request->description_formule;
+
+        // Effectuez la mise à jour de la formule
+        DB::table('formules')->where('id', $id)->update($donnee);
+
+        return redirect()->route('liste_formule')->with('success', 'La formule a été mise à jour avec succès.');
+    }
+
 }

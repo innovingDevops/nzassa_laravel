@@ -6,6 +6,7 @@ use App\Models\Galerie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Storage;
 
 class GalerieController extends Controller
 {
@@ -36,4 +37,28 @@ class GalerieController extends Controller
         $galerie->delete();
         return redirect()->route('liste_galerie');
     }
+    public function edit_galerie($id){
+        $galerie = Galerie::find($id);
+        return view("page/admin0/edit_galerie", ['galerie' => $galerie ]);
+    }
+
+    public function update_galerie(Request $request, $id)
+{
+    $galerie = Galerie::findOrFail($id);
+
+    // Vérifiez si une nouvelle image de galerie a été téléchargée
+    if ($request->hasFile('image_galerie')) {
+        // Supprimez l'ancienne image de la galerie du stockage si nécessaire
+        Storage::delete($galerie->image_galerie);
+        
+        // Téléchargez et enregistrez la nouvelle image de la galerie
+        $path_image_galerie = $request->file('image_galerie')->store('image_galerie/', 'public');
+        $galerie->image_galerie = $path_image_galerie;
+    }
+
+    $galerie->save();
+
+    return redirect()->route('liste_galerie')->with('success', 'Galerie mise à jour avec succès.');
+}
+        
 }

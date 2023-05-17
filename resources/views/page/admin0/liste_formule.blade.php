@@ -50,7 +50,7 @@
                                     <tr>
                                         <td class="name">{{ $formule->id }}</td>
                                         <td class="name">
-                                            <img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="{{ asset('storage/'.$formule->logo_formule) }}" alt="" width="100"></a>
+                                            <img  class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="{{ asset('storage/'.$formule->logo_formule) }}" alt="" width="100"></a>
                                             <p >{{ $formule->nom_formule }}</p>
                                         </td>
                                         <td class="name">{{ $formule->titre_formule }}</td>
@@ -61,6 +61,9 @@
                                         <td class="age">
                                             <a href="{{ route('supprime_formule',['id' => $formule->id]) }}" class="btn btn-falcon-primary" type="button">
                                                 <span class="fs-2 text-danger fas fa-trash" data-fa-transform="shrink-3"></span>
+                                            </a>
+                                            <a href="{{ route('edit_formule',['id' => $formule->id]) }}" class="btn btn-falcon-primary" type="button">
+                                                <span class="fs-2 text-success fas fa-edit" data-fa-transform="shrink-3"></span>
                                             </a>
                                         </td>
                                     </tr>

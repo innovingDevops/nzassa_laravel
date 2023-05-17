@@ -14,7 +14,7 @@
                 <div class="tab-pane preview-tab-pane active" role="tabpanel"
                     aria-labelledby="tab-dom-160a4566-7e94-45a2-bf04-b36ef49d954f"
                     id="dom-160a4566-7e94-45a2-bf04-b36ef49d954f">
-                    <form action="{{ route('update_categorie', ['id' => $categorie->id]) }}" method="post">
+                    <form action="{{ route('update_categorie', ) }}" method="post">
                         @csrf
                         <div class="mb-3">
                             <label class="form-label" for="basic-form-name">Créer une Catégorie</label>

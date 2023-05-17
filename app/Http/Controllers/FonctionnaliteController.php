@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Fonctionnalite_formule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Storage;
 
 class FonctionnaliteController extends Controller
 {
@@ -54,4 +55,32 @@ class FonctionnaliteController extends Controller
             $fonctionnalite->delete();
             return redirect()->route('liste_fonctionnalite');
         }
-}
+
+        public function edit_fonctionnalite_formule($id){
+            $formules = DB::table('formules')->get();
+            $fonctionnalite_formule = Fonctionnalite_formule::find($id);
+            return view("page/admin0/edit_fonctionnalite_formule", ['formules' => $formules, 'fonctionnalite_formule' => $fonctionnalite_formule]);
+        }
+
+        public function update_fonctionnalite_formule(Request $request, $id){
+
+            $fonctionnalite_formule = DB::table('fonctionnalite_formules')->where('id','=',$id)->first();
+             // Vérifiez si une nouvelle image de logo a été téléchargée
+            if ($request->hasFile('image_fonctionnalite')) {
+                // Supprimez l'ancienne image de logo du stockage si nécessaire
+                Storage::delete($fonctionnalite_formule->image_fonctionnalite);
+
+                // Téléchargez et enregistrez la nouvelle image de logo
+                $image_fonctionnalite = $request->file('image_fonctionnalite')->store('images', 'public');
+                $donnee['image_fonctionnalite'] = $image_fonctionnalite;
+            }
+            $donnee['id_formule'] = $request->id_formule;
+            $donnee['libelle_fonctionnalite'] = $request->libelle_fonctionnalite;
+            $donnee['ordre_fonctionnalite'] = $request->ordre_fonctionnalite;
+            $donnee['description_fonctionnalite'] = $request->description_fonctionnalite;
+
+            DB::table('fonctionnalite_formules')->where('id','=', $id)->update($donnee);
+            return redirect()->route('liste_fonctionnalite');
+        }
+    }
+    

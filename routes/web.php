@@ -108,6 +108,8 @@ Route::get('/ajout_galerie', [GalerieController::class, 'ajout_galerie'])->name(
 Route::get('/liste_galerie', [GalerieController::class, 'liste_galerie'])->name("liste_galerie");
 Route::post('/save_galerie',  [GalerieController::class, 'save_galerie'])->name("save_galerie");
 Route::get('/supprime_galerie/{id}',  [GalerieController::class, 'supprime_galerie'])->name("supprime_galerie");
+Route::get('/edit_galerie/{id}',  [GalerieController::class, 'edit_galerie'])->name("edit_galerie");
+Route::post('/update_galerie/{id}',  [GalerieController::class, 'update_galerie'])->name("update_galerie");
 
 // Team
 Route::get('/ajout_team', [TeamController::class, 'ajout_team'])->name("ajout_team");
@@ -127,6 +129,8 @@ Route::get('/liste_formule', [FormuleController::class, 'liste_formule'])->name(
 Route::get('/corbeille_formule', [FormuleController::class, 'corbeille_formule'])->name("corbeille_formule");
 Route::post('/save_formule',  [FormuleController::class, 'save_formule'])->name("save_formule");
 Route::get('/supprime_formule/{id}',  [FormuleController::class, 'supprime_formule'])->name("supprime_formule");
+Route::get('/edit_formule/{id}',  [FormuleController::class, 'edit_formule'])->name("edit_formule");
+Route::post('/update_formule/{id}',  [FormuleController::class, 'update_formule'])->name("update_formule");
 
 // Fonctionnalité
 Route::get('/ajout_fonctionnalite', [FonctionnaliteController::class, 'ajout_fonctionnalite'])->name("ajout_fonctionnalite");
@@ -134,6 +138,8 @@ Route::get('/liste_fonctionnalite', [FonctionnaliteController::class, 'liste_fon
 Route::get('/corbeille_fonctionnalite', [FonctionnaliteController::class, 'corbeille_fonctionnalite'])->name("corbeille_fonctionnalite");
 Route::post('/save_fonctionnalite', [FonctionnaliteController::class, 'save_fonctionnalite'])->name("save_fonctionnalite");
 Route::get('/supprime_fonctionnalite_formule/{id}', [FonctionnaliteController::class, 'supprime_fonctionnalite_formule'])->name("supprime_fonctionnalite_formule");
+Route::get('/edit_fonctionnalite_formule/{id}', [FonctionnaliteController::class, 'edit_fonctionnalite_formule'])->name("edit_fonctionnalite_formule");
+Route::post('/update_fonctionnalite_formule/{id}', [FonctionnaliteController::class, 'update_fonctionnalite_formule'])->name("update_fonctionnalite_formule");
 
 // setting
 Route::get('/setting', [SettingController::class, 'setting'])->name("setting");

@@ -47,8 +47,8 @@ function getMemberByDep($id_dep){
 }
 
 function getSetting($cle){
-   $setting = DB::table('settings')->where('cle', "=", $cle);
-    return $setting;
+   $setting = Setting::where('cle','=',$cle)->first();
+    return $setting->valeur;
 }   
 
 function getSouscategorie($id_categorie){
@@ -80,4 +80,10 @@ function getCategorie($id_categorie){
     $categorie = Categorie::find($id_categorie);
     return $categorie;
 }
+
+
+// function getSetting($cle){
+//     $setting = Setting::find($cle);
+//     return $setting;
+// }
 ?>

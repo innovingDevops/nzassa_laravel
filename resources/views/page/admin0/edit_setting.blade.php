@@ -8,14 +8,18 @@
                   <h5 class="mb-0">Profile Settings</h5>
                 </div>
                 <div class="card-body bg-light">
-                  <form class="row g-3" action="{{ route('save_departement') }}" method="post" enctype="multipart/form-data">
+                  <form class="row g-3" action="{{ route('update_setting',['id' => $setting->id] ) }}" method="post">
                     @csrf
+                    <div class="col-lg-6">
+                      <label class="form-label" for="first-name">Objet </label>
+                      <input name="cle" class="form-control" id="first-name" type="text" value="{{ $setting->cle }}" />
+                    </div>
                     <div class="col-lg-12">
-                      <label class="form-label" for="email3">Departement</label>
-                      <input name="libelle_departement" class="form-control" id="email3" type="text"  />
+                      <label class="form-label" for="email3">Valeur</label>
+                      <input name="valeur" class="form-control" id="email3" type="text" value="{{ $setting->valeur }}" />
                     </div>
                     <div class="col-12 d-flex justify-content-end">
-                      <button class="btn btn-primary" type="submit">Valider</button>
+                      <button class="btn btn-primary" type="submit">Mettre à jour</button>
                     </div>
                   </form>
                 </div>
@@ -50,7 +54,7 @@
               </div>
             </div> --}}
           </div>
-          <div class="card mb-3">
+          {{-- <div class="card mb-3">
             <div class="card-header">
                 <div class="row flex-between-end">
                     <div class="col-auto align-self-center">
@@ -59,7 +63,7 @@
                 </div>
             </div>
           
-            <div class="card-body pt-0">
+            {{-- <div class="card-body pt-0">
                 <div class="tab-content">
                     <div class="tab-pane preview-tab-pane active" role="tabpanel"
                         aria-labelledby="tab-dom-cfcec397-a35c-4994-a54a-50bf30775d88"
@@ -71,24 +75,26 @@
                                     <thead class="bg-200 text-900">
                                         <tr>
                                             <th class="sort" data-sort="name">ID</th>
-                                            <th class="sort" data-sort="email">Departement</th>
-                                            <th class="sort" data-sort="email">Action</th>
+                                            <th class="sort" data-sort="email">Titre</th>
+                                            <th class="sort" data-sort="age">Valeur</th>
+                                            <th class="sort" data-sort="age">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody class="list">
-                                      @foreach ($departements as $departement )
-                                      <tr>
-                                        <td class="name">{{ $departement->id }}</td>
-                                        <td class="email">{{ $departement->libelle_departement }}</td>
-                                        <td class="age">
-                                          <a href="{{ route('supprime_departement', ['id' => $departement->id]) }}" class="btn btn-falcon-primary" type="button">
-                                              <span class="fs-2 text-danger fas fa-trash" data-fa-transform="shrink-3"></span>
+                                      @foreach ($settings as $setting )
+                                        <tr>
+                                          <td class="age">{{ $setting->id }}</td>
+                                          <td class="name">{{ $setting->cle }}</td>
+                                          <td class="name">{{ $setting->valeur }}</td>
+                                          <td class="age">
+                                            <a href="{{ route('supprime_setting', ['id' => $setting->id]) }}" class="btn btn-falcon-primary" type="button">
+                                                <span class="fs-2 text-danger fas fa-trash" data-fa-transform="shrink-3"></span>
+                                            </a>
+                                            <a href="{{ route('edit_setting', ['id' => $setting->id]) }}" class="btn btn-falcon-primary" type="button">
+                                              <span class="fs-2 text-danger fas fa-edit" data-fa-transform="shrink-3"></span>
                                           </a>
-                                          <a href="{{ route('edit_departement', ['id' => $departement->id]) }}" class="btn btn-falcon-primary" type="button">
-                                            <span class="fs-2 text-success fas fa-edit" data-fa-transform="shrink-3"></span>
-                                          </a>
-                                        </td>
-                                    </tr>
+                                          </td>
+                                        </tr>
                                       @endforeach
                                     </tbody>
                                 </table>
@@ -103,8 +109,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-          </div>
+            </div> 
+          </div> --}}
           <footer class="footer">
             <div class="row g-0 justify-content-between fs--1 mt-4 mb-3">
               <div class="col-12 col-sm-auto text-center">

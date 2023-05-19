@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Sous_categorie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -67,6 +69,26 @@ class ArticleController extends Controller
     public function edit_article($id){
         $categories = DB::table('categories')->get();
         $article = Article::find($id);
-        return view("page/admin0/edit_article", ['article' => $article, 'categories' => $categories]);
+        $id_categorie = $article->id_categorie;
+        $sous_categories = DB::table('sous_categories')->where('id_categorie','=',$id_categorie)->get();
+        return view("page/admin0/edit_article", ['article' => $article, 'categories' => $categories, 'sous_categories' => $sous_categories]);
+    }
+
+    public function update_article(Request $request, $id){
+        $article = Article::find($id);
+        if($request->hasFile('image_article')){
+            Storage::delete($article->image_article);
+
+            $path_article = $request->file('image_article')->store('image_article', 'public');
+            $donnee['image_article'] = $path_article;   
+        }
+        $donnee['titre_article'] = $request->titre_article;
+        $donnee['courte_description'] = $request->courte_description;
+        $donnee['id_categorie'] = $request->id_categorie;
+        $donnee['id_sous_categorie'] = $request->id_sous_categorie ?? null;
+
+        $donnee['detail_article'] = $request->detail_article;
+        DB::table('articles')->where('id',$id)->update($donnee);
+        return redirect()->route('liste_article');
     }
 }

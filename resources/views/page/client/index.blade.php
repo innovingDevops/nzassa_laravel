@@ -1,5 +1,6 @@
 @extends('layouts/client_master')
 @section('content')
+
 <style>
 .prod_nzassa {
     font-size: 35px;

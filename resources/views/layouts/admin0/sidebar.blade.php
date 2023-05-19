@@ -28,7 +28,7 @@
                 </a>
                 <!-- parent pages--><a class="nav-link" href="{{route('admin0')}}" role="button">
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                class="fas fa-code-branch"></span></span><span
+                                class="far fa-chart-bar"></span></span><span
                             class="nav-link-text ps-1">Dashboard</span>
                     </div>
                 </a>
@@ -118,7 +118,7 @@
                 <a class="nav-link dropdown-indicator" href="#article" role="button" data-bs-toggle="collapse"
                     aria-expanded="false" aria-controls="components">
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                class="fas fa-puzzle-piece"></span></span><span
+                                class="far fa-newspaper"></span></span><span
                             class="nav-link-text ps-1">Actualité</span>
                     </div>
                 </a>
@@ -223,7 +223,7 @@
                 <a class="nav-link dropdown-indicator" href="#commentaire" role="button" data-bs-toggle="collapse"
                     aria-expanded="false" aria-controls="components">
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                class="fas fa-puzzle-piece"></span></span><span
+                                class="far fa-comments"></span></span><span
                             class="nav-link-text ps-1">commentaires</span>
                     </div>
                 </a>
@@ -278,7 +278,7 @@
                 <a class="nav-link dropdown-indicator" href="#galeries" role="button" data-bs-toggle="collapse"
                     aria-expanded="false" aria-controls="components">
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                class="fas fa-puzzle-piece"></span></span><span
+                                class="far fa-images"></span></span><span
                             class="nav-link-text ps-1">Galeries</span>
                     </div>
                 </a>
@@ -306,7 +306,7 @@
                 <a class="nav-link dropdown-indicator" href="#team" role="button" data-bs-toggle="collapse"
                     aria-expanded="false" aria-controls="components">
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                class="fas fa-puzzle-piece"></span></span><span class="nav-link-text ps-1">Notre
+                                class="fas fa-user-friends"></span></span><span class="nav-link-text ps-1">Notre
                             Team</span>
                     </div>
                 </a>
@@ -333,7 +333,7 @@
                 <!-- Setting -->
                 <a class="nav-link" href="{{route('setting')}}" role="button">
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                class="fas fa-code-branch"></span></span><span class="nav-link-text ps-1">Setting</span>
+                                class="fas fa-setting"></span></span><span class="nav-link-text ps-1">Setting</span>
                     </div>
                 </a>
                 <div class="col ps-0">

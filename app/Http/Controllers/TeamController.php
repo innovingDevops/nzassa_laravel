@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Team;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
+
+use function PHPUnit\Framework\returnSelf;
 
 class TeamController extends Controller
 {
@@ -46,4 +49,26 @@ class TeamController extends Controller
         $team->delete();
         return redirect()->route('liste_team');
     }
+
+    public function edit_team($id){
+        $departements = DB::table('departements')->get();
+        $team = Team::find($id);
+        return view("page/admin0/edit_team", ['team' => $team, 'departements' => $departements]);
+    }
+
+    public function update_team(Request $request, $id){
+        $team = DB::table('teams')->where('id','=',$id)->first();
+        if($request->hasFile('image')){
+            Storage::delete($team->image);
+
+            $image_team = $request->file('image')->store('image_teams', 'public');
+            $donnee['logo_formule'] = $image_team;
+        }
+        $donnee['nom'] = $request->nom;
+        $donnee['fonction'] = $request->fonction;
+        $donnee['id_departement'] = $request->id_departement;
+        DB::table('teams')->where('id','=',$id)->update($donnee);
+        return redirect()->route('liste_team'); 
+    } 
+      
 }

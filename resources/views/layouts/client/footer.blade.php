@@ -12,11 +12,10 @@
                     <div class="col-md-4 text-center">
                         <ul class="social-icons list-unstyled list-inline mb-0">        
                            
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
-							<li class="list-inline-item"><a href="#"><i class="fab fa-google"></i></a></li>
+                            <li class="list-inline-item"><a href="{{ getSetting('facebook') }}"><i class="fab fa-facebook-f"></i></a></li>
+                            <li class="list-inline-item"><a href="{{ getSetting('twitter') }}"><i class="fab fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="{{ getSetting('instagram') }}"><i class="fab fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="{{ getSetting('youtube') }}"><i class="fab fa-youtube"></i></a></li>
                         </ul>
                     </div>
                     <!-- go to top button -->
@@ -59,34 +58,31 @@
         </div>
 
         <!-- menu -->
+        
         <nav>
             <ul class="vertical-menu">
                 <li><a href="index.php">Accueil</a></li>
                 <li class="active">
                     <a href="#">N'ZASSA</a>
                     <ul class="submenu">
-                        <li><a href="index.php#nzassashop">N'ZASSA SHOP</a></li>
-                        <li><a href="index.php#nzassarh&paie">N'ZASSA RH & PAIE</a></li>
-                        <li><a href="index.php#nzassaschool">N'ZASSA SHCOOL</a></li>
-                        <li><a href="index.php#nzassagescom">N'ZASSA GESCOM</a></li>
-                        <li><a href="index.php#nzassabynight">N'ZASSA BYNIGHT</a></li>
+                        @foreach ($formules as $formule)
+                            <li><a href="{{route('home')}}#{{ $formule->nom_formule }}">{{ $formule->nom_formule }}</a></li>
+                        @endforeach
                     </ul>
                 </li>
-                <li><a href="index.php#team">Team</a></li>
-                <li><a href="index.php#galerie">Galerie</a></li>
-                <li><a href="actualite.php">Actualité</a></li>
-                <li><a href="contact.php">Contact</a></li>
+                <li><a href="{{route('home')}}#team">Team</a></li>
+                <li><a href="{{route('home')}}#galerie">Galerie</a></li>
+                <li><a href="{{route('actualite')}}">Actualité</a></li>
+                <li><a href="{{route('contact')}}">Contact</a></li>
             </ul>
         </nav>
 
         <!-- social icons -->
-        <ul class="social-icons list-unstyled list-inline mb-0 mt-auto w-100">
-            <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-            <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-            <li class="list-inline-item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
-            <li class="list-inline-item"><a href="#"><i class="fab fa-medium"></i></a></li>
-            <li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
+        <ul class="social-icons list-unstyled list-inline mb-0">                         
+            <li class="list-inline-item"><a href="{{ getSetting('facebook') }}"><i class="fab fa-facebook-f"></i></a></li>
+            <li class="list-inline-item"><a href="{{ getSetting('twitter') }}"><i class="fab fa-twitter"></i></a></li>
+            <li class="list-inline-item"><a href="{{ getSetting('instagram') }}"><i class="fab fa-instagram"></i></a></li>
+            <li class="list-inline-item"><a href="{{ getSetting('youtube') }}"><i class="fab fa-youtube"></i></a></li>
         </ul>
     </div>
 

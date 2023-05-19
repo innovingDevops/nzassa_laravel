@@ -32,4 +32,16 @@ class SettingController extends Controller
         $setting->delete;
         return redirect()->route("setting");
     }
+    public function edit_setting($id){
+        $setting = Setting::find($id);
+        return view('page/admin0/edit_setting', ['setting' => $setting]);
+    }
+    public function update_setting(Request $request, $id){
+        $setting = Setting::where("id","=",$id)->update(
+            $donnee = [
+            "cle" => $request->cle,
+            "valeur" => $request->valeur,
+        ]);
+        return redirect()->route('setting');
+    }
 }

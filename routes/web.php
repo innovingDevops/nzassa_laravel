@@ -91,6 +91,8 @@ Route::get('/liste_article', [ArticleController::class, 'liste_article'])->name(
 Route::get('/corbeille_article', [ArticleController::class, 'corbeille_article'])->name("corbeille_article");
 Route::post('/save_article',  [ArticleController::class, 'save_article'])->name("save_article");
 Route::get('/supprime_article/{id}', [ArticleController::class, 'supprime_article'])->name("supprime_article");
+Route::get('/edit_article/{id}', [ArticleController::class, 'edit_article'])->name("edit_article");
+Route::post('/update_article/{id}', [ArticleController::class, 'update_article'])->name("update_article");
 
 // Devis
 Route::get('/liste_devis_valide', [DevisController::class, 'liste_devis_valide'])->name("liste_devis_valide");
@@ -116,12 +118,16 @@ Route::get('/ajout_team', [TeamController::class, 'ajout_team'])->name("ajout_te
 Route::get('/liste_team', [TeamController::class, 'show_team'])->name("liste_team");
 Route::post('/save_team', [TeamController::class, 'save_team'])->name("save_team");
 Route::get('/supprime_team/{id}', [TeamController::class, 'supprime_team'])->name("supprime_team");
+Route::get('/edit_team/{id}', [TeamController::class, 'edit_team'])->name("edit_team");
+Route::post('/update_team/{id}', [TeamController::class, 'update_team'])->name("update_team");
 
 // Departement 
 Route::get('/ajout_departement', [DepartementController::class, 'ajout_departement'])->name("ajout_departement");
 Route::get('/liste_departement', [DepartementController::class, 'liste_departement'])->name("liste_departement");
 Route::post('/save_departement', [DepartementController::class, 'save_departement'])->name("save_departement");
 Route::get('/supprime_departement/{id}', [DepartementController::class, 'supprime_departement'])->name("supprime_departement");
+Route::get('/edit_departement/{id}', [DepartementController::class, 'edit_departement'])->name("edit_departement");
+Route::post('/update_departement/{id}', [DepartementController::class, 'update_departement'])->name("update_departement");
 
 // Formule 
 Route::get('/ajout_formule', [FormuleController::class, 'ajout_formule'])->name("ajout_formule");
@@ -145,5 +151,7 @@ Route::post('/update_fonctionnalite_formule/{id}', [FonctionnaliteController::cl
 Route::get('/setting', [SettingController::class, 'setting'])->name("setting");
 Route::post('/save_setting', [SettingController::class, 'save_setting'])->name("save_setting");
 Route::post('/supprime_setting/{id}', [SettingController::class, 'supprime_setting'])->name("supprime_setting");
+Route::get('/edit_setting/{id}', [SettingController::class, 'edit_setting'])->name("edit_setting");
+Route::post('/update_setting/{id}', [SettingController::class, 'update_setting'])->name("update_setting");
 
 

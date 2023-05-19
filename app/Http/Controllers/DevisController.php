@@ -2,14 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
+use App\Models\Categorie;
+use App\Models\Departement;
+use App\Models\Sous_categorie;
 use Illuminate\Http\Request;
 use App\Models\Devis;
+use App\Models\Formule;
+use App\Models\Galerie;
+use App\Models\Team;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 class DevisController extends Controller
 {
     public function admin0 (){
-        return view("page/admin0/index");
+        $categories = Categorie::all()->count();
+        $sous_categories = Sous_categorie::all()->count();
+        $articles = Article::all()->count();
+        $formules = Galerie::all()->count();
+        $teams = Team::all()->count();
+        $departements = Departement::all()->count();
+        $devis = Devis::all()->count();
+        $galeries = Galerie::all()->count();
+        
+        return view("page/admin0/index", 
+            [
+                'categories' => $categories,
+                'sous_categories' => $sous_categories,
+                'articles' => $articles,
+                'formules' => $formules,
+                'teams' => $teams,
+                'departements' => $departements,
+                'galeries' => $galeries,
+            ]);
     }
     public function liste_devis_valide(){
         return view("page/admin0/liste_devis_valide");

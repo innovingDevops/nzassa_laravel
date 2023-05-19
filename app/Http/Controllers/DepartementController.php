@@ -36,4 +36,15 @@ class DepartementController extends Controller
             return redirect()->route("ajout_departement");
         }
 
+        public function edit_departement($id){
+            $departement = Departement::find($id);
+            return view('page/admin0/edit_departement', ['departement' => $departement]);
+        }
+        public function update_departement(Request $request,$id){
+            $departement = Departement::where("id","=",$id)->update(
+                $donnee = [
+                "libelle_departement" => $request->libelle_departement,
+            ]);
+            return redirect()->route('ajout_departement');
+        }
 }

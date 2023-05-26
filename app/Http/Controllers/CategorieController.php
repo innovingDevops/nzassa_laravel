@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Categorie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Session;
 
 
 class CategorieController extends Controller
@@ -25,8 +26,10 @@ class CategorieController extends Controller
             "description_categorie" => $request->description_categorie,
         ];
         Categorie::create($donnee);
-        // return redirect()->route('liste_categorie');
-        return $this->liste_categorie();
+        
+        Session::flash('success', 'La catégorie a été ajoutée avec succès.');
+        return redirect()->route('ajout_categorie')->with('success', 'La catégorie a été ajoutée avec succès.');
+        // return $this->liste_categorie();
     }
 
     public function liste_categorie(): View{
@@ -41,7 +44,6 @@ class CategorieController extends Controller
         $categorie_id = Categorie::find($id);
         //Cette ligne de code utilise la relation articles() définie dans le modèle Categorie pour récupérer les articles liés à cette catégorie
         $articles = $categorie_id->articles()->paginate(4);
-
         // j'utilise cette ligne pour recupérer la liste des catégories. 
         $categories = DB::table('categories')->get();
         

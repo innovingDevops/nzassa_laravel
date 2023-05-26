@@ -22,6 +22,11 @@
 	<link rel="stylesheet" href="{{ asset('client/css/slick.css') }}" type="text/css" media="all">
 	<link rel="stylesheet" href="{{ asset('client/css/simple-line-icons.css') }}" type="text/css" media="all">
 	<link rel="stylesheet" href="{{ asset('client/css/style.css') }}" type="text/css" media="all">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+	
+
+	
 	
 	<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -90,10 +95,10 @@
 							</ul>
 						</li>
 						<li class="nav-item ">
-							<a class="nav-link" href="{{route('home')}}#team">Team</a>
-						</li>
-						<li class="nav-item ">
 							<a class="nav-link" href="{{route('home')}}#galerie">Galerie</a>
+						</li>
+						<li class="nav-item {{ (Route::currentRouteName() == 'team_interface_client') ? 'active':''}}">
+							<a class="nav-link" href="{{route('team_interface_client')}}">Team</a>
 						</li>
 						<li class="nav-item {{ (Route::currentRouteName() == 'actualite') ? 'active':''}}">
 							<a class="nav-link" href="{{route('actualite')}}">Actualité</a>

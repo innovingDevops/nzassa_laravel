@@ -80,39 +80,25 @@
 			<div class="row gy-4">
 	
 				<div class="col-lg-12">
-	
-					<!-- section header -->
-					<div class="section-header">
-						<h3 class="section-title">Commentaires </h3>
-						<img src="{{ asset('client/images/wave.svg') }}" class="wave" alt="wave" />
-					</div>
-					<!-- post comments -->
-					<div class="comments bordered padding-30 rounded">
-	
-						<ul class="comments">
-							<?php 
-							$cpt = 0;
-							?>
-							@foreach ($commentaires as $commentaire )
-								 <!-- comment item -->
-								<?php if($cpt % 2==0){ ?>
-									<li class="comment rounded">
-										<div class="thumb">
-											{{-- <img src="images/other/comment-2.png" alt="John Doe" /> --}}
-											<i style="font-size: 60px" class="far fa-user-circle"></i>
-										</div>
-										<div class="details">
-											<h4 class="name"><a href="#">{{ $commentaire->nom }}</a></h4>
-											<span class="date">{{ $commentaire->created_at }}</span>
-											<p>{{ $commentaire->commentaire }}</p>
-											<a href="#" class="btn btn-default btn-sm">Reply</a>
-										</div>
-									</li>
-									<?php $cpt++; ?>
-								<?php }else  {?>
-										<!-- comment item -->
-										<li class="comment child rounded">
+					@if($article->id)
+						<!-- section header -->
+						<div class="section-header">
+							<h3 class="section-title">Commentaires </h3>
+							<img src="{{ asset('client/images/wave.svg') }}" class="wave" alt="wave" />
+						</div>
+						<!-- post comments -->
+						<div class="comments bordered padding-30 rounded">
+		
+							<ul class="comments">
+								<?php 
+								$cpt = 0;
+								?>
+								@foreach ($commentaires as $commentaire )
+									<!-- comment item -->
+									<?php if($cpt % 2==0){ ?>
+										<li class="comment rounded">
 											<div class="thumb">
+												{{-- <img src="images/other/comment-2.png" alt="John Doe" /> --}}
 												<i style="font-size: 60px" class="far fa-user-circle"></i>
 											</div>
 											<div class="details">
@@ -122,12 +108,26 @@
 												<a href="#" class="btn btn-default btn-sm">Reply</a>
 											</div>
 										</li>
-								<?php $cpt++; ?>
-								<?php } ?>
-							@endforeach
-						</ul>
-					</div>
-	
+										<?php $cpt++; ?>
+									<?php }else  {?>
+											<!-- comment item -->
+											<li class="comment child rounded">
+												<div class="thumb">
+													<i style="font-size: 60px" class="far fa-user-circle"></i>
+												</div>
+												<div class="details">
+													<h4 class="name"><a href="#">{{ $commentaire->nom }}</a></h4>
+													<span class="date">{{ $commentaire->created_at }}</span>
+													<p>{{ $commentaire->commentaire }}</p>
+													<a href="#" class="btn btn-default btn-sm">Reply</a>
+												</div>
+											</li>
+									<?php $cpt++; ?>
+									<?php } ?>
+								@endforeach
+							</ul>
+						</div>
+					@endif
 					<div class="spacer" data-height="50"></div>
 	
 					<!-- section header -->

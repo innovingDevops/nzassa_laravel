@@ -23,6 +23,7 @@
     <link rel="manifest" href="{{asset('admin/assets/img/favicons/manifest.json')}}">
     <link href="{{asset('admin/vendors/dropzone/dropzone.min.css')}}" rel="stylesheet" />
     <meta name="msapplication-TileImage" content="{{asset('admin/assets/img/favicons/mstile-150x150.png')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <meta name="theme-color" content="#ffffff">
     <script src="{{asset('admin/assets/js/config.js')}}"></script>
     <script src="{{asset('admin/vendors/simplebar/simplebar.min.js')}}"></script>

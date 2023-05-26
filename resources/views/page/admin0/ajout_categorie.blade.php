@@ -1,5 +1,10 @@
 @extends('layouts/admin_master')
 @section('content')
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 
     <div class="card mb-3">
         <div class="card-header">
@@ -18,12 +23,12 @@
                         @csrf
                         <div class="mb-3">
                             <label class="form-label" for="basic-form-name">Créer une Catégorie</label>
-                            <input name="nom_categorie" class="form-control"  id="basic-form-name" type="text" placeholder="business" />
+                            <input name="nom_categorie" class="form-control"  id="basic-form-name" type="text" placeholder="business" required/>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="basic-form-textarea">Description</label>
                             <textarea name="description_categorie" class="form-control" id="basic-form-textarea" rows="3"
-                                placeholder="Description"></textarea>
+                                placeholder="Description" required></textarea>
                         </div>
                         <button class="btn btn-primary" type="submit">Submit</button>
                     </form>
@@ -31,4 +36,5 @@
             </div>
         </div>
     </div>
+   
     @endsection

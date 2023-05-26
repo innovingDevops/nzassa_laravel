@@ -1,6 +1,10 @@
 @extends('layouts/admin_master')
 @section('content')
-
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
           <div class="row g-0">
             <div class="col-lg-12 pe-lg-2">
               <div class="card mb-3">
@@ -12,7 +16,7 @@
                     @csrf
                     <div class="col-lg-12">
                       <label class="form-label" for="email3">Departement</label>
-                      <input name="libelle_departement" class="form-control" id="email3" type="text"  />
+                      <input name="libelle_departement" class="form-control" id="email3" type="text" required />
                     </div>
                     <div class="col-12 d-flex justify-content-end">
                       <button class="btn btn-primary" type="submit">Valider</button>

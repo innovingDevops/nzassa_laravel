@@ -7,6 +7,7 @@ use App\Models\Fonctionnalite_formule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Session;
 
 class FonctionnaliteController extends Controller
 {
@@ -43,7 +44,8 @@ class FonctionnaliteController extends Controller
             'description_fonctionnalite' => $request->description_fonctionnalite,
         ];
         Fonctionnalite_formule::create($donnee);
-        return redirect()->route("liste_fonctionnalite");
+        Session::flash('success', 'La fonctionnalité a été ajoutée avec succès.');
+        return redirect()->route('ajout_fonctionnalite')->with('success', 'La fonctionnalité a été ajoutée avec succès.');
         // return $this->liste_fonctionnalite();
     }
     // public function show_fonctionnalite(): View{

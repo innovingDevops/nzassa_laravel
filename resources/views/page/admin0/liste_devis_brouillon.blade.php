@@ -50,6 +50,9 @@
                                             <a href="{{ route('supprime_devis',['id' => $devis->id]) }}" class="btn btn-falcon-primary" type="button">
                                                 <span class="fs-2 text-danger fas fa-trash" data-fa-transform="shrink-3"></span>
                                             </a>
+                                            {{-- <a href="{{ route('approuver_devis',['id' => $devis->id]) }}" class="btn btn-falcon-primary" title="Approuver" type="button">
+                                                <span class="fs-2 text-success fas fa-check-square" data-fa-transform="shrink-3"></span>
+                                            </a> --}}
                                         </td>
                                     </tr>
                                     @endforeach

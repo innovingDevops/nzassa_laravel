@@ -36,10 +36,13 @@
                                         <td class="name">{{ $comment->nom }}</td>
                                         <td class="name">{{ $comment->email }}</td>
                                         <td class="age">
-                                            <a href="{{ route('supprime_commentaire',['id' => $comment->id]) }}" class="btn btn-falcon-primary" type="button">
+                                            <a href="{{ route('supprime_commentaire',['id' => $comment->id]) }}" title="Supprimer" class="btn btn-falcon-primary" type="button">
                                                 <span class="fs-2 text-danger fas fa-trash" data-fa-transform="shrink-3"></span>
                                             </a>
-                                        </td>
+                                            <a href="{{ route('approuver_commentaire',['id' => $comment->id]) }}" class="btn btn-falcon-primary" title="Approuver" type="button">
+                                                <span class="fs-2 text-success fas fa-check-square" data-fa-transform="shrink-3"></span>
+                                            </a>
+                                        </td>           
                                     </tr>
                                     @endforeach  
                                 </tbody>

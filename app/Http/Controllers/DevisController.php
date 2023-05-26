@@ -11,8 +11,14 @@ use App\Models\Devis;
 use App\Models\Formule;
 use App\Models\Galerie;
 use App\Models\Team;
+use GuzzleHttp\Psr7\Message;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
+
+
+
 class DevisController extends Controller
 {
     public function admin0 (){
@@ -40,7 +46,6 @@ class DevisController extends Controller
         return view("page/admin0/liste_devis_valide");
     }
 
-
     public function contact(){
         $formules = DB::table('formules')->get();
         return view("page/client/contact", ['formules' => $formules]);
@@ -60,9 +65,33 @@ class DevisController extends Controller
             "commentaire" => $request->commentaire,
         ];
         Devis::create($donnee);
-        return redirect()->route('contact');
-    }
 
+        $request->validate([
+            'nom_prenom' => 'required',
+            'nom_societe' => 'required',
+            'nombre_employe' => 'required',
+            'secteur_activite' => 'required',
+            'email' => 'required|email',
+            'contact' => 'required',
+            'formule' => 'required',
+            'commentaire' => 'required',
+        ]);
+        $mail_data = [
+            'recipient' => 'koffimarc588@gmail.com',
+            'fromEmail' => $request->email,
+            'fromName' => $request->nom_prenom,
+            'subject' => $request->subject,
+            'body' => $request->commentaire,
+        ];
+        Mail::send('page/client/email-template',$mail_data, function($message) use ($mail_data){
+            $message->to($mail_data['recipient'])
+                    ->from($mail_data['fromEmail'],$mail_data['fromName'])
+                    ->replyTo($mail_data['fromEmail'])
+                    ->subject($mail_data['subject']);
+                });
+                Session::flash('success', 'Votre mail à bien été envoyé');
+                return redirect()->route('contact')->with('success', 'Votre mail à bien été envoyé');
+    }
     public function liste_devis_brouillon():View{
         $devis = DB::table('devis')->get();
         return view("page/admin0/liste_devis_brouillon", ['devis' => $devis]);

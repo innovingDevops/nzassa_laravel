@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use App\Models\Sous_categorie;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Session;
 
 class ArticleController extends Controller
 {
@@ -30,7 +31,7 @@ class ArticleController extends Controller
         $article = Article::find($request->id);
         $formules = DB::table('formules')->get();
         $categories = DB::table('categories')->get();
-        $commentaires = DB::table('commentaires')->get();
+        $commentaires = DB::table('commentaires')->where('status',1)->get();
         return view("page/client/blog", ['formules' => $formules, 'article' => $article, 'categories' => $categories, 'commentaires' => $commentaires]);
     }
 
@@ -56,7 +57,8 @@ class ArticleController extends Controller
             "image_article" => $path,
         ];
         Article::create($donnee);
-        return redirect()->route('liste_article');
+        Session::flash('success', 'L\'article a été ajoutée avec succès.');
+        return redirect()->route('ajout_article')->with('success', 'L\'article a été ajoutée avec succès.');
         // return $this->liste_article();
     }
 
@@ -91,4 +93,5 @@ class ArticleController extends Controller
         DB::table('articles')->where('id',$id)->update($donnee);
         return redirect()->route('liste_article');
     }
+
 }

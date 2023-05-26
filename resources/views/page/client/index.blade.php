@@ -52,14 +52,14 @@
                     <!-- post -->
                     <div class='post featured-post-xl'>
                         <div class='details clearfix'>
-                            <a href='category.html' class='category-badge lg'>N'zassa</a>
+                            <a href='#' class='category-badge lg'>N'zassa</a>
                             <h4 class="post-title"><a href="blog-single.html">N'Zassa Shop</a></h4>
                             <ul class='meta list-inline mb-0'>
                                 <li class='list-inline-item'><a href='#'>Katen Doe</a></li>
                                 <li class='list-inline-item'>29 March 2021</li>
                             </ul>
                         </div>
-                        <a href='blog-single.html'>
+                        <a href='#'>
                             <div class='thumb rounded'>
                                 <div class='inner data-bg-image' data-bg-image="{{asset('client/images/bg1.jpg')}}">
                                 </div>
@@ -143,12 +143,16 @@
 <!-- les produits N'Zassa -->
 
 @include('../../layouts/client/produit_nzassa')
+@php
+{{ $cpt=0;  }}
+@endphp
 
 @foreach ($formules as $formule )
 
-<div class="" data-height="50" id="{{ $formule->nom_formule }}"></div>
+<div class="m-5" data-height="50" id="{{ $formule->nom_formule }}"></div>
 <!-- Tous les produits n'zassa présentés -->
-<section class='main-content'>
+
+<section class='main-content' style="background-image:url('{{ asset('admin/assets/img/corner-1.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class='container-xl'>
         <div class='row gy-4'>
             <div class='col-lg-12'>
@@ -157,7 +161,78 @@
                     <h3 class='title text-center'>{{ $formule->nom_formule }}</h3>
                 </div>
                 <div class="padding-30 rounded bordered">
-                    <div class="row gy-5">
+                    <div class="row gy-5 ">
+                        @if($cpt%2==0) 
+                        <div class="col-sm-6">
+                            <!-- post -->
+                            <div class="post">
+                                <div class="thumb rounded">
+                                    {{-- <a href="category.html" class="category-badge position-absolute">- 50%</a> --}}
+                                    {{-- <span class="post-format">
+                                        <i class="icon-picture"></i>
+                                    </span> --}}
+                                    
+                                        <div class="inner " >
+                                            <img src="{{ asset('storage/'.$formule->image_formule) }}" alt="post-title" />
+                                        </div>
+                                </div>
+                                {{-- <ul class="meta list-inline mt-4 mb-0">
+                                    <li class="list-inline-item"><a href="#"><img src="{{asset('client/images/other/author-sm.png')}}" class="author" alt="author" />Katen Doe</a></li>
+                                    <li class="list-inline-item">29 March 2021</li>
+                                </ul> --}}
+                                <h5 class="post-title mb-3 mt-3">{{ $formule->titre_formule }}</h5>
+                                <p class="excerpt mb-0">{{ $formule->description_formule }}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <!-- post -->
+                            @foreach (getFonctionnalite($formule->id) as $item)
+                            <div class="post post-list-sm square">
+                                <div class="thumb rounded">
+                                    <div class="inner">
+                                        <img src="{{ asset('storage/'.$formule->image_formule) }}" alt="post-title" />
+                                    </div>
+                                </div>
+                                <div class="details clearfix">
+                                    <h6 class="post-title my-0">
+                                        <a href="blog-single.html">{{ $item->libelle_fonctionnalite }}</a>
+                                    </h6>
+                                    <ul class="meta list-inline mt-1 mb-0">
+                                        <li class="list-inline-item">{{ $item->description_fonctionnalite }}</li>
+                                    </ul>
+                                </div>
+                            </div>   
+                            @endforeach
+                        </div>
+                        @php
+                            {{ $cpt++; }}
+                        @endphp
+                        @else 
+                        <div class="col-sm-6">
+                            <!-- post -->
+                            @foreach (getFonctionnalite($formule->id) as $item)
+                            <div class="post post-list-sm square">
+                                <div class="thumb rounded">
+                                    
+                                        <div class="inner">
+                                            <img src="{{ asset('storage/'.$formule->image_formule) }}" alt="post-title" />
+                                        </div>
+                                  
+                                </div>
+                                <div class="details clearfix">
+                                    <h6 class="post-title my-0">
+                                        <a>{{ $item->libelle_fonctionnalite }}</a>
+                                    </h6>
+                                    <ul class="meta list-inline mt-1 mb-0">
+                                        <li class="list-inline-item">{{ $item->description_fonctionnalite }}</li>
+                                    </ul>
+                                </div>
+                            </div>   
+                            @php
+                                {{ $cpt++; }}
+                            @endphp
+                            @endforeach
+                        </div>
                         <div class="col-sm-6">
                             <!-- post -->
                             <div class="post">
@@ -181,57 +256,35 @@
                                 <p class="excerpt mb-0">{{ $formule->description_formule }}</p>
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                            <!-- post -->
-                            @foreach (getFonctionnalite($formule->id) as $item)
-                            <div class="post post-list-sm square">
-                                <div class="thumb rounded">
-                                    <a href="blog-single.html">
-                                        <div class="inner">
-                                            <img src="{{ asset('storage/'.$formule->image_formule) }}" alt="post-title" />
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="details clearfix">
-                                    <h6 class="post-title my-0">
-                                        <a href="blog-single.html">{{ $item->libelle_fonctionnalite }}</a>
-                                    </h6>
-                                    <ul class="meta list-inline mt-1 mb-0">
-                                        <li class="list-inline-item">{{ $item->description_fonctionnalite }}</li>
-                                    </ul>
-                                </div>
-                            </div>   
-                            @endforeach
-                        </div>
+                        @php
+                            {{ $cpt++; }}
+                        @endphp
+                        @endif 
                     </div>
                 </div>
             </div>
         </div>
 </section>
-@endforeach
-<!-- notre team  -->
-<div class="" data-height="50" id="team"></div>
-<h3 class="section-title text-center prod_nzassa  m-5"> La Team Innoving</h3>
-@include('layouts/client/team')
 
+@endforeach
+
+    
 <!-- Notre Galerie -->
 <div class="" data-height="50" id="galerie"></div>
 <h3 class="section-title text-center prod_nzassa m-5 "> La galerie Innoving</h3>
 <section class="hero-carousel m-5">
     <div class="row post-carousel-featured post-carousel ">
         @foreach ($galeries as $galerie )
-        <div class="post featured-post-md img_galerie">
+        <div class="post">
             <div class=" rounded">
                 <div class="inner data-bg-image" data-bg-image="{{asset('storage/.$galerie->image_galerie')}}">
-                    <img src="{{ asset('storage/'.$galerie->image_galerie) }}" alt="" style="width:260px; height:250px; border: 1px solid #ff3100; border-radius: 10px;">
+                    <img src="{{ asset('storage/'.$galerie->image_galerie) }}" alt="" style="width:260px; height:250px; border-radius: 10px;">
                 </div>
             </div>
         </div>
         @endforeach
     </div>
 </section>
-
-
 
 <!-- Les témoignages  -->
 <h3 class="section-title text-center prod_nzassa m-5 "> Les Témoignages </h3>
@@ -241,35 +294,35 @@
             <div class="col-lg-12">
                 <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner monElement">
-                        <div class="carousel-item active">
-                            <div class="card mb-3 shadow-sm">
-                                <div class="row g-0 m-2 align-items-center">
-                                    <div class="thumb col-4">
-                                        <img class="img_team" src="{{asset('client/images/team/ARIEL.jpg')}}" alt="John Doe" />
+                        @foreach ($temoignages as $key => $temoignage )
+                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}" >
+                                {{-- <div  class="card mb-3 shadow-sm">
+                                    <div class="row g-0 m-2 align-items-center">
+                                        <div class="thumb col-4">
+                                            <img class="img_team" src="{{asset('storage/'.$temoignage->image_temoignage)}}" alt="{{ $temoignage->nom_temoignage}}" />
+                                        </div>
+                                        <div class="details col-8">
+                                            <h4 class="name mb-0"><a href="#">{{ $temoignage->nom_temoignage}}</a></h4>
+                                            <small class="text-muted date">{{ $temoignage->profession_temoignage }}</small>
+                                            <p class="mt-2 mb-0">{{ $temoignage->detail_temoignage }}</p>
+                                        </div>
                                     </div>
-                                    <div class="details col-8">
-                                        <h4 class="name mb-0"><a href="#">John Doe</a></h4>
-                                        <small class="text-muted date">Jan 08, 2021 14:41 pm</small>
-                                        <p class="mt-2 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae odio ut tortor fringilla cursus sed quis odio.</p>
+                                </div> --}}
+                                <div class="card bg-dark text-white overflow-hidden light" style="max-width: 30rem;">
+                                    <div class="card-img-top"><img class="img-fluid" src="{{asset('storage/'.$temoignage->image_temoignage)}}" alt="Card image" /></div>
+                                    <div class="card-img-overlay d-flex align-items-end">
+                                      <div>
+                                        <h4  class="card-title text-white">{{ $temoignage->nom_temoignage}}</h4>
+                                        <h5 class="card-title text-white">{{ $temoignage->profession_temoignage }}</h5>
+                                        <p class="card-text">{{ $temoignage->detail_temoignage }}</p>
+                                      </div>
                                     </div>
-                                </div>
+                                  </div>
                             </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="card mb-3 shadow-sm">
-                                <div class="row g-0 m-2 align-items-center">
-                                    <div class="thumb col-4">
-                                        <img class="img_team" src="{{asset('client/images/team/marc.jpg')}}" alt="John Doe" />
-                                    </div>
-                                    <div class="details col-8">
-                                        <h4 class="name mb-0"><a href="#">John Doe</a></h4>
-                                        <small class="text-muted date">Jan 08, 2021 14:41 pm</small>
-                                        <p class="mt-2 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae odio ut tortor fringilla cursus sed quis odio.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            
+                        @endforeach
                     </div>
+                    
                     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
@@ -286,17 +339,15 @@
 <!-- Nos Partenaires   -->
 <h3 class="section-title text-center prod_nzassa m-2 "> Nos Partenaires</h3>
 <section class="hero-carousel m-5">
-
     <div class="row post-carousel-featured post-carousel">
-
-        <div class="post featured-post-md">
-            <a href="blog-single.html">
+        @foreach ($partenaires as $partenaire)
+            <div class="post featured-post-md">
                 <div class=" rounded">
-                    <img src="{{asset('client/images/partenaire/1.jpeg')}}" alt="">
+                    <img src="{{ asset('storage/'.$partenaire->image_partenaire) }}" alt="">
                 </div>
-            </a>
-        </div>
-
+            </div>
+        @endforeach
+    {{-- 
         <div class="post featured-post-md">
 
             <a href="blog-single.html">
@@ -368,7 +419,8 @@
                     <img src="{{asset('client/images/partenaire/6.jpeg')}}" alt="">
                 </div>
             </a>
-        </div>
+        </div> 
+    --}}
     </div>
 </section>
 

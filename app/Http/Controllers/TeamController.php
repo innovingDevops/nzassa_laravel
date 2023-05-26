@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Team;
+use App\Models\Departement;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Session;
 
 use function PHPUnit\Framework\returnSelf;
 
@@ -35,7 +37,8 @@ class TeamController extends Controller
             "id_departement" => $request->id_departement,
         ];
         Team::create($donnee);
-        return redirect()->route('liste_team');
+        Session::flash('success', 'Vous venez d\'ajouter un membre de la team Innoving.');
+        return redirect()->route('ajout_team')->with('success', 'Vous venez d\'ajouter un membre de la team Innoving.');
         // return $this->show_team();
     }
        // récupération données 
@@ -70,5 +73,23 @@ class TeamController extends Controller
         DB::table('teams')->where('id','=',$id)->update($donnee);
         return redirect()->route('liste_team'); 
     } 
-      
+
+
+    public function team_interface_client (){
+        $teams = Team::paginate(4);
+        $departements = DB::table('departements')->get();
+        $formules = DB::table('formules')->get();
+        return view("page/client/team_interface_client", ['teams' => $teams, 'departements' => $departements, 'formules' => $formules]);
+    }
+
+    public function teambydep($id)
+{
+    $formules = DB::table('formules')->get();
+    $id_departement = Departement::find($id);
+    $teams = $id_departement->teams ()->paginate(6);
+    $departements = DB::table('departements')->get();
+
+    return view('page/client/teambydep', ['formules' => $formules,'id_departement' => $id_departement, 'teams' => $teams, 'departements' => $departements]);
+    
+}     
 }

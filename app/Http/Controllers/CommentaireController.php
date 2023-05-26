@@ -9,9 +9,9 @@ use Illuminate\View\View;
 class CommentaireController extends Controller
 {
     public function liste_commentaire_valide(){
-        return view("page/admin0/liste_commentaire_valide");
+        $comments = DB::table('commentaires')->where('status',1)->get();
+        return view("page/admin0/liste_commentaire_valide", ['comments' => $comments]);
     }
-
 
     public function blog():View{
         return view("page/client/blog");
@@ -24,7 +24,7 @@ class CommentaireController extends Controller
                 "commentaire" => $request->commentaire,
                 "email" => $request->email,
                 "nom" => $request->nom,
-                "status" => 1,
+                "status" => 0,
             ];
         Commentaire::create($donnee);
         $commentaires = DB::table('commentaires')->get();
@@ -32,13 +32,21 @@ class CommentaireController extends Controller
     }
 
     public function liste_commentaire_brouillon(){
-        $comments = DB::table('commentaires')->get();
+        $comments = DB::table('commentaires')->where('status',0)->get();
         return view("page/admin0/liste_commentaire_brouillon", ['comments' => $comments]);
     }
 
     public function supprime_commentaire($id){
         $commentaires = Commentaire::find($id);
         $commentaires->delete();
+        return redirect()->route('liste_commentaire_brouillon');
+    }
+
+    public function approuver_commentaire($id){
+        $commentaire = Commentaire::find($id);
+        
+        $donnee['status'] = 1;
+        DB::table('commentaires')->where('id',$id)->update($donnee);
         return redirect()->route('liste_commentaire_brouillon');
     }
 }

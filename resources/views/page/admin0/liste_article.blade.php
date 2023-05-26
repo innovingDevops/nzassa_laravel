@@ -62,6 +62,9 @@
                                             <a href="{{ route('edit_article', ['id' => $article->id]) }}" class="btn btn-falcon-primary" type="button">
                                                  <span class="fs-2 text-success fas fa-edit" data-fa-transform="shrink-3"></span>
                                             </a>
+                                            {{-- <a href="" class="btn btn-falcon-primary" type="button">
+                                                <span class="fs-2 text-warning fas fa-archive" data-fa-transform="shrink-3"></span>
+                                            </a> --}}
                                         </td>
                                     </tr>
                                     @endforeach 

@@ -32,13 +32,8 @@
                             class="nav-link-text ps-1">Dashboard</span>
                     </div>
                 </a>
-                <!-- label-->
-                <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
-                    <div class="col-auto navbar-vertical-label">Modules
-                    </div>
-                    <div class="col ps-0">
-                        <hr class="mb-0 navbar-vertical-divider" />
-                    </div>
+                <div class="col ps-0">
+                    <hr class="mb-0 navbar-vertical-divider" />
                 </div>
 
                 <!-- Creation de Catégorie -->
@@ -302,6 +297,34 @@
                 <div class="col ps-0">
                     <hr class="mb-0 navbar-vertical-divider" />
                 </div>
+                <!-- Nos Partenaires  -->
+                <a class="nav-link dropdown-indicator" href="#partenaire" role="button" data-bs-toggle="collapse"
+                    aria-expanded="false" aria-controls="components">
+                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                                class="far fa-images"></span></span><span
+                            class="nav-link-text ps-1">Partenaires</span>
+                    </div>
+                </a>
+                <ul class="nav collapse" id="partenaire">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('ajout_partenaire')}}">
+                            <div class="d-flex align-items-center">
+                                <span class="nav-link-text ps-1">Ajouter une images</span>
+                            </div>
+                        </a>
+                        <!-- more inner pages-->
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('liste_partenaire')}}">
+                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Voir mes partenaires
+                                </span>
+                            </div>
+                        </a>
+                        <!-- more inner pages-->
+                    </li>
+                </ul>
+                <div class="col ps-0">
+                    <hr class="mb-0 navbar-vertical-divider" />
+                </div>
                 <!-- Notre team  -->
                 <a class="nav-link dropdown-indicator" href="#team" role="button" data-bs-toggle="collapse"
                     aria-expanded="false" aria-controls="components">
@@ -327,6 +350,35 @@
                         <!-- more inner pages-->
                     </li>
                 </ul>
+
+                <div class="col ps-0">
+                    <hr class="mb-0 navbar-vertical-divider" />
+                </div>
+                <!-- Temoignage  -->
+                <a class="nav-link dropdown-indicator" href="#temoignage" role="button" data-bs-toggle="collapse"
+                    aria-expanded="false" aria-controls="components">
+                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                                class="fas fa-user-friends"></span></span><span class="nav-link-text ps-1">Notre
+                        Témoignage</span>
+                    </div>
+                </a>
+                <ul class="nav collapse" id="temoignage">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('ajout_temoignage')}}">
+                            <div class="d-flex align-items-center">
+                                <span class="nav-link-text ps-1">Ajouter un Témoignage</span>
+                            </div>
+                        </a>
+                        <!-- more inner pages-->
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('liste_temoignage')}}">
+                            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Voir les
+                                Temoignages</span>
+                            </div>
+                        </a>
+                        <!-- more inner pages-->
+                    </li>
+                </ul>
                 <div class="col ps-0">
                     <hr class="mb-0 navbar-vertical-divider" />
                 </div>
@@ -339,7 +391,7 @@
                 <div class="col ps-0">
                     <hr class="mb-0 navbar-vertical-divider" />
                 </div>
-                <!-- Setting -->
+                
                 <a class="nav-link" href="{{route('ajout_departement')}}" role="button">
                     <div class="d-flex align-items-center">
                         <span class="nav-link-icon">
@@ -348,6 +400,9 @@
                         <span class="nav-link-text ps-1">Departement</span>
                     </div>
                 </a>
+                <div class="col ps-0">
+                    <hr class="mb-0 navbar-vertical-divider" />
+                </div>
                 </li>
             </ul>
         </div>

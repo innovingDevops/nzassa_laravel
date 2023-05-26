@@ -57,23 +57,18 @@
                                 </div>
                                 <div class="post-bottom clearfix d-flex align-items-center">
                                     <div class="social-share me-auto">
-                                        <button class="toggle-button icon-share"></button>
-                                        <ul class="icons list-unstyled list-inline mb-0">
-                                            <li class="list-inline-item"><a href="{{route('blog')}}#"><i class="fab fa-facebook-f"></i></a>
-                                            </li>
-                                            <li class="list-inline-item"><a href="{{route('blog')}}#"><i class="fab fa-twitter"></i></a></li>
-                                            <li class="list-inline-item"><a href="{{route('blog')}}#"><i class="fab fa-linkedin-in"></i></a>
-                                            </li>
-                                            <li class="list-inline-item"><a href="{{route('blog')}}#"><i class="fab fa-pinterest"></i></a>
-                                            </li>
-                                            <li class="list-inline-item"><a href="{{route('blog')}}#"><i class="fab fa-telegram-plane"></i></a></li>
-                                            <li class="list-inline-item"><a href="{{route('blog')}}#"><i class="far fa-envelope"></i></a>
-                                            </li>
+                                        <button class="toggle-button far fa-list-alt"></button>
+                                        
+                                        <ul class="icons list-unstyled list-inline mb-0">                         
+                                            <li class="list-inline-item"><a href="{{ getSetting('facebook') }}"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li class="list-inline-item"><a href="{{ getSetting('twitter') }}"><i class="fab fa-twitter"></i></a></li>
+                                            <li class="list-inline-item"><a href="{{ getSetting('instagram') }}"><i class="fab fa-instagram"></i></a></li>
+                                            <li class="list-inline-item"><a href="{{ getSetting('youtube') }}"><i class="fab fa-youtube"></i></a></li>
                                         </ul>
                                     </div>
-                                    <div class="more-button float-end">
+                                    {{-- <div class="more-button float-end">
                                         <a href="{{route('blog')}}"><span class="icon-options"></span></a>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -105,7 +100,6 @@
                         <div class="widget-content">
                             <ul class="list">
                                 @foreach ( $categories as $categorie )
-
                                     <li><a href="{{ route('articlebycat', ['id' => $categorie->id]) }}">{{ $categorie->nom_categorie }}</a><span>{{ getArticleByCat($categorie->id)->count() }}</span></li>
                                 @endforeach
                             </ul>
@@ -116,7 +110,6 @@
         </div>
     </div>
 </section>
-
 
 @include('../../layouts/client/produit_nzassa')
 @endsection

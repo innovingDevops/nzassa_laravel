@@ -16,7 +16,7 @@ class Team extends Model
             'id_departement'
         ];
 
-    public function departement()
+    public function departements()
     {
         return $this->belongsTo(Departement::class);
     }

@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 use App\Models\Formule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\Session;
 
 class FormuleController extends Controller
 {
@@ -26,20 +25,25 @@ class FormuleController extends Controller
     }
 
     public function home(){
+        
         $formules = DB::table('formules')->get();
         $teams = DB::table('teams')->get();
         $departements = DB::table('departements')->get();
         $galeries = DB::table('galeries')->get();
         $settings = DB::table('settings')->get();
         $articles = DB::table('articles')->orderByDesc('id')->take(4)->get();
+        $partenaires = DB::table('partenaires')->get();
+        $temoignages = DB::table('temoignages')->get();
         return view("page/client/index", 
         [
+            'temoignages' => $temoignages,
+            'partenaires' => $partenaires,
             'formules' => $formules,
             'teams' => $teams,
             'galeries' => $galeries,
             'departements' => $departements,
             'settings' => $settings,
-            'articles' => $articles
+            'articles' => $articles,
         ]);
         // return view("page/client/index");
     }
@@ -54,9 +58,12 @@ class FormuleController extends Controller
             "image_formule" => $path_image,
             "description_formule" => $request->description_formule,
         ];
+
         Formule::create($donnee);
-        // return redirect()->route("liste_formule");
-        return $this->show_formule();
+        Session::flash('success', 'La formule a été ajoutée avec succès.');
+        return redirect()->route('ajout_formule')->with('success', 'La formule a été ajoutée avec succès.');
+        return redirect()->route("ajout_formule");
+        // return $this->show_formule();
     }
     public function show_formule(): View{
         $formules = DB::table('formules')->get();

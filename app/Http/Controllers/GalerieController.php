@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Session;
 
 class GalerieController extends Controller
 {
@@ -24,7 +25,9 @@ class GalerieController extends Controller
             "image_galerie" => $path_galerie,
         ];
         Galerie::create($donnee);
-        return $this->liste_galerie();
+        Session::flash('success', 'La galerie a été ajoutée avec succès.');
+        return redirect()->route('ajout_galerie')->with('success', 'La galerie a été ajoutée avec succès.');
+        
     }
 
     public function liste_galerie():View{

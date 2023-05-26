@@ -10,9 +10,13 @@ use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\DevisController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\PartenaireController;
+use App\Http\Controllers\TemoignageController;
+use App\Http\Controllers\Team_interface_clientController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +50,6 @@ Route::post('/logout', function (Request $request) {
         return redirect('/login');
     })->name('logout');
     
-
  // blog
 Route::get('/blog', [ArticleController::class, 'blog'])->name("blog");
 Route::post('/blog',  [CommentaireController::class, 'save_commentaire'])->name("save_commentaire");
@@ -60,7 +63,10 @@ Route::get('/home', [FormuleController::class, 'home'])->name("home");
 
 //actualite
 Route::get('/actualite', [ArticleController::class, 'actualite'])->name("actualite");
-// Route::get('/actualite', function () { return view('page/client/actualite');})->name("actualite");
+
+// Client interface client 
+Route::get('/team_interface_client', [TeamController::class, 'team_interface_client'])->name("team_interface_client");
+Route::get('/teambydep/{id}', [TeamController::class, 'teambydep'])->name("teambydep");
 
 // Categorie
 Route::get('/ajout_categorie', [CategorieController::class, 'ajout_categorie'])->name("ajout_categorie");
@@ -84,7 +90,6 @@ Route::get('/edit_sous_categorie/{id}',  [SouscategorieController::class, 'edit_
 Route::post('/update_sous_categorie/{id}', [SouscategorieController::class, 'update_sous_categorie'])->name("update_sous_categorie");
 
 
-
 // Article
 Route::get('/ajout_article', [ArticleController::class, 'ajout_article'])->name("ajout_article");
 Route::get('/liste_article', [ArticleController::class, 'liste_article'])->name("liste_article");
@@ -104,6 +109,7 @@ Route::get('/liste_commentaire_valide', [CommentaireController::class, 'liste_co
 Route::get('/liste_commentaire_brouillon', [CommentaireController::class, 'liste_commentaire_brouillon'])->name("liste_commentaire_brouillon");
 Route::post('/save_commentaire', [CommentaireController::class, 'save_commentaire'])->name("save_commentaire");
 Route::get('/supprime_commentaire/{id}', [CommentaireController::class, 'supprime_commentaire'])->name("supprime_commentaire");
+Route::get('/approuver_commentaire/{id}', [CommentaireController::class, 'approuver_commentaire'])->name("approuver_commentaire");
 
 // Galerie
 Route::get('/ajout_galerie', [GalerieController::class, 'ajout_galerie'])->name("ajout_galerie");
@@ -153,5 +159,23 @@ Route::post('/save_setting', [SettingController::class, 'save_setting'])->name("
 Route::post('/supprime_setting/{id}', [SettingController::class, 'supprime_setting'])->name("supprime_setting");
 Route::get('/edit_setting/{id}', [SettingController::class, 'edit_setting'])->name("edit_setting");
 Route::post('/update_setting/{id}', [SettingController::class, 'update_setting'])->name("update_setting");
+
+//Partenaire 
+Route::get('ajout_partenaire/', [PartenaireController::class,'ajout_partenaire'])->name('ajout_partenaire');
+Route::post('/save_partenaire', [PartenaireController::class, 'save_partenaire'])->name("save_partenaire");
+Route::get('/liste_partenaire', [PartenaireController::class, 'liste_partenaire'])->name("liste_partenaire");
+Route::get('/supprime_partenaire/{id}', [PartenaireController::class, 'supprime_partenaire'])->name("supprime_partenaire");
+Route::get('/edit_partenaire/{id}', [PartenaireController::class, 'edit_partenaire'])->name("edit_partenaire");
+Route::post('/update_partenaire/{id}', [PartenaireController::class, 'update_partenaire'])->name("update_partenaire");
+
+//Temoignage
+Route::get('/ajout_temoignage', [TemoignageController::class, 'ajout_temoignage'])->name("ajout_temoignage");
+Route::post('/save_temoignage', [TemoignageController::class, 'save_temoignage'])->name("save_temoignage");
+Route::get('/liste_temoignage', [TemoignageController::class, 'liste_temoignage'])->name("liste_temoignage");
+Route::get('/supprime_temoignage/{id}', [TemoignageController::class, 'supprime_temoignage'])->name("supprime_temoignage");
+Route::get('/edit_temoignage/{id}', [TemoignageController::class, 'edit_temoignage'])->name("edit_temoignage");
+Route::post('/update_temoignage/{id}', [TemoignageController::class, 'update_temoignage'])->name("update_temoignage");
+
+
 
 

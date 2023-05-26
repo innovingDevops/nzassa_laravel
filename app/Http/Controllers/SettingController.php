@@ -6,6 +6,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Setting;
+use Illuminate\Support\Facades\Session;
 
 class SettingController extends Controller
 {
@@ -18,6 +19,8 @@ class SettingController extends Controller
         ];
 
         Setting::create($donnee);
+        Session::flash('success', 'Cet élément a été ajouté avec succès.');
+        return redirect()->route('setting')->with('success', 'Cet élément a été ajouté avec succès.');
         return $this->setting();
     }
 
@@ -41,7 +44,7 @@ class SettingController extends Controller
             $donnee = [
             "cle" => $request->cle,
             "valeur" => $request->valeur,
-        ]);
+            ]);
         return redirect()->route('setting');
     }
 }

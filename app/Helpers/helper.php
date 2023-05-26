@@ -11,6 +11,8 @@ use App\Models\Article;
 use App\Models\Sous_categorie;
 use Illuminate\Support\Facades\DB;
 
+use function GuzzleHttp\Promise\settle;
+
 function getFonctionnalite($id_formule){
    $fonctionnalites =  Fonctionnalite_formule::where('id_formule','=',$id_formule)->get();
    return $fonctionnalites;
@@ -48,7 +50,8 @@ function getMemberByDep($id_dep){
 
 function getSetting($cle){
    $setting = Setting::where('cle','=',$cle)->first();
-    return $setting->valeur;
+  
+   return $setting->valeur;;
 }   
 
 function getSouscategorie($id_categorie){

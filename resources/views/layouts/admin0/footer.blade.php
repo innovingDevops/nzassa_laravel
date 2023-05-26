@@ -95,6 +95,9 @@ aria-labelledby="authentication-modal-label" aria-hidden="true">
 <script src="{{ asset('admin/vendors/tinymce/tinymce.min.js') }}"></script>
 <script src="{{ asset('admin/vendors/dropzone/dropzone.min.js') }}"></script>
 <script src="{{ asset('admin/vendors/typed.js/typed.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="{{ asset('admin/vendors/lottie/lottie.min.js') }}"></script>
+<script src="{{ asset('admin/vendors/countup/countUp.umd.js') }}"></script>
 @yield('custom_script')
     
 </body>

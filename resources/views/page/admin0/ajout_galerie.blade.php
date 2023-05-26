@@ -1,6 +1,10 @@
 @extends('layouts/admin_master')
 @section('content')
-
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
     <div class="card mb-3">
         <div class="card-header">
             <div class="row flex-between-end">
@@ -17,8 +21,8 @@
                     <form action="{{ route('save_galerie') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <label class="form-label">Images de l'article </label>
-                            <input name="image_galerie" class="form-control" type="file" />
+                            <label class="form-label">Image </label>
+                            <input name="image_galerie" class="form-control" type="file" required />
                         </div>
                         <button class="btn btn-primary" type="submit">Submit</button>
                     </form>

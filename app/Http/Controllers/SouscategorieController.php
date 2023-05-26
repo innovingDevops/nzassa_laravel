@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Sous_categorie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Session;
 
 class SouscategorieController extends Controller
 {
@@ -26,7 +27,8 @@ class SouscategorieController extends Controller
             "description_souscategorie" => $request->description_souscategorie,
         ];
         Sous_categorie::create($donnee);
-        return redirect()->route('liste_sous_categorie');
+        Session::flash('success', 'La sous categorie a été ajoutée avec succès.');
+        return redirect()->route('ajout_sous_categorie')->with('success', 'La sous categorie a été ajoutée avec succès.');
     }
 
     // récupération données 

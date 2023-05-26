@@ -54,14 +54,14 @@
 
         <!-- logo -->
         <div class="logo">
-            <img src="images/logo.svg" alt="Katen" />
+            <img width="125px" src="{{ asset('client/images/logo.png') }}" alt="Katen" />
         </div>
 
         <!-- menu -->
         
         <nav>
             <ul class="vertical-menu">
-                <li><a href="index.php">Accueil</a></li>
+                <li><a href="{{route('home')}}">Accueil</a></li>
                 <li class="active">
                     <a href="#">N'ZASSA</a>
                     <ul class="submenu">
@@ -70,7 +70,7 @@
                         @endforeach
                     </ul>
                 </li>
-                <li><a href="{{route('home')}}#team">Team</a></li>
+                <li><a href="{{ route('team_interface_client')}}">Team</a></li>
                 <li><a href="{{route('home')}}#galerie">Galerie</a></li>
                 <li><a href="{{route('actualite')}}">Actualité</a></li>
                 <li><a href="{{route('contact')}}">Contact</a></li>
@@ -94,6 +94,7 @@
     <script src="{{ asset('client/js/jquery.sticky-sidebar.min.js') }}"></script>
     <script src="{{ asset('client/js/custom.js') }}"></script>
     <script src="{{ asset('admin/vendors/typed.js/typed.js') }}"></script>
+    
     <script>
         var typed = new Typed('.element', {
       strings: ["NZassa School.", "NZassa RH&PAIE.", "NZassa Auto+.", "NZassa GESCOM.", "NZassa ByNight.", "NZassa Shop."],

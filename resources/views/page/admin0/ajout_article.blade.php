@@ -1,5 +1,10 @@
 @extends('layouts/admin_master')
 @section('content')
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 
     <div class="card mb-3">
        
@@ -20,16 +25,15 @@
                         @csrf
                         <div class="mb-3">
                             <label class="form-label" for="basic-form-name">Titre de l'article</label>
-                            <input name="titre_article" class="form-control" id="basic-form-name" type="text" placeholder="Name" />
+                            <input name="titre_article" class="form-control" id="basic-form-name" type="text" placeholder="Name" required/>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="basic-form-name">Courte description</label>
-                            <input name="courte_description" class="form-control" id="basic-form-name" type="text" placeholder="Name" />
+                            <input name="courte_description" class="form-control" id="basic-form-name" type="text" placeholder="Name" required/>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="basic-form-gender">Catégorie</label>
                             <select name="id_categorie" class="form-select" id="id_categorie" aria-label="Default select example" onchange="toggleSousCategorie()">
-                                <option selected="selected">Choisissez la catégorie</option>
                                 @foreach ( $categories as $categorie )
                                 <option value="{{ $categorie->id }}">{{ $categorie->nom_categorie }}</option>
                                 @endforeach
@@ -38,18 +42,18 @@
                         <div class="mb-3">
                             <label class="form-label" for="basic-form-gender">Sous Catégorie</label>
                             <select name="id_sous_categorie" class="form-select" id="id_sous_categorie" aria-label="Default select example" disabled>
-                                <option selected="selected">Choisissez la sous-catégorie</option> 
+                                 
                                     
                             </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="basic-form-textarea">Details de l'article</label>
                             <textarea name="detail_article" class="tinymce d-none" id="basic-form-textarea" rows="3"
-                                placeholder="Description"></textarea> 
+                                placeholder="Description" required></textarea> 
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Images de l'article </label>
-                            <input name="image_article" class="form-control" type="file" />
+                            <input name="image_article" class="form-control" type="file" required/>
                         </div>
                         <button class="btn btn-primary" type="submit">Submit</button>
                     </form>

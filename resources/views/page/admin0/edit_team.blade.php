@@ -30,7 +30,6 @@
                             <input name="fonction" class="form-control" id="basic-form-name" type="text" value="{{ $team->fonction }}"/>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" for="basic-form-gender">Departement</label>
                             <select name="id_departement" class="form-select" id="basic-form-gender" aria-label="Default select example"> 
                                 @foreach ($departements as $departement)
                                 <option value="{{ $departement->id }}" @if($team->id_departement == $departement->id) selected @endif>{{ $departement->libelle_departement }}</option>

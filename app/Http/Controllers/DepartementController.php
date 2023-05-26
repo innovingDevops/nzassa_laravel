@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Team;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Session;
 
 class DepartementController extends Controller
 {
@@ -23,7 +24,8 @@ class DepartementController extends Controller
         ];
         Departement::create($donnee);
         // return redirect()->route('ajout_departement');
-        return $this->ajout_departement();
+        Session::flash('success', 'Le departement a été ajouté avec succès.');
+        return redirect()->route('ajout_departement')->with('success', 'Le departement a été ajouté avec succès.');
     }
     //    // récupération données 
     // public function show_departement(): View{

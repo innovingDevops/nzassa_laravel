@@ -27,7 +27,7 @@
                         <span class="icon icon-phone"></span>
                         <div class="details">
                             <h3 class="mb-0 mt-0">Phone</h3>
-                            <p class="mb-0">+1-202-555-0135</p>
+                            <p class="mb-0">{{ getSetting('telephone') }}</p>
                         </div>
                     </div>
                     <div class="spacer d-md-none d-lg-none" data-height="30"></div>
@@ -39,7 +39,7 @@
                         <span class="icon icon-envelope-open"></span>
                         <div class="details">
                             <h3 class="mb-0 mt-0">E-Mail</h3>
-                            <p class="mb-0">hello@example.com</p>
+                            <p class="mb-0">{{ getSetting('adresse_mail') }}</p><br>
                         </div>
                     </div>
                     <div class="spacer d-md-none d-lg-none" data-height="30"></div>
@@ -51,15 +51,18 @@
                         <span class="icon icon-map"></span>
                         <div class="details">
                             <h3 class="mb-0 mt-0">Location</h3>
-                            <p class="mb-0">California, USA</p>
+                            <p class="mb-0">{{ getSetting('localisation') }}</p>
                         </div>
                     </div>
                 </div>
-
             </div>
 
             <div class="spacer" data-height="50"></div>
-
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+             @endif
             <!-- section header -->
             <div class="section-header">
                 <h3 class="section-title">Send Message</h3>
@@ -116,6 +119,13 @@
                     <div class="column col-md-6">
                         <!-- Email input -->
                         <div class="form-group">
+                            <input hidden type="text" class="form-control" id="email" name="subject" placeholder="subject" required="required" value="Demande de devis" >
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="column col-md-6">
+                        <!-- Email input -->
+                        <div class="form-group">
                             <input type="text   " class="form-control" id="contact" name="contact" placeholder="Secteur d'activités" required="required" >
                             <div class="help-block with-errors"></div>
                         </div>
@@ -142,7 +152,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" name="submit" id="submit" value="Submit" class="btn btn-default">Submit Message</button><!-- Send Button -->
+                <button type="submit" name="submit" id="submit" value="Submit" class="btn btn-default">Demander un devis </button><!-- Send Button -->
 
             </form>
             <!-- Contact Form end -->

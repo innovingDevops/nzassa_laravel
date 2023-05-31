@@ -17,8 +17,6 @@ use Illuminate\View\View;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
-
-
 class DevisController extends Controller
 {
     public function admin0 (){
@@ -43,15 +41,15 @@ class DevisController extends Controller
             ]);
     }
     public function liste_devis_valide(){
-        return view("page/admin0/liste_devis_valide");
+        $devis = DB::table('devis')->where('status','1')->get();
+        return view("page/admin0/liste_devis_valide", ['devis' => $devis]);
     }
 
     public function contact(){
         $formules = DB::table('formules')->get();
         return view("page/client/contact", ['formules' => $formules]);
     }
-
-    // insertion de données 
+ 
     public function save_devis(Request $request){
         // dd($request->nom_categorie);
         $donnee = [
@@ -63,6 +61,7 @@ class DevisController extends Controller
             "contact" => $request->contact,
             "formule" => $request->formule,
             "commentaire" => $request->commentaire,
+            "status" => '0',
         ];
         Devis::create($donnee);
 
@@ -92,14 +91,22 @@ class DevisController extends Controller
                 Session::flash('success', 'Votre mail à bien été envoyé');
                 return redirect()->route('contact')->with('success', 'Votre mail à bien été envoyé');
     }
+
     public function liste_devis_brouillon():View{
-        $devis = DB::table('devis')->get();
+        $devis = DB::table('devis')->where('status','0')->get();
         return view("page/admin0/liste_devis_brouillon", ['devis' => $devis]);
     }
 
     public function supprime_devis($id){
         $devis = Devis::find($id);
         $devis->delete();
-        return redirect()->route('liste_devis_brouillon');
+        return redirect()->route('liste_devis_valide');
+    }
+
+    public function approuver_devis($id){
+        $devis = Devis::find($id);
+        $donnee['status'] = 1;
+        DB::table('devis')->where('id',$id)->update($donnee);
+        return redirect()->route('liste_devis_valide');
     }
 }

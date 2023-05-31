@@ -33,7 +33,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="basic-form-gender">Catégorie</label>
-                            <select name="id_categorie" class="form-select" id="id_categorie" aria-label="Default select example" onchange="toggleSousCategorie()">
+                            <select name="id_categorie" class="form-select" id="id_categorie" aria-label="Default select example" onchange="toggleSousCategorie()" required>
                                 @foreach ( $categories as $categorie )
                                 <option value="{{ $categorie->id }}">{{ $categorie->nom_categorie }}</option>
                                 @endforeach
@@ -41,9 +41,8 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="basic-form-gender">Sous Catégorie</label>
-                            <select name="id_sous_categorie" class="form-select" id="id_sous_categorie" aria-label="Default select example" disabled>
+                            <select name="id_sous_categorie" class="form-select" id="id_sous_categorie" aria-label="Default select example" disabled required>
                                  
-                                    
                             </select>
                         </div>
                         <div class="mb-3">

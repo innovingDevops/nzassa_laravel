@@ -37,7 +37,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="basic-form-textarea">Description</label><br>
-                            
+                            <script></script>
                             <textarea name="description_formule" class="form-control" id="basic-form-textarea" rows="3"
                                 placeholder="Description">{{ $formule->description_formule }}</textarea>
                         </div>

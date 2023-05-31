@@ -103,6 +103,7 @@ Route::post('/update_article/{id}', [ArticleController::class, 'update_article']
 Route::get('/liste_devis_valide', [DevisController::class, 'liste_devis_valide'])->name("liste_devis_valide");
 Route::get('/liste_devis_brouillon', [DevisController::class, 'liste_devis_brouillon'])->name("liste_devis_brouillon");
 Route::get('/supprime_devis/{id}', [DevisController::class, 'supprime_devis'])->name("supprime_devis");
+Route::get('/approuver_devis/{id}', [DevisController::class, 'approuver_devis'])->name("approuver_devis");
 
 // Commentaire 
 Route::get('/liste_commentaire_valide', [CommentaireController::class, 'liste_commentaire_valide'])->name("liste_commentaire_valide");
@@ -175,6 +176,10 @@ Route::get('/liste_temoignage', [TemoignageController::class, 'liste_temoignage'
 Route::get('/supprime_temoignage/{id}', [TemoignageController::class, 'supprime_temoignage'])->name("supprime_temoignage");
 Route::get('/edit_temoignage/{id}', [TemoignageController::class, 'edit_temoignage'])->name("edit_temoignage");
 Route::post('/update_temoignage/{id}', [TemoignageController::class, 'update_temoignage'])->name("update_temoignage");
+
+// fonctionnalité N'Zassa SHOP
+Route::get('/detail_nzassa_shop/{id}', [FonctionnaliteController::class, 'detail_nzassa_shop'])->name("detail_nzassa_shop");
+Route::get('/detail_formule/{id}', [FonctionnaliteController::class, 'detail_formule'])->name("detail_formule");
 
 
 

@@ -65,10 +65,12 @@ class FormuleController extends Controller
         return redirect()->route("ajout_formule");
         // return $this->show_formule();
     }
+    
     public function show_formule(): View{
         $formules = DB::table('formules')->get();
         return view("page/admin0/liste_formule", ['formules' => $formules]);
     }
+
     public function supprime_formule($id){
         
         $formule = Formule::find($id);
@@ -103,7 +105,7 @@ class FormuleController extends Controller
             Storage::delete($formule->image_formule);
 
             // Téléchargez et enregistrez la nouvelle image
-            $imagePath = $request->file('image_formule')->store('images', 'public');
+            $imagePath = $request->file('image_formule')->store('image_formule', 'public');
             $donnee['image_formule'] = $imagePath;
         }
 
@@ -117,5 +119,6 @@ class FormuleController extends Controller
 
         return redirect()->route('liste_formule')->with('success', 'La formule a été mise à jour avec succès.');
     }
+
 
 }

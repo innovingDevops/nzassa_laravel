@@ -44,7 +44,6 @@ class CommentaireController extends Controller
 
     public function approuver_commentaire($id){
         $commentaire = Commentaire::find($id);
-        
         $donnee['status'] = 1;
         DB::table('commentaires')->where('id',$id)->update($donnee);
         return redirect()->route('liste_commentaire_brouillon');

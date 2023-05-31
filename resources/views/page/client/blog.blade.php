@@ -59,7 +59,7 @@
 							<div class="widget-content">
 								<ul class="list">
 									@foreach ( $categories as $categorie )
-										<li><a href="#">{{ $categorie->nom_categorie }}</a><span>{{ getArticleByCat($categorie->id)->count() }}</span></li>
+										<li><a href="{{ route('articlebycat', ['id' => $categorie->id]) }}">{{ $categorie->nom_categorie }}</a><span>{{ getArticleByCat($categorie->id)->count() }}</span></li>
 									@endforeach
 								</ul>
 							</div>

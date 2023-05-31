@@ -14,8 +14,14 @@ use Illuminate\Support\Facades\DB;
 use function GuzzleHttp\Promise\settle;
 
 function getFonctionnalite($id_formule){
-   $fonctionnalites =  Fonctionnalite_formule::where('id_formule','=',$id_formule)->get();
+   $fonctionnalites =  Fonctionnalite_formule::where('id_formule','=',$id_formule)->take(4)->get();
    return $fonctionnalites;
+}
+
+// afficher les fonctionnalite de nzassa shop sur sa propre page 
+function fonct_detail_nzassa_shop($id_formule){
+    $fonct_detail_nzassa_shop =  Fonctionnalite_formule::where('id_formule','=',$id_formule)->get();
+    return $fonct_detail_nzassa_shop;
 }
 
 function getFormule($id){

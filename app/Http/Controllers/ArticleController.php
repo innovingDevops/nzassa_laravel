@@ -73,7 +73,9 @@ class ArticleController extends Controller
         $article = Article::find($id);
         $id_categorie = $article->id_categorie;
         $sous_categories = DB::table('sous_categories')->where('id_categorie','=',$id_categorie)->get();
-        return view("page/admin0/edit_article", ['article' => $article, 'categories' => $categories, 'sous_categories' => $sous_categories]);
+        Session::flash('success', 'La mise à jour a été effectuée.');
+        return redirect()->route('ajout_article')->with('success', 'L\'article a été ajoutée avec succès.');
+        return view("page/admin0/edit_article", ['article' => $article, 'categories' => $categories, 'sous_categories' => $sous_categories])->with('efe');
     }
 
     public function update_article(Request $request, $id){
@@ -87,7 +89,7 @@ class ArticleController extends Controller
         $donnee['titre_article'] = $request->titre_article;
         $donnee['courte_description'] = $request->courte_description;
         $donnee['id_categorie'] = $request->id_categorie;
-        $donnee['id_sous_categorie'] = $request->id_sous_categorie ?? null;
+        $donnee['id_sous_categorie'] = $request->id_sous_categorie;
 
         $donnee['detail_article'] = $request->detail_article;
         DB::table('articles')->where('id',$id)->update($donnee);

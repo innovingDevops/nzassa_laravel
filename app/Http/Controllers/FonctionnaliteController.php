@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Fonctionnalite_formule;
+use App\Models\Formule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Storage;
@@ -73,7 +74,7 @@ class FonctionnaliteController extends Controller
                 Storage::delete($fonctionnalite_formule->image_fonctionnalite);
 
                 // Téléchargez et enregistrez la nouvelle image de logo
-                $image_fonctionnalite = $request->file('image_fonctionnalite')->store('images', 'public');
+                $image_fonctionnalite = $request->file('image_fonctionnalite')->store('image_fonctionnalite', 'public');
                 $donnee['image_fonctionnalite'] = $image_fonctionnalite;
             }
             $donnee['id_formule'] = $request->id_formule;
@@ -83,6 +84,14 @@ class FonctionnaliteController extends Controller
 
             DB::table('fonctionnalite_formules')->where('id','=', $id)->update($donnee);
             return redirect()->route('liste_fonctionnalite');
+        }
+
+        public function detail_formule($id){
+            $formule =  Formule::find($id);
+            $formules = DB::table('formules')->get();
+            $fonctionnalites = DB::table('fonctionnalite_formules')->get();
+            // dd($fonctionnalites);
+            return view('page/client/detail_formule', ['formule' => $formule, 'fonctionnalites' => $fonctionnalites, 'formules' => $formules]);
         }
     }
     

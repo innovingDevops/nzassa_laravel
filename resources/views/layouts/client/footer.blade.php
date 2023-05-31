@@ -86,7 +86,7 @@
         </ul>
     </div>
 
-    <!-- JAVA SCRIPTS -->
+    <!-- JAVASCRIPT -->
     <script src="{{ asset('client/js/jquery.min.js') }}"></script>
     <script src="{{ asset('client/js/popper.min.js') }}"></script>
     <script src="{{ asset('client/js/bootstrap.min.js') }}"></script>

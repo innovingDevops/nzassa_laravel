@@ -17,7 +17,8 @@ class Devis extends Model
         'email',
         'contact',
         'formule',
-        'commentaire'
+        'commentaire',
+        'status'
     ];
 
 }

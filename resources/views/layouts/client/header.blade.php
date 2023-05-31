@@ -97,8 +97,8 @@
 						<li class="nav-item ">
 							<a class="nav-link" href="{{route('home')}}#galerie">Galerie</a>
 						</li>
-						<li class="nav-item {{ (Route::currentRouteName() == 'team_interface_client') ? 'active':''}}">
-							<a class="nav-link" href="{{route('team_interface_client')}}">Team</a>
+						<li class="nav-item">
+							<a class="nav-link" href="{{route('home')}}#team">Team</a>
 						</li>
 						<li class="nav-item {{ (Route::currentRouteName() == 'actualite') ? 'active':''}}">
 							<a class="nav-link" href="{{route('actualite')}}">Actualité</a>

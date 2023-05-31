@@ -41,13 +41,9 @@
 </style>
 <!-- hero section -->
 <section id='hero' >
-
     <div class='container-xl'>
-
         <div class='row gy-4'>
-
             <div class='col-lg-8'>
-
                 <div class='post-carousel-lg'>
                     <!-- post -->
                     <div class='post featured-post-xl'>
@@ -87,7 +83,6 @@
 
             </div>
 
-            <!-- Notre team  -->
             <div class='col-lg-4'>
 
                 <!-- post tabs -->
@@ -130,7 +125,6 @@
                                     </ul>
                                 </div>
                             </div>
-                            
                             @endforeach
                         </div>
                     </div>
@@ -147,12 +141,12 @@
 {{ $cpt=0;  }}
 @endphp
 
+<!-- Tous les produits n'zassa présentés -->
 @foreach ($formules as $formule )
 
-<div class="m-5" data-height="50" id="{{ $formule->nom_formule }}"></div>
-<!-- Tous les produits n'zassa présentés -->
+<div class="m-5" data-height="50" ></div>
 
-<section class='main-content' style="background-image:url('{{ asset('admin/assets/img/corner-1.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<section class='main-content' style="background-image:url('{{ asset('admin/assets/images/images/vector_page') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class='container-xl'>
         <div class='row gy-4'>
             <div class='col-lg-12'>
@@ -166,21 +160,13 @@
                         <div class="col-sm-6">
                             <!-- post -->
                             <div class="post">
-                                <div class="thumb rounded">
-                                    {{-- <a href="category.html" class="category-badge position-absolute">- 50%</a> --}}
-                                    {{-- <span class="post-format">
-                                        <i class="icon-picture"></i>
-                                    </span> --}}
-                                    
-                                        <div class="inner " >
-                                            <img src="{{ asset('storage/'.$formule->image_formule) }}" alt="post-title" />
-                                        </div>
+                                <div class="thumb rounded">                
+                                    <div class="inner ">
+                                        <img src="{{ asset('storage/'.$formule->image_formule) }}" alt="post-title" />
+                                    </div>
                                 </div>
-                                {{-- <ul class="meta list-inline mt-4 mb-0">
-                                    <li class="list-inline-item"><a href="#"><img src="{{asset('client/images/other/author-sm.png')}}" class="author" alt="author" />Katen Doe</a></li>
-                                    <li class="list-inline-item">29 March 2021</li>
-                                </ul> --}}
-                                <h5 class="post-title mb-3 mt-3">{{ $formule->titre_formule }}</h5>
+                                <h5 class="post-title mb-3 mt-3">{{ $formule->titre_formule }}
+                                    </h5>
                                 <p class="excerpt mb-0">{{ $formule->description_formule }}</p>
                             </div>
                         </div>
@@ -189,35 +175,41 @@
                             @foreach (getFonctionnalite($formule->id) as $item)
                             <div class="post post-list-sm square">
                                 <div class="thumb rounded">
-                                    <div class="inner">
-                                        <img src="{{ asset('storage/'.$formule->image_formule) }}" alt="post-title" />
-                                    </div>
+                                   
+                                        <div class="inner">
+                                            <img src="{{ asset('storage/'.$item->image_fonctionnalite) }}" alt="post-title" />
+                                        </div>
+                                    </a>
                                 </div>
                                 <div class="details clearfix">
                                     <h6 class="post-title my-0">
-                                        <a href="blog-single.html">{{ $item->libelle_fonctionnalite }}</a>
+                                        <a>{{ $item->libelle_fonctionnalite }}</a>
                                     </h6>
                                     <ul class="meta list-inline mt-1 mb-0">
                                         <li class="list-inline-item">{{ $item->description_fonctionnalite }}</li>
                                     </ul>
                                 </div>
+                                
                             </div>   
                             @endforeach
                         </div>
                         @php
                             {{ $cpt++; }}
                         @endphp
+                        <div class="float-end d-none d-md-block">
+                            <a href="{{ route('detail_formule', ['id' => $formule->id]) }}" class="more-link">Read more<i class="icon-arrow-right"></i></a>
+                        </div>
                         @else 
                         <div class="col-sm-6">
                             <!-- post -->
                             @foreach (getFonctionnalite($formule->id) as $item)
                             <div class="post post-list-sm square">
                                 <div class="thumb rounded">
-                                    
+                                    <a >
                                         <div class="inner">
-                                            <img src="{{ asset('storage/'.$formule->image_formule) }}" alt="post-title" />
+                                            <img src="{{ asset('storage/'.$item->image_fonctionnalite) }}" alt="post-title" />
                                         </div>
-                                  
+                                    </a>
                                 </div>
                                 <div class="details clearfix">
                                     <h6 class="post-title my-0">
@@ -259,6 +251,9 @@
                         @php
                             {{ $cpt++; }}
                         @endphp
+                        <div class="float-end d-none d-md-block">
+                            <a href="{{ route('detail_nzassa_shop', ['id' => $formule->id]) }}" class="more-link">Read more<i class="icon-arrow-right"></i></a>
+                        </div>
                         @endif 
                     </div>
                 </div>
@@ -267,11 +262,14 @@
 </section>
 
 @endforeach
-
-    
+<div class="" data-height="50" id="team"></div>
+<h3 class="section-title text-center prod_nzassa m-5 "> La Team Innoving</h3>
+      <!-- Notre team  -->
+        @include('../../layouts/client/team')
+            
 <!-- Notre Galerie -->
 <div class="" data-height="50" id="galerie"></div>
-<h3 class="section-title text-center prod_nzassa m-5 "> La galerie Innoving</h3>
+<h3 class="section-title text-center prod_nzassa m-5 ">  La galerie Innoving</h3>
 <section class="hero-carousel m-5">
     <div class="row post-carousel-featured post-carousel ">
         @foreach ($galeries as $galerie )
@@ -319,10 +317,8 @@
                                     </div>
                                   </div>
                             </div>
-                            
                         @endforeach
                     </div>
-                    
                     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>

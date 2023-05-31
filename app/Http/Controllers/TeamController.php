@@ -18,13 +18,13 @@ class TeamController extends Controller
         $departements = DB::table('departements')->get();
         return view("page/admin0/ajout_team", ['departements' => $departements]);
     }
-
+        
     public function liste_team(){
         $teams = DB::table('teams')->get();
         return view("page/admin0/liste_team", ['teams' => $teams]);
         
     }
-    // insertion de données 
+    
     public function save_team(Request $request){
 
         // me retourne le chemin du fichier
@@ -41,7 +41,7 @@ class TeamController extends Controller
         return redirect()->route('ajout_team')->with('success', 'Vous venez d\'ajouter un membre de la team Innoving.');
         // return $this->show_team();
     }
-       // récupération données 
+       
     public function show_team(): View{
         $teams = DB::table('teams')->get();
         return view("page/admin0/liste_team", ['teams' => $teams]);
@@ -74,22 +74,21 @@ class TeamController extends Controller
         return redirect()->route('liste_team'); 
     } 
 
+//     public function team_interface_client (){
+//         $teams = Team::paginate(4);
+//         $departements = DB::table('departements')->get();
+//         $formules = DB::table('formules')->get();
+//         return view("page/client/team_interface_client", ['teams' => $teams, 'departements' => $departements, 'formules' => $formules]);
+//     }
 
-    public function team_interface_client (){
-        $teams = Team::paginate(4);
-        $departements = DB::table('departements')->get();
-        $formules = DB::table('formules')->get();
-        return view("page/client/team_interface_client", ['teams' => $teams, 'departements' => $departements, 'formules' => $formules]);
-    }
+//     public function teambydep($id)
+// {
+//     $formules = DB::table('formules')->get();
+//     $id_departement = Departement::find($id);
+//     $teams = $id_departement->teams ()->paginate(6);
+//     $departements = DB::table('departements')->get();
 
-    public function teambydep($id)
-{
-    $formules = DB::table('formules')->get();
-    $id_departement = Departement::find($id);
-    $teams = $id_departement->teams ()->paginate(6);
-    $departements = DB::table('departements')->get();
-
-    return view('page/client/teambydep', ['formules' => $formules,'id_departement' => $id_departement, 'teams' => $teams, 'departements' => $departements]);
+//     return view('page/client/teambydep', ['formules' => $formules,'id_departement' => $id_departement, 'teams' => $teams, 'departements' => $departements]);
     
-}     
+// }     
 }

@@ -116,8 +116,8 @@ class FormuleController extends Controller
 
         // Effectuez la mise à jour de la formule
         DB::table('formules')->where('id', $id)->update($donnee);
-
-        return redirect()->route('liste_formule')->with('success', 'La formule a été mise à jour avec succès.');
+        Session::flash('success', 'La mise à jour a été effectuée.');
+        return redirect()->route('liste_formule')->with('success', 'La mise à jour a été effectuée.');
     }
 
 

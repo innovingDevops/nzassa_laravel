@@ -60,8 +60,8 @@ class GalerieController extends Controller
     }
 
     $galerie->save();
-
-    return redirect()->route('liste_galerie')->with('success', 'Galerie mise à jour avec succès.');
+    Session::flash('success', 'La mise à jour a été effectuée.');
+    return redirect()->route('liste_galerie')->with('success', 'La mise à jour a été effectuée.');
 }
         
 }

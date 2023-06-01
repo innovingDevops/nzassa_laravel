@@ -21,7 +21,7 @@
 		<div class="instagram-feed d-flex justify-content-center flex-wrap">
 			@foreach ( $formules as $formule )
 			<div class="insta-item col-sm-2 col-6 col-md-2">
-				<a href="#">
+				<a href="{{route('home')}}#{{ $formule->nom_formule }}">
 					<img class="img_logo" src="{{asset('storage/'.$formule->logo_formule)}}" alt="insta-title" />
 				</a>
 			</div>

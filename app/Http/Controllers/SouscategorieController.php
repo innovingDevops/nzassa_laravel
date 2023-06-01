@@ -67,6 +67,7 @@ class SouscategorieController extends Controller
                 "nom_souscategorie" => $request->nom_souscategorie,
                 "description_souscategorie" => $request->description_souscategorie,
         ]);
-        return redirect()->route('liste_sous_categorie');
+        Session::flash('success', 'La mise à jour a été effectuée.');
+        return redirect()->route('liste_sous_categorie')->with('success', 'La mise à jour a été effectuée.');
     }
 }

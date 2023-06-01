@@ -38,7 +38,7 @@
 <body>
 
 <!-- preloader -->
- <div id="preloader">
+ {{-- <div id="preloader">
 	<div class="book">
 		<div class="inner">
 			<div class="left"></div>
@@ -66,7 +66,27 @@
 			<li></li>
 		</ul>
 	</div>
+</div> --}}
+<style>
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    
+    #preloader img {
+        animation: rotate 2s infinite linear;
+    }
+</style>
+
+<div id="preloader" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <img width="200px" src="{{ asset('client/images/favicon.ico') }}" alt="Loading..." />
 </div>
+
+
 
 <!-- site wrapper -->
 <div class="site-wrapper">

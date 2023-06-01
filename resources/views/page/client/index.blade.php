@@ -49,7 +49,7 @@
                     <div class='post featured-post-xl'>
                         <div class='details clearfix'>
                             <a href='#' class='category-badge lg'>N'zassa</a>
-                            <h4 class="post-title"><a href="blog-single.html">N'Zassa Shop</a></h4>
+                            <h4 class="post-title"><a href="#">N'Zassa Shop</a></h4>
                             <ul class='meta list-inline mb-0'>
                                 <li class='list-inline-item'><a href='#'>Katen Doe</a></li>
                                 <li class='list-inline-item'>29 March 2021</li>
@@ -83,7 +83,7 @@
 
             </div>
 
-            <div class='col-lg-4'>
+            <div class='col-lg-4'  style="background-image:url('{{ asset('admin/assets/img/corner-2.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 
                 <!-- post tabs -->
                 <div class='post-tabs rounded bordered'>
@@ -104,14 +104,19 @@
                             @foreach ($articles as $article)
                             <div class='post post-list-sm circle'>
                                 <div class='thumb circle'>
-                                    <a href='blog-single.html'>
+                                    {{-- <a href='blog-single.html'>
                                         <div class='inner rounded'>
                                             <img src="{{ asset('storage/'.$article->image_article) }}" alt='post-title' />
+                                        </div>
+                                    </a> --}}
+                                    <a href="{{route('blog',['id' => $article->id ]) }}">
+                                        <div class="inner">
+                                            <img style="height:50px" src="{{ asset('storage/'.$article->image_article) }}" alt="post-title" />
                                         </div>
                                     </a>
                                 </div>
                                 <div class='details clearfix'>
-                                    <h6 class='post-title my-0'><a style="font-size:12px" href='blog-single.html'>{{ substr(strip_tags($article->courte_description),0,60) }}...</a></h6>
+                                    <h6 class='post-title my-0'><a style="font-size:12px" href='{{ route('blog',['id' => $article->id ])  }}'>{{ substr(strip_tags($article->courte_description),0,60) }}...</a></h6>
                                     <ul class='meta list-inline mt-1 mb-0'>
                                         <li class='list-inline-item'>
                                             <i class="far fa-calendar-alt"></i>
@@ -142,11 +147,12 @@
 @endphp
 
 <!-- Tous les produits n'zassa présentés -->
+
 @foreach ($formules as $formule )
 
-<div class="m-5" data-height="50" ></div>
+<div class="m-5" data-height="50" id='{{ $formule->nom_formule }}'></div>
 
-<section class='main-content' style="background-image:url('{{ asset('admin/assets/images/images/vector_page') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<section class='main-content'  style="background-image:url('{{ asset('client/images/images/vector_page/vectorpage-banner-01.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class='container-xl'>
         <div class='row gy-4'>
             <div class='col-lg-12'>
@@ -197,7 +203,7 @@
                             {{ $cpt++; }}
                         @endphp
                         <div class="float-end d-none d-md-block">
-                            <a href="{{ route('detail_formule', ['id' => $formule->id]) }}" class="more-link">Read more<i class="icon-arrow-right"></i></a>
+                            <a href="{{ route('detail_formule', ['id' => $formule->id]) }}" class="more-link">En savoir plus<i class="icon-arrow-right"></i></a>
                         </div>
                         @else 
                         <div class="col-sm-6">
@@ -252,7 +258,7 @@
                             {{ $cpt++; }}
                         @endphp
                         <div class="float-end d-none d-md-block">
-                            <a href="{{ route('detail_nzassa_shop', ['id' => $formule->id]) }}" class="more-link">Read more<i class="icon-arrow-right"></i></a>
+                            <a href="{{ route('detail_nzassa_shop', ['id' => $formule->id]) }}" class="more-link">En savoir plus<i class="icon-arrow-right"></i></a>
                         </div>
                         @endif 
                     </div>
@@ -273,13 +279,13 @@
 <section class="hero-carousel m-5">
     <div class="row post-carousel-featured post-carousel ">
         @foreach ($galeries as $galerie )
-        <div class="post">
-            <div class=" rounded">
-                <div class="inner data-bg-image" data-bg-image="{{asset('storage/.$galerie->image_galerie')}}">
-                    <img src="{{ asset('storage/'.$galerie->image_galerie) }}" alt="" style="width:260px; height:250px; border-radius: 10px;">
+            <div class="post">
+                <div class=" rounded">
+                    <div class="inner data-bg-image" data-bg-image="{{asset('storage/.$galerie->image_galerie')}}">
+                        <img src="{{ asset('storage/'.$galerie->image_galerie) }}" alt="" style="width:260px; height:250px; border-radius: 10px;">
+                    </div>
                 </div>
             </div>
-        </div>
         @endforeach
     </div>
 </section>

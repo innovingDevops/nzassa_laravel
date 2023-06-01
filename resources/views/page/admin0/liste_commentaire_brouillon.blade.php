@@ -5,9 +5,8 @@
         <div class="card-header">
             <div class="row flex-between-end">
                 <div class="col-auto align-self-center">
-                    <h4 class="mb-0" data-anchor="data-anchor">Commentaires Non-Approuvés</h4>
+                    <h2 class="mb-0" data-anchor="data-anchor">La liste des commentaires au brouillons</h2>
                 </div>
-                
             </div>
         </div>
         <div class="card-body pt-0">

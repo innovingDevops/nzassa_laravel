@@ -34,6 +34,7 @@
             <div class="col-lg-8">
                 <div class="row gy-4">
                     @foreach ( $articles as $article )
+                    
                         <div class="col-sm-6">
                             <!-- post -->
                             <div class="post post-grid rounded bordered">

@@ -71,7 +71,8 @@ class TemoignageController extends Controller
         $donnee['profession_temoignage'] = $request->profession_temoignage;
         $donnee['detail_temoignage'] = $request->detail_temoignage;
         DB::table('temoignages')->where('id','=',$id)->update($donnee);
-        return redirect()->route('liste_temoignage'); 
+        Session::flash('success', 'La mise à jour a été effectuée.');
+        return redirect()->route('liste_temoignage')->with('success', 'La mise à jour a été effectuée.');
     } 
       
 }

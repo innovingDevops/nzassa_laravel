@@ -92,9 +92,8 @@
                     <div class="column col-md-6">
                         <!-- Name input -->
                         <div class="form-group">
-                           
                             <select class="form-control"  required="required" id="nombre_employe" name="nombre_employe">
-                                <option selected disabled>Choisissez une option</option>
+                                <option selected disabled>Nombre d'employés</option>
                                 <option value="< 5 employés">< 5 employés</option>
                                 <option value="Compris entre 5 et 10">Compris entre 5 et 10</option>
                                 <option value="> 10 employés">> 10 employés</option>
@@ -109,24 +108,24 @@
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
-                    <div class="column col-md-6">
+                    <div class="column col-md-12">
                         <!-- Email input -->
                         <div class="form-group">
                             <input type="text" class="form-control" id="email" name="email" placeholder="Contact" required="required" >
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
-                    <div class="column col-md-6">
+                    <div class="column col-md-12">
                         <!-- Email input -->
                         <div class="form-group">
-                            <input hidden type="text" class="form-control" id="email" name="subject" placeholder="subject" required="required" value="Demande de devis" >
+                            <input hidden type="text" class="form-control" id="text" name="subject" placeholder="subject" required="required" value="Demande de devis" >
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
-                    <div class="column col-md-6">
+                    <div class="column col-md-12">
                         <!-- Email input -->
                         <div class="form-group">
-                            <input type="text   " class="form-control" id="contact" name="contact" placeholder="Secteur d'activités" required="required" >
+                            <input type="text " class="form-control" id="contact" name="contact" placeholder="Secteur d'activités" required="required" >
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>

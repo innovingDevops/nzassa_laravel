@@ -83,7 +83,8 @@ class FonctionnaliteController extends Controller
             $donnee['description_fonctionnalite'] = $request->description_fonctionnalite;
 
             DB::table('fonctionnalite_formules')->where('id','=', $id)->update($donnee);
-            return redirect()->route('liste_fonctionnalite');
+            Session::flash('success', 'La mise à jour a été effectuée.');
+            return redirect()->route('liste_fonctionnalite')->with('success', 'La mise à jour a été effectuée.');
         }
 
         public function detail_formule($id){

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Categorie;
+use App\Models\Article;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Session;
@@ -39,6 +40,7 @@ class CategorieController extends Controller
    
     public function articlebycat($id)
     {   
+        $count_article = Article::all()->count();
         $formules = DB::table('formules')->get();
         // Cette ligne de code permet de récupérer une catégorie à partir de son identifiant
         $categorie_id = Categorie::find($id);
@@ -47,7 +49,7 @@ class CategorieController extends Controller
         // j'utilise cette ligne pour recupérer la liste des catégories. 
         $categories = DB::table('categories')->get();
         
-        return view('page/client/articlebycat', ['categorie_id' => $categorie_id, 'articles' => $articles, 'formules' => $formules, 'categories' => $categories]);
+        return view('page/client/articlebycat', ['count_article' => $count_article, 'categorie_id' => $categorie_id, 'articles' => $articles, 'formules' => $formules, 'categories' => $categories]);
     }
 
     // fonction de suppression 
@@ -70,6 +72,7 @@ class CategorieController extends Controller
             "nom_categorie" => $request->nom_categorie,
             "description_categorie" => $request->description_categorie,
         ]);
-        return redirect()->route('liste_categorie');
+        Session::flash('success', 'La mise à jour a été effectuée.');
+        return redirect()->route('liste_categorie')->with('success', 'La mise à jour a été effectuée.');
     }
 }

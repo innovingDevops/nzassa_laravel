@@ -47,6 +47,7 @@ class DepartementController extends Controller
                 $donnee = [
                 "libelle_departement" => $request->libelle_departement,
             ]);
-            return redirect()->route('ajout_departement');
+            Session::flash('success', 'La mise à jour a été effectuée.');
+            return redirect()->route('ajout_departement')->with('success', 'La mise à jour a été effectuée.');
         }
 }

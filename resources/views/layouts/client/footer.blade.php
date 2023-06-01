@@ -46,7 +46,6 @@
             </form>
         </div>
     </div>
-
     <!-- canvas menu -->
     <div class="canvas-menu d-flex align-items-end flex-column">
         <!-- close button -->
@@ -56,9 +55,7 @@
         <div class="logo">
             <img width="125px" src="{{ asset('client/images/logo.png') }}" alt="Katen" />
         </div>
-
         <!-- menu -->
-        
         <nav>
             <ul class="vertical-menu">
                 <li><a href="{{route('home')}}">Accueil</a></li>
@@ -70,7 +67,7 @@
                         @endforeach
                     </ul>
                 </li>
-                <li><a href="{{ route('team_interface_client')}}">Team</a></li>
+                <li><a href="{{route('home')}}#team">Team</a></li>
                 <li><a href="{{route('home')}}#galerie">Galerie</a></li>
                 <li><a href="{{route('actualite')}}">Actualité</a></li>
                 <li><a href="{{route('contact')}}">Contact</a></li>
@@ -103,5 +100,4 @@
     });
     </script>
     </body>
-
     </html>

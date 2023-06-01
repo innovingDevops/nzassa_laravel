@@ -10,7 +10,6 @@
                 </div>
             </div>
         </div>
-       
         <div class="card-body bg-light">
             <div class="tab-content">
                 <div class="tab-pane preview-tab-pane active" role="tabpanel"
@@ -36,7 +35,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="basic-form-gender">Sous Catégorie</label>
-                            <select name="id_sous_categorie" class="form-select" id="id_sous_categorie" aria-label="Default select example" disabled>
+                            <select name="id_sous_categorie" class="form-select" id="id_sous_categorie" aria-label="Default select example">
                                 @foreach ( $sous_categories as $sous_categorie )
                                     <option value="{{ $sous_categorie->id }}" >{{ $sous_categorie->nom_souscategorie }}</option>
                                 @endforeach

@@ -34,6 +34,20 @@
             <div class="col-lg-8">
                 <div class="row gy-4">
                     @foreach ( $articles as $article )
+
+                    @if($count_article == 0)
+                    <div class="thumb top-rounded">
+                        <a href="#" class="category-badge position-absolute">{{ getcateoriebyid($article->id_categorie)->nom_categorie }}</a>
+                        <span class="post-format">
+                            <i class="icon-picture"></i>
+                        </span>
+                        <a href="{{route('blog',['id' => $article->id ]) }}">
+                            <div class="inner">
+                                <img src="{{ asset('storage/'.$article->image_article) }}" alt="post-title" />
+                            </div>
+                        </a>
+                    </div>
+                    @endif
                     
                         <div class="col-sm-6">
                             <!-- post -->

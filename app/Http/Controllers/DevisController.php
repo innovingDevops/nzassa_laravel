@@ -76,11 +76,15 @@ class DevisController extends Controller
             'commentaire' => 'required',
         ]);
         $mail_data = [
-            'recipient' => 'koffimarc588@gmail.com',
+            'recipient' => 'hello.innoving@gmail.com',
             'fromEmail' => $request->email,
             'fromName' => $request->nom_prenom,
             'subject' => $request->subject,
             'body' => $request->commentaire,
+            'formule' => $request->formule,
+            'nom_societe' => $request->nom_societe,
+            'contact' => $request->contact,
+            'secteur_activite' => $request->secteur_activite
         ];
         Mail::send('page/client/email-template',$mail_data, function($message) use ($mail_data){
             $message->to($mail_data['recipient'])

@@ -45,6 +45,8 @@ class SettingController extends Controller
             "cle" => $request->cle,
             "valeur" => $request->valeur,
             ]);
-        return redirect()->route('setting');
+        Session::flash('success', 'La mise à jour a été effectuée.');
+        return redirect()->route('setting')->with('success', 'La mise à jour a été effectuée.');
+        
     }
 }

@@ -71,7 +71,8 @@ class TeamController extends Controller
         $donnee['fonction'] = $request->fonction;
         $donnee['id_departement'] = $request->id_departement;
         DB::table('teams')->where('id','=',$id)->update($donnee);
-        return redirect()->route('liste_team'); 
+        Session::flash('success', 'La mise à jour a été effectuée.');
+        return redirect()->route('liste_team')->with('success', 'La mise à jour a été effectuée.');
     } 
 
 //     public function team_interface_client (){

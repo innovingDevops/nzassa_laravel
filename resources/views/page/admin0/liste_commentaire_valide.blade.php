@@ -5,7 +5,7 @@
         <div class="card-header">
             <div class="row flex-between-end">
                 <div class="col-auto align-self-center">
-                    <h4 class="mb-0" data-anchor="data-anchor">Commentaires Approuvés</h4>
+                    <h2 class="mb-0" data-anchor="data-anchor">La liste des commentaires approuvés</h2>
                 </div>
                 
             </div>

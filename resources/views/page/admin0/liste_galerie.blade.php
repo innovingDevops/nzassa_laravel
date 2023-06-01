@@ -1,11 +1,16 @@
 @extends('layouts/admin_master')
 @section('content')
-    <h1>liste galerie</h1>
+
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
     <div class="card mb-3">
         <div class="card-header">
             <div class="row flex-between-end">
                 <div class="col-auto align-self-center">
-                    <h5 class="mb-0" data-anchor="data-anchor">Pagination with numbering</h5>
+                    <h2 class="mb-0" data-anchor="data-anchor">Notre Galerie</h2>
                 </div>
                 <div class="col-8 col-sm-auto text-end ps-2"> 
                     <div id="table-customers-replace-element" class="">

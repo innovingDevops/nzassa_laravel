@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Commentaire;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Session;
+
+
 class CommentaireController extends Controller
 {
     public function liste_commentaire_valide(){
@@ -39,7 +42,8 @@ class CommentaireController extends Controller
     public function supprime_commentaire($id){
         $commentaires = Commentaire::find($id);
         $commentaires->delete();
-        return redirect()->route('liste_commentaire_brouillon');
+        Session::flash('success', 'Vous venez de supprimer un commentaire .');
+        return redirect()->route('liste_commentaire_brouillon')->with('success', 'Vous venez de supprimer un commentaire.');
     }
 
     public function approuver_commentaire($id){

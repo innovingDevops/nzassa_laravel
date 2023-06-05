@@ -35,7 +35,8 @@ class DepartementController extends Controller
         public function supprime_departement($id){
             $departement = Departement::find($id);
             $departement->delete();
-            return redirect()->route("ajout_departement");
+            Session::flash('success', 'Vous venez de supprimer un département.');
+            return redirect()->route('ajout_departement')->with('success', 'Vous venez de supprimer un département .');
         }
 
         public function edit_departement($id){

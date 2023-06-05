@@ -50,7 +50,8 @@ class TeamController extends Controller
     public function supprime_team($id){
         $team = Team::find($id);
         $team->delete();
-        return redirect()->route('liste_team');
+        Session::flash('success', 'Vous venez de supprimer un membre de team.');
+        return redirect()->route('liste_team')->with('success', 'Vous venez de supprimer un membre de team.');
     }
 
     public function edit_team($id){

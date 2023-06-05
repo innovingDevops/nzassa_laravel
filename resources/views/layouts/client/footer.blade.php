@@ -10,8 +10,7 @@
 
                     <!-- social icons -->
                     <div class="col-md-4 text-center">
-                        <ul class="social-icons list-unstyled list-inline mb-0">        
-                           
+                        <ul class="social-icons list-unstyled list-inline mb-0">            
                             <li class="list-inline-item"><a href="{{ getSetting('facebook') }}"><i class="fab fa-facebook-f"></i></a></li>
                             <li class="list-inline-item"><a href="{{ getSetting('twitter') }}"><i class="fab fa-twitter"></i></a></li>
                             <li class="list-inline-item"><a href="{{ getSetting('instagram') }}"><i class="fab fa-instagram"></i></a></li>

@@ -38,6 +38,46 @@
     .img_galerie{
     height: 250px;
     }
+
+    .testimonials .testimonial-item {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.testimonials .testimonial-avatar {
+  border-radius: 50%;
+}
+
+.testimonials .testimonial-author {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.testimonials .testimonial-company {
+  font-style: italic;
+  color: #888;
+}
+
+.testimonials .testimonial-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 200px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.testimonials .testimonial-avatar img { 
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+
 </style>
 <!-- hero section -->
 <section id='hero' >
@@ -195,7 +235,6 @@
                                         <li class="list-inline-item">{{ $item->description_fonctionnalite }}</li>
                                     </ul>
                                 </div>
-                                
                             </div>   
                             @endforeach
                         </div>
@@ -235,11 +274,11 @@
                             <!-- post -->
                             <div class="post">
                                 <div class="thumb rounded">
-                                    <a href="category.html" class="category-badge position-absolute">- 50%</a>
+                                    {{-- <a href="category.html" class="category-badge position-absolute">- 50%</a> --}}
                                     {{-- <span class="post-format">
                                         <i class="icon-picture"></i>
                                     </span> --}}
-                                    <a href="blog-single.html">
+                                    <a>
                                         <div class="inner">
                                             <img src="{{ asset('storage/'.$formule->image_formule) }}" alt="post-title" />
                                         </div>
@@ -249,7 +288,7 @@
                                     <li class="list-inline-item"><a href="#"><img src="{{asset('client/images/other/author-sm.png')}}" class="author" alt="author" />Katen Doe</a></li>
                                     <li class="list-inline-item">29 March 2021</li>
                                 </ul> --}}
-                                <h5 class="post-title mb-3 mt-3"><a href="blog-single.html">{{ $formule->titre_formule }}
+                                <h5 class="post-title mb-3 mt-3"><a>{{ $formule->titre_formule }}
                                     </a></h5>
                                 <p class="excerpt mb-0">{{ $formule->description_formule }}</p>
                             </div>
@@ -258,7 +297,7 @@
                             {{ $cpt++; }}
                         @endphp
                         <div class="float-end d-none d-md-block">
-                            <a href="{{ route('detail_nzassa_shop', ['id' => $formule->id]) }}" class="more-link">En savoir plus<i class="icon-arrow-right"></i></a>
+                            <a href="{{ route('detail_formule', ['id' => $formule->id]) }}" class="more-link">En savoir plus<i class="icon-arrow-right"></i></a>
                         </div>
                         @endif 
                     </div>
@@ -266,7 +305,6 @@
             </div>
         </div>
 </section>
-
 @endforeach
 <div class="" data-height="50" id="team"></div>
 <h3 class="section-title text-center prod_nzassa m-5 "> La Team Innoving</h3>
@@ -292,52 +330,97 @@
 
 <!-- Les témoignages  -->
 <h3 class="section-title text-center prod_nzassa m-5 "> Les Témoignages </h3>
-<section class="main-content">
-    <div class="container">
-        <div class="row gy-4">
-            <div class="col-lg-12">
-                <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner monElement">
-                        @foreach ($temoignages as $key => $temoignage )
-                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}" >
-                                {{-- <div  class="card mb-3 shadow-sm">
-                                    <div class="row g-0 m-2 align-items-center">
-                                        <div class="thumb col-4">
-                                            <img class="img_team" src="{{asset('storage/'.$temoignage->image_temoignage)}}" alt="{{ $temoignage->nom_temoignage}}" />
-                                        </div>
-                                        <div class="details col-8">
-                                            <h4 class="name mb-0"><a href="#">{{ $temoignage->nom_temoignage}}</a></h4>
-                                            <small class="text-muted date">{{ $temoignage->profession_temoignage }}</small>
-                                            <p class="mt-2 mb-0">{{ $temoignage->detail_temoignage }}</p>
-                                        </div>
+    <section class="main-content">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-12">
+                    <section class="testimonials">
+                        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="testimonial-item">
+                                    <div class="testimonial-avatar ">
+                                    <img src="{{ asset('client/images/bg1.jpg') }}" alt="Client Avatar">
                                     </div>
-                                </div> --}}
-                                <div class="card bg-dark text-white overflow-hidden light" style="max-width: 30rem;">
-                                    <div class="card-img-top"><img class="img-fluid" src="{{asset('storage/'.$temoignage->image_temoignage)}}" alt="Card image" /></div>
-                                    <div class="card-img-overlay d-flex align-items-end">
-                                      <div>
-                                        <h4  class="card-title text-white">{{ $temoignage->nom_temoignage}}</h4>
-                                        <h5 class="card-title text-white">{{ $temoignage->profession_temoignage }}</h5>
-                                        <p class="card-text">{{ $temoignage->detail_temoignage }}</p>
-                                      </div>
-                                    </div>
-                                  </div>
+                                    <p class="testimonial-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis justo sem. Vestibulum ullamcorper, lacus eu consequat rutrum, lectus neque condimentum enim, et facilisis odio odio nec urna.</p>
+                                    <h5 class="testimonial-author">John Doe</h5>
+                                    <p class="testimonial-company">ABC Company</p>
+                                </div>
                             </div>
-                        @endforeach
+                            <div class="carousel-item">
+                                <div class="testimonial-item">
+                                    <div class="testimonial-avatar">
+                                    <img src="{{ asset('client/images/bg1.jpg') }}" alt="Client Avatar" >
+                                    </div>
+                                    <p class="testimonial-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis justo sem. Vestibulum ullamcorper, lacus eu consequat rutrum, lectus neque condimentum enim, et facilisis odio odio nec urna.</p>
+                                    <h5 class="testimonial-author">John Doe</h5>
+                                    <p class="testimonial-company">ABC Company</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="testimonial-item">
+                                    <div class="testimonial-avatar">
+                                    <img src="{{ asset('client/images/bg1.jpg') }}" alt="Client Avatar" >
+                                    </div>
+                                    <p class="testimonial-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis justo sem. Vestibulum ullamcorper, lacus eu consequat rutrum, lectus neque condimentum enim, et facilisis odio odio nec urna.</p>
+                                    <h5 class="testimonial-author">John Doe</h5>
+                                    <p class="testimonial-company">ABC Company</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                        </div>
+                    </section>
+                    
+                    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner monElement">
+                            @foreach ($temoignages as $key => $temoignage )
+                                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}" >
+                                    {{-- <div  class="card mb-3 shadow-sm">
+                                        <div class="row g-0 m-2 align-items-center">
+                                            <div class="thumb col-4">
+                                                <img class="img_team" src="{{asset('storage/'.$temoignage->image_temoignage)}}" alt="{{ $temoignage->nom_temoignage}}" />
+                                            </div>
+                                            <div class="details col-8">
+                                                <h4 class="name mb-0"><a href="#">{{ $temoignage->nom_temoignage}}</a></h4>
+                                                <small class="text-muted date">{{ $temoignage->profession_temoignage }}</small>
+                                                <p class="mt-2 mb-0">{{ $temoignage->detail_temoignage }}</p>
+                                            </div>
+                                        </div>
+                                    </div> --}}
+                                    <div class="card bg-dark text-white overflow-hidden light" style="max-width: 30rem;">
+                                        <div class="card-img-top"><img class="img-fluid" src="{{asset('storage/'.$temoignage->image_temoignage)}}" alt="Card image" /></div>
+                                        <div class="card-img-overlay d-flex align-items-end">
+                                        <div>
+                                            <h4  class="card-title text-white">{{ $temoignage->nom_temoignage}}</h4>
+                                            <h5 class="card-title text-white">{{ $temoignage->profession_temoignage }}</h5>
+                                            <p class="card-text">{{ $temoignage->detail_temoignage }}</p>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 <!-- Nos Partenaires   -->
 <h3 class="section-title text-center prod_nzassa m-2 "> Nos Partenaires</h3>
 <section class="hero-carousel m-5">

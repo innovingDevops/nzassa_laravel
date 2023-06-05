@@ -49,7 +49,8 @@ class SouscategorieController extends Controller
     public function supprime_sous_categorie($id){
         $sous_categories = sous_categorie::find($id);
         $sous_categories->delete();
-        return redirect()->route("liste_sous_categorie");
+        Session::flash('success', 'Vous venez de supprimer une sous catégorie');
+        return redirect()->route('liste_sous_categorie')->with('success', 'Vous venez de supprimer une sous catégorie.');
     }
 
       // Fonction de modification

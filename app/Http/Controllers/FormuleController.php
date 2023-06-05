@@ -75,7 +75,8 @@ class FormuleController extends Controller
         
         $formule = Formule::find($id);
         $formule->delete();
-        return redirect()->route('liste_formule');
+        Session::flash('success', 'Vous venez de supprimer une formule ');
+        return redirect()->route('liste_formule')->with('success', 'Vous venez de supprimer une formule.');
     }
 
      // Fonction de modification

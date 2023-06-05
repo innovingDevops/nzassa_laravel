@@ -51,7 +51,8 @@ class TemoignageController extends Controller
     public function supprime_temoignage($id){
         $temoignage = Temoignage::find($id);
         $temoignage->delete();
-        return redirect()->route('liste_temoignage');
+        Session::flash('success', 'Vous venez de supprimer un témoignage');
+        return redirect()->route('liste_temoignage')->with('success', 'Vous venez de supprimer un témoignage.');
     }
 
     public function edit_temoignage($id){

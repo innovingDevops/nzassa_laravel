@@ -56,7 +56,8 @@ class CategorieController extends Controller
     public function supprime_categorie($id){
         $categories = Categorie::find($id);
         $categories->delete();
-        return redirect()->route("liste_categorie");
+        Session::flash('success', 'Vous venez de supprimer une catégorie.');
+        return redirect()->route('liste_categorie')->with('success', 'Vous venez de supprimer une catégorie.');
     }
 
     // Fonction de modification

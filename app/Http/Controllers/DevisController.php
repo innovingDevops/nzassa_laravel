@@ -104,7 +104,8 @@ class DevisController extends Controller
     public function supprime_devis($id){
         $devis = Devis::find($id);
         $devis->delete();
-        return redirect()->route('liste_devis_valide');
+        Session::flash('success', 'Vous venez de supprimer un devis.');
+        return redirect()->route('liste_devis_valide')->with('success', 'Vous venez de supprimer un devis .');
     }
 
     public function approuver_devis($id){

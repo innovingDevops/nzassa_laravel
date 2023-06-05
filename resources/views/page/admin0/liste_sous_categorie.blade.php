@@ -54,9 +54,31 @@
                                         <td class="age">{{ $sous_categorie->nom_souscategorie }}</td>
                                         <td class="age">{{ $sous_categorie->description_souscategorie }}</td>
                                         <td class="age">
-                                            <a href="{{ route('supprime_sous_categorie',['id' => $sous_categorie->id]) }}" class="btn btn-falcon-primary" type="button">
+                                             <!-- Button trigger modal -->
+                                             <a type="button" class="btn btn-falcon-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                 <span class="fs-2 text-danger fas fa-trash" data-fa-transform="shrink-3"></span>
                                             </a>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content modal-warning">
+                                                        {{-- <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div> --}}
+                                                        <div class="modal-body">
+                                                            La suppression de cet élément entraînera la suppression des éléments créés à partir de lui. <br>
+                                                            Êtes-vous sûr de vouloir supprimer cet élément ?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+                                                            <a href="{{ route('supprime_sous_categorie',['id' => $sous_categorie->id]) }}" class="btn btn-primary" type="button">
+                                                                Oui
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <a href="{{ route('edit_sous_categorie',['id' => $sous_categorie->id]) }}" class="btn btn-falcon-primary" type="button">
                                                 <span class="fs-2 text-success fas fa-edit" data-fa-transform="shrink-3"></span>
                                             </a>

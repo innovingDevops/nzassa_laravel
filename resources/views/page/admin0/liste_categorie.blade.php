@@ -53,29 +53,35 @@
                                         <td class="email">{{ $categorie->nom_categorie }}</td>
                                         <td class="age">{{ $categorie->description_categorie }}</td>
                                         <td class="age">
-                                            <a href="{{ route('supprime_categorie',['id' => $categorie->id]) }}" class="btn btn-falcon-primary" type="button">
-                                                <span class="fs-2 text-danger fas fa-trash" data-fa-transform="shrink-3"></span>
-                                            </a>
-                                            <a href="{{ route('edit_categorie',['id' => $categorie->id]) }}" class="btn btn-falcon-primary" type="button">
-                                                <span class="fs-2 text-success fas fa-edit" data-fa-transform="shrink-3"></span>
-                                            </a>
-                                            {{-- <form action="{{ route('supprime_categorie',['id' => $categorie->id]) }}" method="post">
-                                                @csrf --}}
-                                                {{-- <div class="dropstart font-sans-serif position-static d-inline-block">
-                                                    <button class="btn btn-link text-600 btn-sm btn-reveal float-end" type="button" id="dropdown-number-pagination-table-item-0" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent">
-                                                        <span class="fas fa-ellipsis-h fs--1"></span>
-                                                    </button>
-                                                    <div class="dropdown-menu dropdown-menu-end border py-2" aria-labelledby="dropdown-number-pagination-table-item-0">
-                                                        <a class="dropdown-item" href="#!">View</a>
-                                                        <a class="dropdown-item" href="#!">Edit</a>
-                                                        <div class="dropdown-divider"></div>
-                                                            <a class="dropdown-item text-warning" href="#!">Archive</a>
-                                                            {{-- @method('DELETE') --}}
-                                                            {{-- <button class="dropdown-item text-danger">Delete</button>
+                                            <!-- Button trigger modal -->
+                                                <a type="button" class="btn btn-falcon-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    <span class="fs-2 text-danger fas fa-trash" data-fa-transform="shrink-3"></span>
+                                                </a>
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content modal-warning">
+                                                            {{-- <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div> --}}
+                                                            <div class="modal-body">
+                                                                La suppression de cet élément entraînera la suppression des éléments créés à partir de lui. <br>
+                                                                Êtes-vous sûr de vouloir supprimer cet élément ?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+                                                                <a href="{{ route('supprime_categorie',['id' => $categorie->id]) }}" class="btn btn-primary" type="button">
+                                                                    Oui
+                                                                </a>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div> --}}
-                                            {{-- </form> --}}
+                                                </div>
+
+                                                <a href="{{ route('edit_categorie',['id' => $categorie->id]) }}" class="btn btn-falcon-primary" type="button">
+                                                    <span class="fs-2 text-success fas fa-edit" data-fa-transform="shrink-3"></span>
+                                                </a>
                                         </td>
                                     </tr>
                                     @endforeach

@@ -56,7 +56,8 @@ class FonctionnaliteController extends Controller
         public function supprime_fonctionnalite_formule($id){
             $fonctionnalite = Fonctionnalite_formule::find($id);
             $fonctionnalite->delete();
-            return redirect()->route('liste_fonctionnalite');
+            Session::flash('success', 'Vous venez de supprimer une fonctionnalité');
+            return redirect()->route('liste_fonctionnalite')->with('success', 'Vous venez de supprimer une fonctionnalité.');
         }
 
         public function edit_fonctionnalite_formule($id){

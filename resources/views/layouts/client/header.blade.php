@@ -25,7 +25,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 	
-
+	
 	
 	
 	<!--[if lt IE 9]>
@@ -67,26 +67,53 @@
 		</ul>
 	</div>
 </div> --}}
+
+{{-- Deplacement vers la droite --}}
+{{-- <style>
+    @keyframes move-scale-rotate {
+        0% {
+            transform: translateX(0) scale(0.5) rotate(0deg);
+            transform-origin: center center;
+        }
+        50% {
+            transform: translateX(300px) scale(0.5) rotate(180deg);
+            transform-origin: center center;
+        }
+        100% {
+            transform: translateX() scale(1) rotate(360deg);
+            transform-origin: center center;
+        }
+    }
+
+    #moving-image {
+        animation: move-scale-rotate 4s infinite;
+    }
+</style> --}}
+
+{{-- rotation du logos --}}
 <style>
-    @keyframes rotate {
+    @keyframes move-scale-rotate {
         0% {
             transform: rotate(0deg);
+            transform-origin: center center;
+        }
+        50% {
+            transform: rotate(180deg);
+            transform-origin: center center;
         }
         100% {
             transform: rotate(360deg);
+            transform-origin: center center;
         }
     }
-    
-    #preloader img {
-        animation: rotate 2s infinite linear;
+
+    #moving-image {
+        animation: move-scale-rotate 4s infinite;
     }
 </style>
-
 <div id="preloader" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-    <img width="200px" src="{{ asset('client/images/favicon.ico') }}" alt="Loading..." />
+    <img id="moving-image" width="200px" src="{{ asset('client/images/favicon.ico') }}" alt="Loading..." />
 </div>
-
-
 
 <!-- site wrapper -->
 <div class="site-wrapper">

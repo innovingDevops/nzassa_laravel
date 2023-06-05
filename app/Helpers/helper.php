@@ -56,8 +56,7 @@ function getMemberByDep($id_dep){
 
 function getSetting($cle){
    $setting = Setting::where('cle','=',$cle)->first();
-  
-   return $setting->valeur;;
+   return $setting->valeur;
 }   
 
 function getSouscategorie($id_categorie){

@@ -12,6 +12,7 @@
     <title>Document</title>
 </head>
 <body>
+
     <card class="container" background-color="#f8f8f8" width="400px" padding="20px" border-radius="10px" box-shadow="0 2px 4px rgba(0, 0, 0, 0.1)">
         <h2 style="color: #333333; font-size: 24px; margin-bottom: 20px;">Nouveau message de contact</h2>
         <p style="color: #666666; font-size: 16px; margin-bottom: 10px;">Nom : <b>{{ $fromName }}</b></p>
@@ -20,9 +21,8 @@
         <p style="color: #666666; font-size: 16px; margin-bottom: 10px;">Contact : <b>{{ $contact }}</b></p>
         <p style="color: #666666; font-size: 16px; margin-bottom: 10px;">Secteur d'activité : <b>{{ $secteur_activite }}</b></p>
         <p style="color: #666666; font-size: 16px; margin-bottom: 10px;">Formule Choisissez : <b>{{ $formule }}</b></p><br>
-
         <p style="color: #666666; font-size: 16px; margin-bottom: 10px;"> {{ $body }}</p>
- 
     </card>
+
 </body>
 </html>

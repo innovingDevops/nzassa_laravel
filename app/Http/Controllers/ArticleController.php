@@ -20,27 +20,35 @@ class ArticleController extends Controller
     public function supprime_article($id){
         $article = Article::find($id);
         $article->delete();
-        return redirect()->route('liste_article');
+        Session::flash('success', 'Vous venez de supprimer un article.');
+        return redirect()->route('liste_article')->with('success', 'Vous venez de supprimer un article.');
     }
     
     public function liste_commentaire_brouillon(){
         return view("page/admin0/liste_commentaire_brouillon");
     }
 
-    public function blog(Request $request){
+    public function blog(Request $request) {
         $article = Article::find($request->id);
-        $id_article= $article->id;
-        $formules = DB::table('formules')->get();
-        $categories = DB::table('categories')->get();
-        $commentaires = DB::table('commentaires')->where('status',1)
-                                                 ->where('id_article',$id_article)
-                                                 ->get();
-        return view("page/client/blog", ['formules' => $formules, 'article' => $article, 'categories' => $categories, 'commentaires' => $commentaires]);
+    
+        if ($article) {
+            $id_article = $article->id;
+            $formules = DB::table('formules')->get();
+            $categories = DB::table('categories')->get();
+            $commentaires = DB::table('commentaires')->where('status', 1)
+                                                    ->where('id_article', $id_article)
+                                                    ->get();
+    
+            return view("page/client/blog", ['formules' => $formules, 'article' => $article, 'categories' => $categories, 'commentaires' => $commentaires]);
+        } else {
+            return $this->actualite();
+        }
     }
-
+    
     public function actualite(){
         $articles = Article::paginate(4);
         $count_article = Article::all()->count();
+        
         // $articles = DB::table('articles')->get();
         $formules = DB::table('formules')->get();
         $categories = DB::table('categories')->get();

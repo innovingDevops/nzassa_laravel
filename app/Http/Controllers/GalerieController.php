@@ -38,8 +38,10 @@ class GalerieController extends Controller
     public function supprime_galerie($id){
         $galerie = Galerie::find($id);
         $galerie->delete();
-        return redirect()->route('liste_galerie');
+        Session::flash('success', 'Vous venez de supprimer une photo de la galerie');
+        return redirect()->route('liste_galerie')->with('success', 'Vous venez de supprimer une photo de la galerie.');
     }
+    
     public function edit_galerie($id){
         $galerie = Galerie::find($id);
         return view("page/admin0/edit_galerie", ['galerie' => $galerie ]);

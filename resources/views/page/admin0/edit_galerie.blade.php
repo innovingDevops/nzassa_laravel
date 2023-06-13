@@ -21,7 +21,7 @@
                             <img width="150px" class="img-fluid rounded" src="{{ asset('storage/'.$galerie->image_galerie) }}" alt="">
                             <input name="image_galerie" class="form-control" type="file" />
                         </div>
-                        <button class="btn btn-primary" type="submit">Submit</button>
+                        <button class="btn btn-primary" type="submit">Mettre à jour</button>
                     </form>
                 </div>
             </div>

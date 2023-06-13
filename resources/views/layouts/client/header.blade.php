@@ -1,12 +1,3 @@
-{{-- @php
-    $setting_facebook = getSetting('facebook');
-    $setting_linkedin = getSetting('linkedin');
-    $setting_twitter = getSetting('twitter');
-    $setting_youtube = getSetting('youtube');
-    $setting_telephone = getSetting('telephone');
-    $setting_adresse_mail = getSetting('adresse_mail');
-    $setting_localisation = getSetting('localisation');
-@endphp --}}
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -24,7 +15,6 @@
 	<link rel="stylesheet" href="{{ asset('client/css/style.css') }}" type="text/css" media="all">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-	
 	
 	
 	

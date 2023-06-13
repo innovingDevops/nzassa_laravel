@@ -83,6 +83,12 @@ class FonctionnaliteController extends Controller
             $donnee['ordre_fonctionnalite'] = $request->ordre_fonctionnalite;
             $donnee['description_fonctionnalite'] = $request->description_fonctionnalite;
 
+            // Affiche un warning quand il y a un champ qui est vide 
+            if (empty($donnee['libelle_fonctionnalite']) || empty($donnee['ordre_fonctionnalite']) || empty($donnee['description_fonctionnalite'])){
+                Session::flash('warning', 'Vous devez absolument remplir tous les champs');
+                return redirect()->route('edit_fonctionnalite_formule', ['id' => $id])->with('warning', 'Vous devez absolument remplir tous les champs');
+            }   
+
             DB::table('fonctionnalite_formules')->where('id','=', $id)->update($donnee);
             Session::flash('success', 'La mise à jour a été effectuée.');
             return redirect()->route('liste_fonctionnalite')->with('success', 'La mise à jour a été effectuée.');

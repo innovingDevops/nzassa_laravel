@@ -9,7 +9,7 @@
         <div class="card-header">
             <div class="row flex-between-end">
                 <div class="col-auto align-self-center">
-                    <h5 class="mb-0" data-anchor="data-anchor">Formule N'Zassa</h5>
+                    <h5 class="mb-0" data-anchor="data-anchor">Fonctionnalité</h5>
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@
                             <textarea name="description_fonctionnalite" class="form-control" id="basic-form-textarea" rows="3"
                                 placeholder="Description" required></textarea>
                         </div>
-                        <button class="btn btn-primary" type="submit">Submit</button>
+                        <button class="btn btn-primary" type="submit">Ajouter</button>
                     </form>
                 </div>
             </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banniere;
 use Illuminate\Http\Request;
 use App\Models\Formule;
 use Illuminate\Support\Facades\DB;
@@ -25,7 +26,7 @@ class FormuleController extends Controller
     }
 
     public function home(){
-        
+        $bannieres = DB::table('bannieres')->get();
         $formules = DB::table('formules')->get();
         $teams = DB::table('teams')->get();
         $departements = DB::table('departements')->get();
@@ -44,6 +45,7 @@ class FormuleController extends Controller
             'departements' => $departements,
             'settings' => $settings,
             'articles' => $articles,
+            'bannieres' => $bannieres,
         ]);
         // return view("page/client/index");
     }
@@ -80,7 +82,7 @@ class FormuleController extends Controller
     }
 
      // Fonction de modification
-     public function edit_formule($id){
+    public function edit_formule($id){
         $formule = Formule::find($id);
         return view("page/admin0/edit_formule", ['formule' => $formule]);
     }
@@ -115,11 +117,17 @@ class FormuleController extends Controller
         $donnee['titre_formule'] = $request->titre_formule;
         $donnee['description_formule'] = $request->description_formule;
 
+         // Affiche un warning quand il y a un champ qui est vide 
+         if (empty($donnee['nom_formule']) || empty($donnee['titre_formule']) || empty($donnee['description_formule'])){
+            Session::flash('warning', 'Vous devez absolument remplir tous les champs');
+            return redirect()->route('edit_formule', ['id' => $id]);
+        }  
+
         // Effectuez la mise à jour de la formule
         DB::table('formules')->where('id', $id)->update($donnee);
         Session::flash('success', 'La mise à jour a été effectuée.');
         return redirect()->route('liste_formule')->with('success', 'La mise à jour a été effectuée.');
     }
 
-
+   
 }

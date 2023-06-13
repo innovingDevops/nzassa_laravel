@@ -15,11 +15,11 @@
                   <form class="row g-3" action="{{ route('save_departement') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="col-lg-12">
-                      <label class="form-label" for="email3">Departement</label>
+                      <label class="form-label" for="email3">Département</label>
                       <input name="libelle_departement" class="form-control" id="email3" type="text" required />
                     </div>
                     <div class="col-12 d-flex justify-content-end">
-                      <button class="btn btn-primary" type="submit">Valider</button>
+                      <button class="btn btn-primary" type="submit">Ajouter</button>
                     </div>
                   </form>
                 </div>

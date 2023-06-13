@@ -48,7 +48,7 @@ class GalerieController extends Controller
     }
 
     public function update_galerie(Request $request, $id)
-{
+    {
     $galerie = Galerie::findOrFail($id);
 
     // Vérifiez si une nouvelle image de galerie a été téléchargée
@@ -60,10 +60,9 @@ class GalerieController extends Controller
         $path_image_galerie = $request->file('image_galerie')->store('image_galerie/', 'public');
         $galerie->image_galerie = $path_image_galerie;
     }
-
     $galerie->save();
     Session::flash('success', 'La mise à jour a été effectuée.');
     return redirect()->route('liste_galerie')->with('success', 'La mise à jour a été effectuée.');
-}
+    }
         
 }

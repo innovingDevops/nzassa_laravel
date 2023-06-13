@@ -62,12 +62,18 @@ class SouscategorieController extends Controller
 
     // // Fonction de mise à jour 
     public function update_sous_categorie(Request $request, $id){
-        $souscategorie = Sous_categorie::where("id","=",$id)->update(
-            $donnee = [
-                "id_categorie" => $request->id_categorie,
-                "nom_souscategorie" => $request->nom_souscategorie,
-                "description_souscategorie" => $request->description_souscategorie,
-        ]);
+        $donnee = [
+            "id_categorie" => $request->id_categorie,
+            "nom_souscategorie" => $request->nom_souscategorie,
+            "description_souscategorie" => $request->description_souscategorie,
+        ];
+            // Affiche un warning quand il y a un champ qui est vide 
+        if (empty($donnee['nom_souscategorie']) || empty($donnee['description_souscategorie'])){
+            Session::flash('warning', 'Vous devez absolument remplir tous les champs');
+            return redirect()->route('edit_sous_categorie', ['id' => $id]);
+        } 
+
+        $souscategorie = Sous_categorie::where("id","=",$id)->update($donnee);
         Session::flash('success', 'La mise à jour a été effectuée.');
         return redirect()->route('liste_sous_categorie')->with('success', 'La mise à jour a été effectuée.');
     }

@@ -21,7 +21,7 @@
                 <!--/.bg-holder-->
 
                 <div class="card-body position-relative">
-                  <h6>Nos Catégories<span class="badge badge-soft-info rounded-pill ms-2"></span></h6>
+                  <h6>Nos Catégories</h6>
                   <div class="display-4 fs-4 mb-2 fw-normal font-sans-serif text-info" data-countup='{"endValue":{{ $categories }},"separator":""}'>0</div><a class="fw-semi-bold fs--1 text-nowrap" href="{{ route('liste_categorie') }}"><i class="far fa-eye"></i> Voir liste</a>
                 </div>
               </div>
@@ -33,7 +33,7 @@
                 <!--/.bg-holder-->
 
                 <div class="card-body position-relative">
-                  <h6>Nos sous Catégories<span class="badge badge-soft-success rounded-pill ms-2">9.54%</span></h6>
+                  <h6>Nos sous Catégories</h6>
                   <div class="display-4 fs-4 mb-2 fw-normal font-sans-serif text-info" data-countup='{"endValue":{{ $sous_categories }},"separator":""}'>0</div><a class="fw-semi-bold fs--1 text-nowrap" href="{{ route('liste_sous_categorie') }}"><i class="far fa-eye"></i> Voir liste</a>
                 </div>
               </div>
@@ -57,7 +57,7 @@
                   <!--/.bg-holder-->
   
                   <div class="card-body position-relative">
-                    <h6>Notre team<span class="badge badge-soft-info rounded-pill ms-2"></span></h6>
+                    <h6>Notre team</h6>
                     <div class="display-4 fs-4 mb-2 fw-normal font-sans-serif text-info" data-countup='{"endValue":{{ $teams }},"separator":""}'>0</div><a class="fw-semi-bold fs--1 text-nowrap" href="{{ route('liste_team') }}"><i class="far fa-eye"></i> Voir liste</a>
                   </div>
                 </div>
@@ -69,7 +69,7 @@
                   <!--/.bg-holder-->
   
                   <div class="card-body position-relative">
-                    <h6>Notre Galerie<span class="badge badge-soft-info rounded-pill ms-2"></span></h6>
+                    <h6>Notre Galerie</h6>
                     <div class="display-4 fs-4 mb-2 fw-normal font-sans-serif text-info" data-countup='{"endValue":{{ $galeries }},"separator":""}'>0</div><a class="fw-semi-bold fs--1 text-nowrap" href="{{ route('liste_galerie') }}"><i class="far fa-eye"></i> Voir liste</a>
                   </div>
                 </div>
@@ -81,7 +81,7 @@
                   <!--/.bg-holder-->
 
                   <div class="card-body position-relative">
-                    <h6>Nos Départements<span class="badge badge-soft-info rounded-pill ms-2"></span></h6>
+                    <h6>Nos Départements</h6>
                     <div class="display-4 fs-4 mb-2 fw-normal font-sans-serif text-info" data-countup='{"endValue":{{ $departements }},"separator":""}'>0</div><a class="fw-semi-bold fs--1 text-nowrap" href="{{ route('ajout_departement') }}"><i class="far fa-eye"></i> Voir liste</a>
                   </div>
                 </div>

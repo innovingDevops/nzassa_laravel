@@ -40,11 +40,17 @@ class SettingController extends Controller
         return view('page/admin0/edit_setting', ['setting' => $setting]);
     }
     public function update_setting(Request $request, $id){
-        $setting = Setting::where("id","=",$id)->update(
-            $donnee = [
+        $donnee = [
             "cle" => $request->cle,
             "valeur" => $request->valeur,
-            ]);
+        ];
+        // Affiche un warning quand il y a un champ qui est vide 
+        if (empty($donnee['cle']) || empty($donnee['valeur'])){
+            Session::flash('warning', 'Vous devez absolument remplir tous les champs');
+            return redirect()->route('edit_setting', ['id' => $id]);
+        } 
+
+        $setting = Setting::where("id","=",$id)->update($donnee);
         Session::flash('success', 'La mise à jour a été effectuée.');
         return redirect()->route('setting')->with('success', 'La mise à jour a été effectuée.');
         

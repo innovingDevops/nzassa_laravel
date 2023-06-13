@@ -28,7 +28,7 @@
                             <label class="form-label">Nom </label>
                             <input name="nom_partenaire" class="form-control" type="text"/>
                         </div>
-                        <button class="btn btn-primary" type="submit">Submit</button>
+                        <button class="btn btn-primary" type="submit">Ajouter</button>
                     </form>
                 </div>
             </div>

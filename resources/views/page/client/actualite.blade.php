@@ -34,8 +34,10 @@
                 <div class="col-lg-8">
                     <div class="row gy-4">
                         @if ($articles->isEmpty())
-                            <div class="col-lg-12 mb-4">
-                                <h1>Aucun articleAucun articleAucun articleAucun articleAucun articleAucun article</h1>
+                            <div class="col">
+                                <div class="card">
+                                    <img src="{{ asset('client/images/zero.jpg') }}" class="card-img-top" alt="...">
+                                </div>
                             </div>
                             @else
                             @foreach ( $articles as $article )

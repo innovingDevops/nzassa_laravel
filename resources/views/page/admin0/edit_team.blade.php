@@ -1,6 +1,13 @@
 @extends('layouts/admin_master')
 @section('content')
-
+@if(session('warning'))
+    <div class="alert alert-warning d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+        <div>
+            {{ session('warning') }}
+        </div>
+      </div>
+@endif
     <div class="card mb-3">
         <div class="card-header">
             <div class="row flex-between-end">
@@ -30,6 +37,7 @@
                             <input name="fonction" class="form-control" id="basic-form-name" type="text" value="{{ $team->fonction }}"/>
                         </div>
                         <div class="mb-3">
+                            <label class="form-label" for="basic-form-gender">Département</label>
                             <select name="id_departement" class="form-select" id="basic-form-gender" aria-label="Default select example"> 
                                 @foreach ($departements as $departement)
                                 <option value="{{ $departement->id }}" @if($team->id_departement == $departement->id) selected @endif>{{ $departement->libelle_departement }}</option>

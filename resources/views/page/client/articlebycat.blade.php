@@ -33,67 +33,60 @@
         <div class="row gy-4">
             <div class="col-lg-8">
                 <div class="row gy-4">
-                    @foreach ( $articles as $article )
-
-                    @if($count_article == 0)
-                    <div class="thumb top-rounded">
-                        <a href="#" class="category-badge position-absolute">{{ getcateoriebyid($article->id_categorie)->nom_categorie }}</a>
-                        <span class="post-format">
-                            <i class="icon-picture"></i>
-                        </span>
-                        <a href="{{route('blog',['id' => $article->id ]) }}">
-                            <div class="inner">
-                                <img src="{{ asset('storage/'.$article->image_article) }}" alt="post-title" />
+                    @if ($articles->isEmpty())
+                            <div class="col">
+                                <div class="card">
+                                    <img src="{{ asset('client/images/zero.jpg') }}" class="card-img-top" alt="...">
+                                </div>
                             </div>
-                        </a>
-                    </div>
-                    @endif
-                    
-                        <div class="col-sm-6">
-                            <!-- post -->
-                            <div class="post post-grid rounded bordered">
-                                    
-                                <div class="thumb top-rounded">
-                                    <a href="#" class="category-badge position-absolute">{{ $categorie_id->nom_categorie }}</a>
-                                    <span class="post-format">
-                                        <i class="icon-picture"></i>
-                                    </span>
-                                    <a href="{{route('blog',['id' => $article->id ]) }}">
-                                        <div class="inner">
-                                            <img src="{{ asset('storage/'.$article->image_article) }}" alt="post-title" />
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="details">
-                                    <ul class="meta list-inline mb-0">
-                                        <li class="list-inline-item"><i class="far fa-calendar-alt"></i>   {{ $article->created_at }}</li>
-                                    </ul>
-                                    <h5 class="post-title mb-3 mt-3"><a href="{{route('blog',['id' => $article->id ]) }}">{{ substr(strip_tags($article->courte_description),0,45) }}</a></h5>
-                                    <p class="excerpt mb-0">{{ substr(strip_tags($article->detail_article), 0, 70) }}</p>
-                                </div>
-                                <div class="post-bottom clearfix d-flex align-items-center">
-                                    <div class="social-share me-auto">
-                                        <button class="toggle-button icon-share"></button>
-                                        <ul class="icons list-unstyled list-inline mb-0">
-                                            <li class="list-inline-item"><a href="{{route('blog')}}#"><i class="fab fa-facebook-f"></i></a>
-                                            </li>
-                                            <li class="list-inline-item"><a href="{{route('blog')}}#"><i class="fab fa-twitter"></i></a></li>
-                                            <li class="list-inline-item"><a href="{{route('blog')}}#"><i class="fab fa-linkedin-in"></i></a>
-                                            </li>
-                                            <li class="list-inline-item"><a href="{{route('blog')}}#"><i class="fab fa-pinterest"></i></a>
-                                            </li>
-                                            <li class="list-inline-item"><a href="{{route('blog')}}#"><i class="fab fa-telegram-plane"></i></a></li>
-                                            <li class="list-inline-item"><a href="{{route('blog')}}#"><i class="far fa-envelope"></i></a>
-                                            </li>
+                        @else
+                        @foreach ( $articles as $article )
+                            <div class="col-sm-6">
+                                <!-- post -->
+                                <div class="post post-grid rounded bordered">
+                                        
+                                    <div class="thumb top-rounded">
+                                        <a href="#" class="category-badge position-absolute">{{ $categorie_id->nom_categorie }}</a>
+                                        <span class="post-format">
+                                            <i class="icon-picture"></i>
+                                        </span>
+                                        <a href="{{route('blog',['id' => $article->id ]) }}">
+                                            <div class="inner">
+                                                <img src="{{ asset('storage/'.$article->image_article) }}" alt="post-title" />
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="details">
+                                        <ul class="meta list-inline mb-0">
+                                            <li class="list-inline-item"><i class="far fa-calendar-alt"></i>   {{ $article->created_at }}</li>
                                         </ul>
+                                        <h5 class="post-title mb-3 mt-3"><a href="{{route('blog',['id' => $article->id ]) }}">{{ substr(strip_tags($article->courte_description),0,45) }}</a></h5>
+                                        <p class="excerpt mb-0">{{ substr(strip_tags($article->detail_article), 0, 70) }}</p>
                                     </div>
-                                    <div class="more-button float-end">
-                                        <a href="{{route('blog')}}"><span class="icon-options"></span></a>
+                                    <div class="post-bottom clearfix d-flex align-items-center">
+                                        <div class="social-share me-auto">
+                                            <button class="toggle-button icon-share"></button>
+                                            <ul class="icons list-unstyled list-inline mb-0">
+                                                <li class="list-inline-item"><a href="{{route('blog')}}#"><i class="fab fa-facebook-f"></i></a>
+                                                </li>
+                                                <li class="list-inline-item"><a href="{{route('blog')}}#"><i class="fab fa-twitter"></i></a></li>
+                                                <li class="list-inline-item"><a href="{{route('blog')}}#"><i class="fab fa-linkedin-in"></i></a>
+                                                </li>
+                                                <li class="list-inline-item"><a href="{{route('blog')}}#"><i class="fab fa-pinterest"></i></a>
+                                                </li>
+                                                <li class="list-inline-item"><a href="{{route('blog')}}#"><i class="fab fa-telegram-plane"></i></a></li>
+                                                <li class="list-inline-item"><a href="{{route('blog')}}#"><i class="far fa-envelope"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="more-button float-end">
+                                            <a href="{{route('blog')}}"><span class="icon-options"></span></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    @endif
                 </div>
                 {{ $articles->links() }}
                 {{-- <nav>

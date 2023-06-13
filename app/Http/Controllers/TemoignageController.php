@@ -68,9 +68,17 @@ class TemoignageController extends Controller
             $image_temoignage = $request->file('image_temoignage')->store('image_temoignages', 'public');
             $donnee['image_temoignage'] = $image_temoignage;
         }
+
         $donnee['nom_temoignage'] = $request->nom_temoignage;
         $donnee['profession_temoignage'] = $request->profession_temoignage;
         $donnee['detail_temoignage'] = $request->detail_temoignage;
+
+           // Affiche un warning quand il y a un champ qui est vide 
+        if (empty($donnee['nom_temoignage']) || empty($donnee['profession_temoignage']) || empty($donnee['detail_temoignage'])){
+            Session::flash('warning', 'Vous devez absolument remplir tous les champs');
+            return redirect()->route('edit_temoignage', ['id' => $id]);
+        } 
+        
         DB::table('temoignages')->where('id','=',$id)->update($donnee);
         Session::flash('success', 'La mise à jour a été effectuée.');
         return redirect()->route('liste_temoignage')->with('success', 'La mise à jour a été effectuée.');

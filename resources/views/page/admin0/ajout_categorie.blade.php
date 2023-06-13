@@ -30,7 +30,7 @@
                             <textarea name="description_categorie" class="form-control" id="basic-form-textarea" rows="3"
                                 placeholder="Description" required></textarea>
                         </div>
-                        <button class="btn btn-primary" type="submit">Submit</button>
+                        <button class="btn btn-primary" type="submit">Ajouter</button>
                     </form>
                 </div>
             </div>

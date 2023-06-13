@@ -50,6 +50,11 @@
                         </div>
                         <div class="col-sm-6">
                             <h5 class="post-title mb-3 mt-3">{{ $formule->titre_formule }}</h5>
+                                <p>
+                                  N'Zassa est une application mobile de gestion digitale
+                                  qui vous permet de suivre et de gérer en temps réel 
+                                  votre Business sans avoir à vous déplacer.
+                                </p>
                                 <p class="excerpt mb-0">{{ $formule->description_formule }}</p>
                         </div>
                         <div class="col-sm-12">

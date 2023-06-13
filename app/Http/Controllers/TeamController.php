@@ -71,26 +71,16 @@ class TeamController extends Controller
         $donnee['nom'] = $request->nom;
         $donnee['fonction'] = $request->fonction;
         $donnee['id_departement'] = $request->id_departement;
+
+           // Affiche un warning quand il y a un champ qui est vide 
+        if (empty($donnee['nom']) || empty($donnee['fonction'])){
+            Session::flash('warning', 'Vous devez absolument remplir tous les champs');
+            return redirect()->route('edit_team', ['id' => $id]);
+        } 
+        
         DB::table('teams')->where('id','=',$id)->update($donnee);
         Session::flash('success', 'La mise à jour a été effectuée.');
         return redirect()->route('liste_team')->with('success', 'La mise à jour a été effectuée.');
     } 
-
-//     public function team_interface_client (){
-//         $teams = Team::paginate(4);
-//         $departements = DB::table('departements')->get();
-//         $formules = DB::table('formules')->get();
-//         return view("page/client/team_interface_client", ['teams' => $teams, 'departements' => $departements, 'formules' => $formules]);
-//     }
-
-//     public function teambydep($id)
-// {
-//     $formules = DB::table('formules')->get();
-//     $id_departement = Departement::find($id);
-//     $teams = $id_departement->teams ()->paginate(6);
-//     $departements = DB::table('departements')->get();
-
-//     return view('page/client/teambydep', ['formules' => $formules,'id_departement' => $id_departement, 'teams' => $teams, 'departements' => $departements]);
     
-// }     
 }

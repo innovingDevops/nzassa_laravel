@@ -1,6 +1,13 @@
 @extends('layouts/admin_master')
 @section('content')
-
+@if(session('warning'))
+    <div class="alert alert-warning d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+        <div>
+            {{ session('warning') }}
+        </div>
+      </div>
+@endif
     <div class="card mb-3">
         <div class="card-header">
             <div class="row flex-between-end">
@@ -41,7 +48,7 @@
                             <textarea name="description_formule" class="form-control" id="basic-form-textarea" rows="3"
                                 placeholder="Description">{{ $formule->description_formule }}</textarea>
                         </div>
-                        <button class="btn btn-primary" type="submit">Submit</button>
+                        <button class="btn btn-primary" type="submit">Mettre à jour</button>
                     </form>
                 </div>
             </div>

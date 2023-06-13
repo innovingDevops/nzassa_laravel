@@ -44,15 +44,16 @@ class ArticleController extends Controller
             return $this->actualite();
         }
     }
-    
+
     public function actualite(){
         $articles = Article::paginate(4);
-        $count_article = Article::all()->count();
-        
+
+        // $count_article = Article::all()->count();
         // $articles = DB::table('articles')->get();
+
         $formules = DB::table('formules')->get();
         $categories = DB::table('categories')->get();
-        return view("page/client/actualite", ['count_article' => $count_article, 'articles' => $articles, 'formules' => $formules, 'categories' => $categories]);
+        return view("page/client/actualite", ['articles' => $articles, 'formules' => $formules, 'categories' => $categories]);
     }
 
     // insertion de données article
@@ -101,9 +102,15 @@ class ArticleController extends Controller
         $donnee['courte_description'] = $request->courte_description;
         $donnee['id_categorie'] = $request->id_categorie;
         $donnee['id_sous_categorie'] = $request->id_sous_categorie;
-
         $donnee['detail_article'] = $request->detail_article;
-        DB::table('articles')->where('id',$id)->update($donnee);
+
+        // Affiche un warning quand il y a un champ qui est vide 
+        if (empty($donnee['titre_article']) || empty($donnee['courte_description']) || empty($donnee['detail_article'])){
+            Session::flash('warning', 'Vous devez absolument remplir tous les champs');
+            return redirect()->route('edit_article', ['id' => $id])->with('warning', 'Vous devez absolument remplir tous les champs');
+        }   
+        
+        DB::table('articles')->where('id',$id)->update($donnee);     
         Session::flash('success', 'La mise à jour a été effectuée.');
         return redirect()->route('liste_article')->with('success', 'La mise à jour a été effectuée.');
     }

@@ -1797,7 +1797,7 @@ section {
 }
 .featured-post-xl .thumb:after {
   content: "";
-  background: #203656;
+  /* background: #203656; */
   display: block;
   height: 100%;
   left: 0;

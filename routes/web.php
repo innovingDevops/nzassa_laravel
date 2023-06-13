@@ -12,6 +12,7 @@ use App\Http\Controllers\DevisController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\PartenaireController;
 use App\Http\Controllers\TemoignageController;
+use App\Http\Controllers\BanniereController;
 use App\Http\Controllers\Team_interface_clientController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -181,6 +182,20 @@ Route::post('/update_temoignage/{id}', [TemoignageController::class, 'update_tem
 Route::get('/detail_nzassa_shop/{id}', [FonctionnaliteController::class, 'detail_nzassa_shop'])->name("detail_nzassa_shop");
 Route::get('/detail_formule/{id}', [FonctionnaliteController::class, 'detail_formule'])->name("detail_formule");
 
+// Bannière
+Route::post('/save_banniere', [BanniereController::class, 'save_banniere'])->name("save_banniere");
+Route::get('/ajout_banniere', [BanniereController::class, 'ajout_banniere'])->name("ajout_banniere");
+Route::get('/liste_banniere', [BanniereController::class, 'liste_banniere'])->name("liste_banniere");
+Route::get('/supprime_banniere/{id}', [BanniereController::class, 'supprime_banniere'])->name("supprime_banniere");
+Route::get('/edit_banniere/{id}', [BanniereController::class, 'edit_banniere'])->name("edit_banniere");
+Route::post('/update_banniere/{id}',  [BanniereController::class, 'update_banniere'])->name("update_banniere");
+
+// Route::get('/ajout_galerie', [GalerieController::class, 'ajout_galerie'])->name("ajout_galerie");
+// Route::get('/liste_galerie', [GalerieController::class, 'liste_galerie'])->name("liste_galerie");
+// Route::post('/save_galerie',  [GalerieController::class, 'save_galerie'])->name("save_galerie");
+// Route::get('/supprime_galerie/{id}',  [GalerieController::class, 'supprime_galerie'])->name("supprime_galerie");
+// Route::get('/edit_galerie/{id}',  [GalerieController::class, 'edit_galerie'])->name("edit_galerie");
+// Route::post('/update_galerie/{id}',  [GalerieController::class, 'update_galerie'])->name("update_galerie");
 
 
 

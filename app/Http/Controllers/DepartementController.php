@@ -44,10 +44,16 @@ class DepartementController extends Controller
             return view('page/admin0/edit_departement', ['departement' => $departement]);
         }
         public function update_departement(Request $request,$id){
-            $departement = Departement::where("id","=",$id)->update(
-                $donnee = [
+            $donnee = [
                 "libelle_departement" => $request->libelle_departement,
-            ]);
+            ];
+            // Affiche un warning quand il y a un champ qui est vide 
+            if(empty($donnee['libelle_departement'])){
+                Session::flash('warning', 'Vous devez remplir tous les champs.');
+                return redirect()->route('edit_departement', ['id' => $id])->with('warning', 'Vous devez remplir tous les champs.');
+            }
+
+            $departement = Departement::where("id","=",$id)->update($donnee);
             Session::flash('success', 'La mise à jour a été effectuée.');
             return redirect()->route('ajout_departement')->with('success', 'La mise à jour a été effectuée.');
         }

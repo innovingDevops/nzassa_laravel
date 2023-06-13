@@ -1,11 +1,18 @@
 @extends('layouts/admin_master')
 @section('content')
-
+@if(session('warning'))
+    <div class="alert alert-warning d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+        <div>
+            {{ session('warning') }}
+        </div>
+      </div>
+@endif
     <div class="card mb-3">
         <div class="card-header">
             <div class="row flex-between-end">
                 <div class="col-auto align-self-center">
-                    <h5 class="mb-0" data-anchor="data-anchor">Formule N'Zassa</h5>
+                    <h5 class="mb-0" data-anchor="data-anchor">Fonctionnalités</h5>
                 </div>
             </div>
         </div>
@@ -43,7 +50,7 @@
                             <textarea name="description_fonctionnalite" class="form-control" id="basic-form-textarea" rows="3"
                                 placeholder="Description">{{ $fonctionnalite_formule->description_fonctionnalite }}</textarea>
                         </div>
-                        <button class="btn btn-primary" type="submit">Submit</button>
+                        <button class="btn btn-primary" type="submit">Mettre à jour</button>
                     </form>
                 </div>
             </div>

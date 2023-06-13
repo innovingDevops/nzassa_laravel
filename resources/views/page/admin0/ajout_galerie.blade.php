@@ -24,7 +24,7 @@
                             <label class="form-label">Image </label>
                             <input name="image_galerie" class="form-control" type="file" required />
                         </div>
-                        <button class="btn btn-primary" type="submit">Submit</button>
+                        <button class="btn btn-primary" type="submit">Ajouter</button>
                     </form>
                 </div>
             </div>

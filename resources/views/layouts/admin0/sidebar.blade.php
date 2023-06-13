@@ -36,6 +36,48 @@
                     <hr class="mb-0 navbar-vertical-divider" />
                 </div>
 
+                {{-- <a class="nav-link" href="{{ route('ajout_banniere') }}" role="button">
+                    <div class="d-flex align-items-center">
+                        <span class="nav-link-icon">
+                            <span class="far fa-images"></span>
+                        </span>
+                        <span class="nav-link-text ps-1">Bannière</span>
+                    </div>
+                </a> --}}
+                <a class="nav-link dropdown-indicator" href="#banniere" role="button" data-bs-toggle="collapse"
+                aria-expanded="false" aria-controls="components">
+                <div class="d-flex align-items-center">
+                    <span class="nav-link-icon">
+                        <span class="far fa-images"></span>
+                    </span>
+                    <span class="nav-link-text ps-1">Bannière</span>
+                </div>
+            </a>
+            <ul class="nav collapse" id="banniere">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('ajout_banniere') }}">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-text ps-1">Ajouter une bannière</span>
+                        </div>
+                    </a>
+                    <!-- more inner pages-->
+                </li>
+                <li class="nav-item"><a class="nav-link" href="{{route('liste_banniere')}}">
+                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Voir les bannières</span></div>
+                    </a>
+                    <!-- more inner pages-->
+                </li>
+                {{-- <li class="nav-item"><a class="nav-link" href="{{route('corbeille_sous_categorie')}}">
+                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Sous Catégorie
+                                Supprimées</span>
+                        </div>
+                    </a>
+                    <!-- more inner pages-->
+                </li> --}}
+            </ul>
+                <div class="col ps-0">
+                    <hr class="mb-0 navbar-vertical-divider" />
+                </div>
                 <!-- Creation de Catégorie -->
                 <a class="nav-link dropdown-indicator" href="#components" role="button" data-bs-toggle="collapse"
                     aria-expanded="false" aria-controls="components">
@@ -62,13 +104,13 @@
                         </a>
                         <!-- more inner pages-->
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('corbeille_categorie')}}">
+                    {{-- <li class="nav-item"><a class="nav-link" href="{{route('corbeille_categorie')}}">
                             <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Catégories
                                     Supprimées</span>
                             </div>
                         </a>
                         <!-- more inner pages-->
-                    </li>
+                    </li> --}}
                 </ul>
                 <div class="col ps-0">
                     <hr class="mb-0 navbar-vertical-divider" />
@@ -98,13 +140,13 @@
                         </a>
                         <!-- more inner pages-->
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('corbeille_sous_categorie')}}">
+                    {{-- <li class="nav-item"><a class="nav-link" href="{{route('corbeille_sous_categorie')}}">
                             <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Sous Catégorie
                                     Supprimées</span>
                             </div>
                         </a>
                         <!-- more inner pages-->
-                    </li>
+                    </li> --}}
                 </ul>
                 <div class="col ps-0">
                     <hr class="mb-0 navbar-vertical-divider" />
@@ -133,13 +175,13 @@
                         </a>
                         <!-- more inner pages-->
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('corbeille_article')}}">
+                    {{-- <li class="nav-item"><a class="nav-link" href="{{route('corbeille_article')}}">
                             <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Articles
                                     Supprimées</span>
                             </div>
                         </a>
                         <!-- more inner pages-->
-                    </li>
+                    </li> --}}
                 </ul>
                 <div class="col ps-0">
                     <hr class="mb-0 navbar-vertical-divider" />
@@ -168,13 +210,13 @@
                         </a>
                         <!-- more inner pages-->
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('corbeille_formule')}}">
+                    {{-- <li class="nav-item"><a class="nav-link" href="{{route('corbeille_formule')}}">
                             <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Formules
                                     Supprimées</span>
                             </div>
                         </a>
                         <!-- more inner pages-->
-                    </li>
+                    </li> --}}
                 </ul>
                 <div class="col ps-0">
                     <hr class="mb-0 navbar-vertical-divider" />
@@ -203,13 +245,13 @@
                         </a>
                         <!-- more inner pages-->
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('corbeille_fonctionnalite')}}">
+                    {{-- <li class="nav-item"><a class="nav-link" href="{{route('corbeille_fonctionnalite')}}">
                             <div class="d-flex align-items-center"><span class="nav-link-text ps-1">fonctionnalites
                                     Supprimées</span>
                             </div>
                         </a>
                         <!-- more inner pages-->
-                    </li>
+                    </li> --}}
                 </ul>
                 <div class="col ps-0">
                     <hr class="mb-0 navbar-vertical-divider" />
@@ -300,9 +342,11 @@
                 <!-- Nos Partenaires  -->
                 <a class="nav-link dropdown-indicator" href="#partenaire" role="button" data-bs-toggle="collapse"
                     aria-expanded="false" aria-controls="components">
-                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                class="far fa-images"></span></span><span
-                            class="nav-link-text ps-1">Partenaires</span>
+                    <div class="d-flex align-items-center">
+                        <span class="nav-link-icon">
+                            <span class="far fa-images"></span>
+                        </span>
+                        <span class="nav-link-text ps-1">Partenaires</span>
                     </div>
                 </a>
                 <ul class="nav collapse" id="partenaire">

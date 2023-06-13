@@ -67,13 +67,22 @@ class CategorieController extends Controller
     }
 
     // Fonction de mise à jour 
-    public function update_categorie(Request $request, $id){
-        $categorie = Categorie::where("id","=",$id)->update(
-            $donnee = [
+    public function update_categorie(Request $request, $id)
+    {
+        $donnee = [
             "nom_categorie" => $request->nom_categorie,
             "description_categorie" => $request->description_categorie,
-        ]);
+        ];
+         // Affiche un warning quand il y a un champ qui est vide 
+        if (empty($donnee['nom_categorie']) || empty($donnee['description_categorie'])) {
+            Session::flash('warning', 'Vous devez remplir tous les champs.');
+            return redirect()->route('edit_categorie', ['id' => $id])->with('warning', 'Vous devez remplir tous les champs.');
+        }
+    
+        $categorie = Categorie::where("id", "=", $id)->update($donnee);
+    
         Session::flash('success', 'La mise à jour a été effectuée.');
         return redirect()->route('liste_categorie')->with('success', 'La mise à jour a été effectuée.');
     }
+    
 }

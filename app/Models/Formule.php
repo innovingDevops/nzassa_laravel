@@ -14,7 +14,8 @@ class Formule extends Model
         'nom_formule',
         'titre_formule',
         'image_formule',
-        'description_formule'
+        'description_formule',
+        'priority'
     ];
 
 }

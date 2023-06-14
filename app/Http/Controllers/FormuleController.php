@@ -17,7 +17,7 @@ class FormuleController extends Controller
     }
 
     public function liste_formule(){
-        $formules = DB::table('formules')->get();
+        $formules = DB::table('formules')->orderBy('priority')->get();
         return view("page/admin0/liste_formule", ['formules'=> $formules]);
     }
 
@@ -27,7 +27,7 @@ class FormuleController extends Controller
 
     public function home(){
         $bannieres = DB::table('bannieres')->get();
-        $formules = DB::table('formules')->get();
+        $formules = DB::table('formules')->orderBy('priority')->get();
         $teams = DB::table('teams')->get();
         $departements = DB::table('departements')->get();
         $galeries = DB::table('galeries')->get();
@@ -54,6 +54,7 @@ class FormuleController extends Controller
         $path_logo = $request->file('logo_formule')->store('formule/logo/', 'public');
         $path_image = $request->file('image_formule')->store('formule/image/', 'public');
         $donnee = [
+            "priority" => $request->priority,
             "logo_formule" => $path_logo,
             "nom_formule" => $request->nom_formule,
             "titre_formule" => $request->titre_formule,
@@ -113,21 +114,20 @@ class FormuleController extends Controller
         }
 
         // Mettez à jour les autres champs de la formule
-        $donnee['nom_formule'] = $request->nom_formule;
-        $donnee['titre_formule'] = $request->titre_formule;
-        $donnee['description_formule'] = $request->description_formule;
+            $donnee['priority'] = $request->priority;
+            $donnee['nom_formule'] = $request->nom_formule;
+            $donnee['titre_formule'] = $request->titre_formule;
+            $donnee['description_formule'] = $request->description_formule;
 
          // Affiche un warning quand il y a un champ qui est vide 
-         if (empty($donnee['nom_formule']) || empty($donnee['titre_formule']) || empty($donnee['description_formule'])){
+        if (empty($donnee['nom_formule']) || empty($donnee['titre_formule']) || empty($donnee['description_formule']) || empty($donnee['priority'])){
             Session::flash('warning', 'Vous devez absolument remplir tous les champs');
             return redirect()->route('edit_formule', ['id' => $id]);
         }  
 
         // Effectuez la mise à jour de la formule
-        DB::table('formules')->where('id', $id)->update($donnee);
-        Session::flash('success', 'La mise à jour a été effectuée.');
-        return redirect()->route('liste_formule')->with('success', 'La mise à jour a été effectuée.');
+            DB::table('formules')->where('id', $id)->update($donnee);
+            Session::flash('success', 'La mise à jour a été effectuée.');
+            return redirect()->route('liste_formule')->with('success', 'La mise à jour a été effectuée.');
     }
-
-   
 }

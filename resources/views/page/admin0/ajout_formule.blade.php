@@ -21,6 +21,10 @@
                     <form action="{{ route('save_formule') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
+                            <label class="form-label">Priorité de la formule</label>
+                            <input name="priority" class="form-control" type="number" required />
+                        </div>
+                        <div class="mb-3">
                             <label class="form-label">Logo de la Formule</label>
                             <input name="logo_formule" class="form-control" type="file" required />
                         </div>

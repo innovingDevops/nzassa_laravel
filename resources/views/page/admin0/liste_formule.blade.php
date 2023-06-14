@@ -44,6 +44,7 @@
                                         <th class="sort" data-sort="name">Titre</th>
                                         <th class="sort" data-sort="email">Image Formule</th>
                                         <th class="sort" data-sort="age">Description</th>
+                                        <th class="sort" data-sort="age">Priorité</th>
                                         <th class="sort" data-sort="age">Action</th>
                                         
                                     </tr>
@@ -61,6 +62,7 @@
                                             <img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="{{ asset('storage/'.$formule->image_formule) }}" alt="" width="100"></a>     
                                         </td>
                                         <td class="name">{{ strip_tags($formule->description_formule) }}</td>
+                                        <td class="name">{{ $formule->priority }}</td>
                                         <td class="age">
                                             <!-- Button trigger modal -->
                                                 <a type="button" class="btn btn-falcon-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">

@@ -399,11 +399,12 @@
                     <hr class="mb-0 navbar-vertical-divider" />
                 </div>
                 <!-- Temoignage  -->
-                <a class="nav-link dropdown-indicator" href="#temoignage" role="button" data-bs-toggle="collapse"
-                    aria-expanded="false" aria-controls="components">
-                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span
-                                class="fas fa-user-friends"></span></span><span class="nav-link-text ps-1">Notre
-                        Témoignage</span>
+                <a class="nav-link dropdown-indicator" href="#temoignage" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="components">
+                    <div class="d-flex align-items-center">
+                        <span class="nav-link-icon">
+                            <span class="fas fa-user-friends"></span>
+                        </span>
+                        <span class="nav-link-text ps-1">Témoignage</span>
                     </div>
                 </a>
                 <ul class="nav collapse" id="temoignage">

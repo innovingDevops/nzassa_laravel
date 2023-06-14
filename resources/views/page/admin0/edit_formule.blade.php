@@ -24,6 +24,10 @@
                     <form action="{{ route('update_formule', ['id' => $formule->id]) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
+                            <label class="form-label">Priorité de la formule</label>
+                            <input name="priority" class="form-control" type="number" value="{{ $formule->priority }}"/>
+                        </div>
+                        <div class="mb-3">
                             <label class="form-label">Logo de la Formule</label><br>
                             <img width="100px" class="img-fluid rounded" src="{{ asset('storage/'.$formule->logo_formule) }}" alt="">
                             <input name="logo_formule" class="form-control" type="file" />

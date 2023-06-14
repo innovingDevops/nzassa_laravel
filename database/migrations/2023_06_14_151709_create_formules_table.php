@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('titre_formule');
             $table->string('image_formule');
             $table->string('description_formule');
+            $table->integer('priority');
             $table->timestamps();
         });
     }

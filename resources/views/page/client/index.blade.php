@@ -177,8 +177,7 @@
 @foreach ($formules as $formule )
 
 <div class="m-5" data-height="50" id='{{ $formule->nom_formule }}'></div>
-
-<section class='main-content '  style="background-image:url('{{ asset('client/images/images/vector_page/vectorpage-banner-01.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<section class='main-content '  style="background-image:url('{{ asset('client/images/images/vector_page/vector-row-bg-5.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class='container-xl'>
         <div class='row gy-4'>
             <div class='col-lg-12'>

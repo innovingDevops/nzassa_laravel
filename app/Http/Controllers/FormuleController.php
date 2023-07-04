@@ -130,4 +130,9 @@ class FormuleController extends Controller
             Session::flash('success', 'La mise à jour a été effectuée.');
             return redirect()->route('liste_formule')->with('success', 'La mise à jour a été effectuée.');
     }
+
+    public function historique(){
+        $formules = DB::table('formules')->get();
+        return view('page/client/historique', ['formules' => $formules]);
+    }
 }

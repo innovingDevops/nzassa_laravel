@@ -1,22 +1,21 @@
     @extends('layouts/client_master')
     @section('content')
 
-    <section class="single-cover data-bg-image" data-bg-image="images/posts/single-cover.jpg">
+    <section class="single-cover data-bg-image" data-bg-image="{{ asset('client/images/images/monde.jpg') }}">
 
         <div class="container-xl">
-
             <div class="cover-content post">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item"><a href="#">Inspiration</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">3 Easy Ways To Make Your iPhone Faster</li>
+                        <li class="breadcrumb-item active" aria-current="page">Toute l'actualité technologique</li>
                     </ol>
                 </nav>
 
                 <!-- post header -->
                 <div class="post-header">
-                    <h1 class="title mt-0 mb-3">3 Easy Ways To Make Your iPhone Faster</h1>
+                    <h1 class="title mt-0 mb-3">Restez informé de<strong style="color: #ff3100; text-shadow : 1px 1px 1px "> l'actualité technologique </strong> qui façonnent <br> notre <b style="color:#ff3100">monde numérique.</b> </h1>
                     <ul class="meta list-inline mb-0">
                         <li class="list-inline-item"><a href="{{route('blog')}}"><img src="images/other/author-sm.png" class="author"
                                     alt="author" />Katen Doe</a></li>
@@ -27,8 +26,8 @@
             </div>
         </div>
     </section>
-
-    <section class="main-content">
+    {{-- style="background-image:url('{{ asset('client/images/images/vector_page/ser_bg_shape2.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;" --}}
+    <section class="main-content" >
         <div class="container-xl">
             <div class="row gy-4">
                 <div class="col-lg-8">
@@ -58,10 +57,10 @@
                                         </div>
                                         <div class="details">
                                             <ul class="meta list-inline mb-0">
-                                                <li class="list-inline-item"><i class="far fa-calendar-alt"></i>   {{ $article->created_at }}</li>
+                                                <li class="list-inline-item"><i class="far fa-calendar-alt"></i>{{ $article->created_at }}</li>
                                             </ul>
-                                            <h5 class="post-title mb-3 mt-3"><a href="{{route('blog',['id' => $article->id ]) }}">{{ substr(strip_tags($article->courte_description),0,45) }}</a></h5>
-                                            <p class="excerpt mb-0">{{ substr(strip_tags($article->detail_article), 0, 70) }}</p>
+                                            <h5 class="post-title mb-3 mt-3"><a href="{{route('blog',['id' => $article->id ]) }}">{{ substr(html_entity_decode(strip_tags($article->courte_description)),0,45) }}</a></h5>
+                                            <p class="excerpt mb-0">{{ substr(html_entity_decode(strip_tags($article->detail_article)), 0, 70) }}</p>
                                         </div>
                                         <div class="post-bottom clearfix d-flex align-items-center">
                                             <div class="social-share me-auto">
@@ -95,7 +94,6 @@
                         </ul>
                     </nav> --}}
                 </div>
-                
                 <div class="col-lg-4">
                     <!-- sidebar -->
                     <div class="sidebar">

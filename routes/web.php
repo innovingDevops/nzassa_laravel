@@ -31,7 +31,7 @@ use Illuminate\Support\Facades\Mail;
 */
 
 // la vue welcome 
-Route::get('/', function () { return view('welcome');});
+// Route::get('/', function () { return view('welcome');});
 
 // Gère l'authentification admin 
 Route::middleware([
@@ -42,7 +42,6 @@ Route::middleware([
     // Route::get('/admin0', function () {return view('page/admin0/index');})->name('admin0');
     Route::get('/admin0', [DevisController::class, 'admin0'])->name('admin0');
 });
-
 
 // Gère la déconnexion admin 
 Route::post('/logout', function (Request $request) {
@@ -60,7 +59,7 @@ Route::get('/contact', [DevisController::class, 'contact'])->name("contact");
 Route::post('/contact',  [DevisController::class, 'save_devis'])->name("save_devis");
 
 //home
-Route::get('/home', [FormuleController::class, 'home'])->name("home");
+Route::get('/', [FormuleController::class, 'home'])->name("home");
 
 //actualite
 Route::get('/actualite', [ArticleController::class, 'actualite'])->name("actualite");
@@ -190,12 +189,7 @@ Route::get('/supprime_banniere/{id}', [BanniereController::class, 'supprime_bann
 Route::get('/edit_banniere/{id}', [BanniereController::class, 'edit_banniere'])->name("edit_banniere");
 Route::post('/update_banniere/{id}',  [BanniereController::class, 'update_banniere'])->name("update_banniere");
 
-// Route::get('/ajout_galerie', [GalerieController::class, 'ajout_galerie'])->name("ajout_galerie");
-// Route::get('/liste_galerie', [GalerieController::class, 'liste_galerie'])->name("liste_galerie");
-// Route::post('/save_galerie',  [GalerieController::class, 'save_galerie'])->name("save_galerie");
-// Route::get('/supprime_galerie/{id}',  [GalerieController::class, 'supprime_galerie'])->name("supprime_galerie");
-// Route::get('/edit_galerie/{id}',  [GalerieController::class, 'edit_galerie'])->name("edit_galerie");
-// Route::post('/update_galerie/{id}',  [GalerieController::class, 'update_galerie'])->name("update_galerie");
-
+// Historique 
+Route::get('/historique/', [FormuleController::class, 'historique'])->name("historique");
 
 

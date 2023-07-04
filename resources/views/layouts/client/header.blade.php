@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Katen - Minimal Blog & Magazine HTML Theme</title>
+	<meta charset=UTF-8>
+	<meta http-equiv="Content-Type" content="text/html">
+	<title>N'Zassa | website </title>
 	<meta name="description" content="Katen - Minimal Blog & Magazine HTML Theme">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('client/images/favicon.png') }}">
+	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('client/images/favicon.ico') }}">
 
 	<!-- STYLES -->
 	<link rel="stylesheet" href="{{ asset('client/css/bootstrap.min.css') }}" type="text/css" media="all">
@@ -22,7 +23,6 @@
     <![endif]-->
 
 </head>
-
 <body>
 
 <!-- preloader -->
@@ -105,16 +105,13 @@
 
 <!-- site wrapper -->
 <div class="site-wrapper">
-
 	<div class="main-overlay"></div>
-
 	<!-- header -->
 	<header class="header-default">
 		<nav class="navbar navbar-expand-lg">
 			<div class="container-xl">
 				<!-- site logo -->
 				<a class="navbar-brand" href="{{ route('home') }}"><img width="120" src="{{ asset('client/images/logo.png') }}" alt="logo" /></a> 
-
 				<div class="collapse navbar-collapse">
 					<!-- menus -->
 					<ul class="navbar-nav mr-auto">
@@ -129,11 +126,14 @@
 								@endforeach
 							</ul>
 						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{route('home')}}#team">Team</a>
+						</li>
 						<li class="nav-item ">
 							<a class="nav-link" href="{{route('home')}}#galerie">Galerie</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{{route('home')}}#team">Team</a>
+						<li class="nav-item {{ (Route::currentRouteName() == 'historique') ? 'active':''}}">
+							<a class="nav-link" href="{{ route('historique') }}">Historique</a>
 						</li>
 						<li class="nav-item {{ (Route::currentRouteName() == 'actualite') ? 'active':''}}">
 							<a class="nav-link" href="{{route('actualite')}}">Actualité</a>

@@ -7,7 +7,7 @@
                 <h1 class="mt-0 mb-2">Contact</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-center mb-0">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Contact</li>
                     </ol>
                 </nav>
@@ -56,7 +56,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="spacer" data-height="50"></div>
             @if(session('success'))
                 <div class="alert alert-success">

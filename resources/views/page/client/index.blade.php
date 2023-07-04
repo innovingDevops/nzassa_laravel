@@ -38,7 +38,7 @@
 			/* transform: translate(-50%, -50%); */
 		}
 	}
-
+    
 	.img_team {
 		width: 200px;
 		border-radius: 30px;
@@ -104,11 +104,8 @@
                             </a>
                         </div>
                     @endforeach
-                    
                 </div>
-
             </div>
-
             <div class='col-lg-4'  style="background-image:url('{{ asset('admin/assets/img/corner-2.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 
                 <!-- post tabs -->
@@ -305,7 +302,7 @@
             <div class="post">
                 <div class=" rounded">
                     <div class="inner data-bg-image" data-bg-image="{{asset('storage/.$galerie->image_galerie')}}">
-                        <img src="{{ asset('storage/'.$galerie->image_galerie) }}" alt="" style="width:260px; height:250px; border-radius: 10px;">
+                        <img src="{{ asset('storage/'.$galerie->image_galerie) }}" alt="" style="width:260px; height:196px; border-radius: 10px;">
                     </div>
                 </div>
             </div>
@@ -382,80 +379,6 @@
                 </div>
             </div>
         @endforeach
-    {{-- 
-        <div class="post featured-post-md">
-
-            <a href="blog-single.html">
-                <div class=" rounded">
-                    <img src="{{asset('client/images/partenaire/2.jpeg')}}" alt="">
-                </div>
-            </a>
-        </div>
-
-        <div class="post featured-post-md">
-            <!-- <div class="details clearfix">
-						<a href="category.html" class="category-badge">Inspiration</a>
-						<h4 class="post-title"><a href="blog-single.html">9 Most Awesome Blue Lake With Snow Mountain</a></h4>
-						<ul class="meta list-inline mb-0">
-							<li class="list-inline-item"><a href="#">Katen Doe</a></li>
-							<li class="list-inline-item">29 March 2021</li>
-						</ul>
-					</div> -->
-            <a href="blog-single.html">
-                <div class=" rounded">
-                    <img src="{{asset('client/images/partenaire/3.jpeg')}}" alt="">
-                </div>
-            </a>
-        </div>
-
-        <div class="post featured-post-md">
-            <!-- <div class="details clearfix">
-						<a href="category.html" class="category-badge">Trending</a>
-						<h4 class="post-title"><a href="blog-single.html">Open The Gates For Chair By Using These Tips</a></h4>
-						<ul class="meta list-inline mb-0">
-							<li class="list-inline-item"><a href="#">Katen Doe</a></li>
-							<li class="list-inline-item">29 March 2021</li>
-						</ul>
-					</div> -->
-            <a href="blog-single.html">
-                <div class=" rounded">
-                    <img src="{{asset('client/images/partenaire/4.jpeg')}}" alt="">
-                </div>
-            </a>
-        </div>
-
-        <div class="post featured-post-md">
-            <!-- <div class="details clearfix">
-						<a href="category.html" class="category-badge">Politic</a>
-						<h4 class="post-title"><a href="blog-single.html">Feel Like A Pro With The Help Of These 7 Tips</a></h4>
-						<ul class="meta list-inline mb-0">
-							<li class="list-inline-item"><a href="#">Katen Doe</a></li>
-							<li class="list-inline-item">29 March 2021</li>
-						</ul>
-					</div> -->
-            <a href="blog-single.html">
-                <div class=" rounded">
-                    <img src="{{asset('client/images/partenaire/7.jpeg')}}" alt="">
-                </div>
-            </a>
-        </div>
-
-        <div class="post featured-post-md">
-            <!-- <div class="details clearfix">
-						<a href="category.html" class="category-badge">Culture</a>
-						<h4 class="post-title"><a href="blog-single.html">Your Light Is About To Stop Being Relevant</a></h4>
-						<ul class="meta list-inline mb-0">
-							<li class="list-inline-item"><a href="#">Katen Doe</a></li>
-							<li class="list-inline-item">29 March 2021</li>
-						</ul>
-					</div> -->
-            <a href="blog-single.html">
-                <div class=" rounded">
-                    <img src="{{asset('client/images/partenaire/6.jpeg')}}" alt="">
-                </div>
-            </a>
-        </div> 
-    --}}
     </div>
 </section>
 

@@ -48,6 +48,7 @@
                                         <th class="sort" data-sort="name">Categories</th>
                                         <th class="sort" data-sort="name">Sous Categories</th>
                                         <th class="sort" data-sort="name">image</th>
+                                        <th class="sort" data-sort="name">Détail</th>
                                         <th class="sort" data-sort="name">Action</th>
                                     </tr>
                                 </thead>

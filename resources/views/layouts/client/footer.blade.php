@@ -90,7 +90,7 @@
     <script src="{{ asset('client/js/jquery.sticky-sidebar.min.js') }}"></script>
     <script src="{{ asset('client/js/custom.js') }}"></script>
     <script src="{{ asset('admin/vendors/typed.js/typed.js') }}"></script>
-    
+    <script src="{{ asset('admin/vendors/tinymce/tinymce.min.js') }}"></script>
     <script>
         var typed = new Typed('.element', {
       strings: ["NZassa School.", "NZassa RH&PAIE.", "NZassa Auto+.", "NZassa GESCOM.", "NZassa ByNight.", "NZassa Shop."],

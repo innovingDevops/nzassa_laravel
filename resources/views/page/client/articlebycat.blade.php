@@ -1,7 +1,7 @@
 @extends('layouts/client_master')
 @section('content')
 
-<section class="single-cover data-bg-image" data-bg-image="images/posts/single-cover.jpg">
+<section class="single-cover data-bg-image" data-bg-image="{{ asset('client/images/images/monde.jpg') }}">
 
     <div class="container-xl">
 
@@ -16,7 +16,8 @@
 
             <!-- post header -->
             <div class="post-header">
-                <h1 class="title mt-0 mb-3">3 Easy Ways To Make Your iPhone Faster</h1>
+                 l'actualité technologique .
+                <h1 class="title mt-0 mb-3">Restez informé de<strong style="color: #ff3100; text-shadow : 1px 1px 1px "> l'actualité technologique </strong> qui façonnent notre <b style="color:#ff3100">monde numérique.</b> </h1>
                 <ul class="meta list-inline mb-0">
                     <li class="list-inline-item"><a href="{{route('blog')}}"><img src="images/other/author-sm.png" class="author"
                                 alt="author" />Katen Doe</a></li>
@@ -28,7 +29,7 @@
     </div>
 </section>
     
-<section class="main-content">
+<section class="main-content" >
     <div class="container-xl">
         <div class="row gy-4">
             <div class="col-lg-8">

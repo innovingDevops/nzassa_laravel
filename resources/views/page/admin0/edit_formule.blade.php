@@ -40,7 +40,6 @@
                             <label class="form-label" for="basic-form-name">Titre</label>
                             <input name="titre_formule" class="form-control" id="basic-form-name" type="text" value="{{ $formule->titre_formule }}" />
                         </div>
-
                         <div class="mb-3">
                             <label class="form-label">Image bannière</label><br>
                             <img width="200px" class="img-fluid rounded" src="{{ asset('storage/'.$formule->image_formule) }}" alt="">

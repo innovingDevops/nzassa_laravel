@@ -44,9 +44,10 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="basic-form-textarea">Details de l'article</label>
-                            <textarea name="detail_article" class="tinymce d-none" id="basic-form-textarea" rows="3"
-                                placeholder="Description" required></textarea> 
+                            <textarea name="detail_article" class="tinymce d-none" id="basic-form-textarea" rows="3" placeholder="Description" required>
+                            </textarea> 
                         </div>
+                        
                         <div class="mb-3">
                             <label class="form-label">Images de l'article </label>
                             <input name="image_article" class="form-control" type="file" required/>
@@ -124,12 +125,14 @@ toggleSousCategorie();
         });
     });
 });
-
-
-   // Déclencher manuellement l'événement change
-//    $('#myInput').change();
-
+    </script>
+    <script>
+        tinymce.init({
+        selector: '#my-textarea',
+        plugins: 'link image code',
+        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | link image',
+        height: 300
+});
 
     </script>
-
 @endsection

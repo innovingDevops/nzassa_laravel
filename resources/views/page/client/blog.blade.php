@@ -1,16 +1,16 @@
 @extends('layouts/client_master')
 @section('content')
   <!-- section main content -->
-	<section class="main-content mt-3">
+	<section class="main-content mt-3" style="background-image:url('{{ asset('client/images/blog.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
 		<div class="container-xl">
 
-            <nav aria-label="breadcrumb">
+            {{-- <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('actualite') }}">Article</a></li>
-                    {{-- <li class="breadcrumb-item"><a href="#">Inspiration</a></li> --}}
+                    {{-- <li class="breadcrumb-item"><a href="#">Inspiration</a></li> 
                     <li class="breadcrumb-item active" aria-current="page">{{ $article->titre_article }}</li>
                 </ol>
-            </nav>
+            </nav> --}}
 
 			<div class="row gy-4">
 
@@ -38,7 +38,7 @@
 							<img src="{{ asset('storage/'.$article->image_article) }}" alt="post-title" />
 						</div>
 						<!-- post content -->
-						<div class="post-content clearfix">{{ strip_tags($article->detail_article) }}</div>
+						<div class="post-content clearfix">{{ html_entity_decode(strip_tags($article->detail_article)) }}</div>
 						<!-- post bottom section -->
                     </div>
 

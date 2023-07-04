@@ -11,9 +11,9 @@
   transform: scale(1.1);
 }
 </style>
-<div class="instagram">	
+{{-- <div class="instagram">	
 	<div class="container-xl">
-		{{-- <h3 class="section-title text-center prod_nzassa m-5 "> Notre gamme de produits N'ZASSA </h3> --}}
+		{{-- <h3 class="section-title text-center prod_nzassa m-5 "> Notre gamme de produits N'ZASSA </h3>
 		<h3 style="font-size: 35px" class=" text-center fw-light overflow-hidden"> Explorez la gamme de nos produits N'Zassa : <span class="element fw-bold ms-1" data-typed-text='["NZassa School.","NZassa RH&PAIE.","NZassa Auto+.","NZassa GESCOM."]'></span></h3>
 		<!-- button -->
 		<!-- <a href="#" class="btn btn-default btn-instagram">@Katen on Instagram</a> -->
@@ -28,4 +28,20 @@
 			@endforeach
 		</div>
 	</div>
-</div>
+</div> --}}
+<section class="hero-carousel m-5">
+    <div class="row logo-carousel-featured post-carousel">
+        @foreach ($formules as $formule)
+		<div class="post featured-post-md insta-item col-sm-2 col-6 col-md-2">
+			<a href="{{route('home')}}#{{ $formule->nom_formule }}">
+				<img class="img_logo" src="{{asset('storage/'.$formule->logo_formule)}}" alt="insta-title" />
+			</a>
+		</div>
+            {{-- <div class="post featured-post-md">
+                <div class=" rounded">
+                    <img src="{{ asset('storage/'.$formule->logo_formule) }}" alt="">
+                </div>
+            </div> --}}
+        @endforeach
+    </div>
+</section>
